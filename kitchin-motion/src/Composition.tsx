@@ -4,9 +4,9 @@ import {AbsoluteFill, Easing, Img, interpolate, useCurrentFrame, useVideoConfig}
 export type WalkthroughProps = {assetBase: string; compact?: boolean};
 export const chapters = [
   {at: 0, screen: 'home', title: 'Start with what\nyou need.', caption: 'Open Recipes from the home screen.', target: [255, 145]},
-  {at: 4, screen: 'recipes', title: 'Find something\nto cook.', caption: 'Browse cuisines, difficulty and recipe recommendations.', target: [205, 770]},
-  {at: 10, screen: 'ingredients', title: 'Check what’s\nalready there.', caption: 'See available ingredients and what is missing.', target: [295, 555]},
-  {at: 16, screen: 'instructions', title: 'A little help,\nstep by step.', caption: 'Switch to Instructions and follow the cooking steps.', target: [295, 555]},
+  {at: 2.4, screen: 'recipes', title: 'Find something\nto cook.', caption: 'Browse cuisines, difficulty and recipe recommendations.', target: [205, 770]},
+  {at: 5.4, screen: 'ingredients', title: 'Check what’s\nalready there.', caption: 'See available ingredients and what is missing.', target: [295, 555]},
+  {at: 8.6, screen: 'instructions', title: 'A little help,\nstep by step.', caption: 'Switch to Instructions and follow the cooking steps.', target: [295, 555]},
 ];
 
 // Original screen artwork is presentation media, not a rebuilt version of the app.
@@ -18,17 +18,17 @@ const Phone: React.FC<WalkthroughProps> = ({assetBase}) => {
   const chapter = chapters[current];
   const previous = chapters[Math.max(0, current - 1)];
   const since = seconds - chapter.at;
-  const progress = interpolate(since, [0, .3], [0, 1], {extrapolateRight: 'clamp', easing: Easing.bezier(.16, 1, .3, 1)});
-  const nextAt = chapters[current + 1]?.at ?? 24;
-  const move = interpolate(seconds, [chapter.at + 1.3, nextAt - .65], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.inOut(Easing.cubic)});
+  const progress = interpolate(since, [0, .22], [0, 1], {extrapolateRight: 'clamp', easing: Easing.bezier(.16, 1, .3, 1)});
+  const nextAt = chapters[current + 1]?.at ?? 12.6;
+  const move = interpolate(seconds, [nextAt - .8, nextAt - .25], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.inOut(Easing.cubic)});
   const x = 350 + (chapter.target[0] - 350) * move;
   const y = 820 + (chapter.target[1] - 820) * move;
-  const tapAge = seconds - (nextAt - .45);
+  const tapAge = seconds - (nextAt - .2);
   return <div style={{position: 'relative', width: 436, height: 941, background: '#232723', borderRadius: 53, padding: 12, boxShadow: '0 24px 65px #20352925, inset 0 0 0 3px #727b72'}}>
     <div style={{position: 'relative', width: 412, height: 917, borderRadius: 42, overflow: 'hidden', background: '#f8f9fa'}}>
       {current > 0 && since < .3 && <Img src={`${assetBase}/${previous.screen}.png`} style={{position: 'absolute', width: '100%', height: '100%', objectFit: 'cover'}}/>}
       <Img src={`${assetBase}/${chapter.screen}.png`} style={{position: 'absolute', width: '100%', height: '100%', objectFit: 'cover', translate: current > 0 && current < 3 ? `${(1 - progress) * 412}px 0` : '0 0', opacity: current === 3 ? progress : 1}}/>
-      {seconds > 1 && seconds < 16 && <>
+      {seconds > .4 && seconds < 8.6 && <>
         {tapAge > 0 && tapAge < .45 && <div style={{position: 'absolute', left: x - 27, top: y - 27, width: 54, height: 54, border: '3px solid #eb91a8', borderRadius: '50%', scale: 1 + tapAge * 3, opacity: 1 - tapAge / .45}}/>}
         <svg width="38" height="44" viewBox="0 0 38 44" style={{position: 'absolute', left: x, top: y, filter: 'drop-shadow(0 2px 3px #0005)', scale: tapAge > 0 && tapAge < .2 ? .88 : 1}}><path d="M3 2L5 34L14 26L21 41L28 37L20 23L33 22Z" fill="#fff" stroke="#233728" strokeWidth="2.5" strokeLinejoin="round"/></svg>
       </>}

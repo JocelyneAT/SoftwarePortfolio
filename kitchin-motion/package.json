@@ -29,7 +29,9 @@
     "build": "remotion bundle",
     "build:player": "esbuild src/web.tsx --bundle --minify --outfile=../dist/projects/kitchin/player.js --define:process.env.NODE_ENV=\"\\\"production\\\"\"",
     "upgrade": "remotion upgrade",
-    "lint": "eslint src && tsc"
+    "lint": "eslint src && tsc",
+    "build:bestrate": "esbuild src/bestrate-web.tsx --bundle --minify --outfile=../dist/projects/bestrate/player.js --define:process.env.NODE_ENV=\"\\\"production\\\"\"",
+    "check:bestrate": "node scripts/check-flow.mjs"
   },
   "allowScripts": {
     "esbuild": false

@@ -1,6 +1,9 @@
 .beach-opening #legacyValley { display: none !important; }
 .beach-opening .story { margin-top: 0 !important; }
 .beach-opening .story::before { display: none !important; }
+.beach-opening .tell-box { padding-right: 0; }
+.beach-opening .tell { max-width: 30ch; margin-inline: auto; font-family: var(--sans) !important; font-weight: 400 !important; }
+.beach-opening .tell strong { font-weight: 800; }
 .beach-at-top > .bar, .beach-at-top > .bar * { visibility: hidden !important; pointer-events: none !important; }
 .beach-at-top > .np { display: none !important; }
 .beach, .beach *, .beach *::before, .beach *::after { box-sizing: border-box; }

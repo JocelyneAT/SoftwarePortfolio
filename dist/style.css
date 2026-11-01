@@ -46,6 +46,22 @@ section { padding: clamp(96px, 14vw, 200px) var(--gutter) 0; }
 .nav nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--ink); transform: scaleX(0); transform-origin: right; transition: transform .45s var(--ease); }
 .nav nav a:hover::after, .nav nav a[aria-current="true"]::after { transform: scaleX(1); transform-origin: left; }
 .nav-cta { min-height: 42px; padding: 0 20px; }
+.nav-resume { min-height: 42px; padding: 0 20px; border: 0; color: var(--ink); cursor: pointer; }
+
+/* Resume viewer: a native dialog with the PDF and a download button. */
+.resume { width: min(920px, 100vw - 32px); height: min(92svh, 1200px); padding: 0; border: 0; border-radius: 24px; background: var(--ground); color: var(--ink); overflow: hidden; }
+.resume[open] { display: flex; flex-direction: column; animation: rise .5s var(--ease); }
+.resume::backdrop { background: rgb(23 20 20 / 45%); animation: fade .4s var(--ease); }
+.resume-bar { display: flex; align-items: center; gap: 12px; padding: 14px 16px 14px 24px; }
+.resume-bar h2 { margin-right: auto; font: 600 24px/1 var(--display); }
+.resume-bar .button { min-height: 42px; padding: 0 20px; }
+.resume-close { display: grid; place-items: center; width: 42px; height: 42px; border: 0; border-radius: 50%; background: var(--surface); color: var(--ink); font-size: 16px; cursor: pointer; transition: background-color .3s; }
+.resume-close:hover { background: var(--accent-soft); }
+/* Just the paper: the page sits on a soft ground and scrolls inside the dialog. */
+.resume-paper { flex: 1; overflow: auto; padding: 8px 24px 32px; background: var(--surface); overscroll-behavior: contain; }
+.resume-paper img { width: 100%; max-width: 820px; margin: 16px auto 0; border-radius: 6px; background: #fff; box-shadow: 0 18px 50px rgb(23 20 20 / 12%); }
+@keyframes rise { from { opacity: 0; transform: translateY(24px) scale(.98); } }
+@keyframes fade { from { opacity: 0; } }
 
 /* The portrait, two side notes and title share one balanced hero composition. */
 .hero { position: relative; display: grid; grid-template-columns: 1fr minmax(300px, 34vw) 1fr; grid-template-rows: auto 1fr; align-items: center; height: 100svh; min-height: 760px; max-height: 1080px; padding-top: 96px; padding-bottom: 42px; overflow: hidden; isolation: isolate; }
@@ -89,6 +105,44 @@ section { padding: clamp(96px, 14vw, 200px) var(--gutter) 0; }
 .chips li { position: absolute; left: var(--x); top: var(--y); display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 99px; background: #fff; font-size: 15px; white-space: nowrap; box-shadow: 0 8px 24px rgb(23 20 20 / 7%); translate: var(--px, 0) var(--py, 0); transition: translate .9s var(--ease); }
 .chips li::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--c); }
 
+/* Skills: a gift box that opens when it scrolls into view; the tools pop out of it into rows above. */
+.skills { position: relative; display: grid; justify-items: center; text-align: center; isolation: isolate; overflow-x: clip; }
+/* One large, very soft glow behind the whole section (title, tools and box); it warms up as the box opens. */
+.gift-glow { position: absolute; z-index: -1; left: 50%; top: 52%; width: min(1100px, 130vw); height: 900px; margin: -450px 0 0 calc(min(1100px, 130vw) / -2); border-radius: 50%; background: radial-gradient(closest-side, rgb(244 167 185 / 55%), rgb(244 167 185 / 18%) 55%, transparent); filter: blur(40px); opacity: .7; transition: opacity 1.2s var(--ease), transform 1.4s var(--ease); }
+.skills:has(.gift.is-open) .gift-glow { opacity: 1; transform: scale(1.08); }
+.skills-head p { margin: 16px 0 0; color: var(--muted); }
+.gift { position: relative; display: grid; justify-items: center; width: 100%; margin-top: 48px; }
+.tool-cloud { position: relative; z-index: 2; display: flex; flex-wrap: wrap; justify-content: center; gap: 22px 18px; max-width: 980px; margin: 0; padding: 0; list-style: none; }
+.tool { position: relative; display: grid; justify-items: center; gap: 8px; width: 84px; outline: none; cursor: default; }
+.tool img { width: 64px; height: 64px; padding: 12px; border-radius: 18px; background: #fff; box-shadow: 0 10px 24px rgb(160 70 100 / 12%); object-fit: contain; transition: transform .5s var(--ease); }
+.tool-name { font-size: 13px; line-height: 1.2; color: var(--muted); }
+.tool:hover img, .tool:focus-visible img { transform: translateY(-6px) scale(1.12) rotate(-4deg); }
+.tool:focus-visible img { outline: 3px solid var(--ink); outline-offset: 3px; }
+/* Hover pop-up */
+.tool-tip { position: absolute; z-index: 3; bottom: calc(100% + 22px); left: 50%; display: grid; gap: 2px; width: max-content; max-width: 200px; padding: 10px 14px; border-radius: 14px; background: #fff; color: var(--muted); box-shadow: 0 12px 30px rgb(160 70 100 / 18%); font-size: 13px; line-height: 1.35; text-align: left; pointer-events: none; opacity: 0; transform: translate(-50%, 8px) scale(.92); transform-origin: bottom center; transition: opacity .25s, transform .35s var(--ease); }
+.tool-tip b { font-weight: 600; font-size: 14px; color: var(--accent-deep); }
+.tool-tip::after { content: ""; position: absolute; top: 100%; left: 50%; margin-left: -6px; border: 6px solid transparent; border-top-color: #fff; }
+.tool:hover .tool-tip, .tool:focus-visible .tool-tip { opacity: 1; transform: translate(-50%, 0) scale(1); }
+.tool:hover, .tool:focus-visible { z-index: 5; }
+
+/* The box, drawn in CSS: a two-tone pink body, a lid with a cream ribbon and bow. */
+.box { position: relative; z-index: 1; width: 220px; height: 190px; margin-top: 56px; }
+.box-body { position: absolute; left: 12px; right: 12px; bottom: 0; height: 132px; border-radius: 12px; background: linear-gradient(90deg, #f3a2b6 50%, #e88aa2 50%); }
+.box-body::before, .box-lid::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 28px; margin-left: -14px; background: #fff1e6; }
+.box-lid { position: absolute; z-index: 2; left: 0; right: 0; top: 34px; height: 46px; border-radius: 12px; background: #f7b6c6; box-shadow: 0 8px 14px rgb(160 60 95 / 18%); transition: transform .9s var(--ease); }
+.bow { position: absolute; left: 50%; top: -30px; width: 0; height: 0; }
+.bow::before, .bow::after { content: ""; position: absolute; top: 0; width: 46px; height: 32px; border: 9px solid #fff1e6; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; }
+.bow::before { right: 2px; transform: rotate(-18deg); }
+.bow::after { left: 2px; transform: rotate(18deg); }
+.box-light { position: absolute; z-index: 0; left: 50%; bottom: 120px; width: 520px; height: 460px; margin-left: -260px; background: radial-gradient(ellipse 50% 60% at 50% 100%, rgb(255 236 228 / 95%), rgb(244 167 185 / 35%) 45%, transparent 75%); clip-path: polygon(40% 100%, 60% 100%, 100% 0, 0 0); opacity: 0; transform: scaleY(.4); transform-origin: bottom; transition: opacity .8s var(--ease), transform 1s var(--ease); }
+
+/* Open state (set by script as the box comes into view; always open without script or with reduced motion). */
+.gift.is-open .box-lid { transform: translate(150px, -30px) rotate(32deg); }
+.gift.is-open .box-light { opacity: 1; transform: none; }
+/* Each tool starts packed inside the box (--fx/--fy from script) and flies out on a stagger. */
+.motion .gift .tool { transform: translate(var(--fx, 0), var(--fy, 0)) scale(.2); opacity: 0; transition: transform .5s var(--ease), opacity .3s; }
+.motion .gift.is-open .tool { transform: none; opacity: 1; transition: transform 1s var(--ease) calc(.25s + var(--i) * .035s), opacity .5s calc(.25s + var(--i) * .035s); }
+
 /* Work */
 .work-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 24px; }
 .filters { display: flex; gap: 6px; padding: 6px; border-radius: 99px; background: var(--surface); }
@@ -96,6 +150,8 @@ section { padding: clamp(96px, 14vw, 200px) var(--gutter) 0; }
 .filters button[aria-pressed="true"] { background: #fff; }
 .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px; }
 .project { transition: opacity .5s var(--ease), transform .5s var(--ease); }
+a.project { display: block; color: inherit; text-decoration: none; }
+a.project:focus-visible .mock { outline: 3px solid var(--ink); outline-offset: 4px; }
 .project.is-out { opacity: 0; transform: scale(.96); }
 .project[hidden] { display: none; }
 .mock { position: relative; display: flex; justify-content: center; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 28px; background: var(--tint); transition: transform .7s var(--ease); }
@@ -176,7 +232,16 @@ section { padding: clamp(96px, 14vw, 200px) var(--gutter) 0; }
 
 @media (max-width: 860px) {
   .nav nav { display: none; }
-  .nav-cta { margin-left: auto; }
+  .nav { gap: 8px; }
+  .nav-resume { margin-left: auto; }
+  .nav-resume, .nav-cta { min-height: 40px; padding: 0 14px; font-size: 14px; white-space: nowrap; }
+  .tool-cloud { gap: 18px 6px; }
+  .tool { width: 76px; }
+  .tool img { width: 56px; height: 56px; padding: 10px; }
+  .box { transform: scale(.82); margin-top: 32px; }
+  .gift.is-open .box-lid { transform: translate(70px, -36px) rotate(24deg); }
+  .box-light { width: 380px; margin-left: -190px; }
+  .resume { width: 100vw; height: 100svh; max-height: none; max-width: none; border-radius: 0; }
   /* Phone: portrait first, then the name, the intro line and availability; no button here. */
   .hero { display: flex; flex-direction: column; align-items: center; gap: 18px; height: auto; min-height: 0; max-height: none; padding-top: 88px; padding-bottom: 84px; text-align: center; }
   .hero-title { order: -2; }

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <title>Illustration of Maria Paige</title>
+  <defs><clipPath id="c"><circle cx="100" cy="100" r="100"/></clipPath></defs>
+  <g clip-path="url(#c)">
+    <rect width="200" height="200" fill="#fde4ea"/>
+    <!-- Hair behind the shoulders -->
+    <path d="M52 92C50 52 72 30 102 30C134 30 152 54 150 92C149 120 156 146 162 168H40C46 146 53 120 52 92Z" fill="#7a3f24"/>
+    <!-- Top and shoulders -->
+    <path d="M28 200C30 166 56 146 100 146C144 146 170 166 172 200Z" fill="#8fbfd3"/>
+    <path d="M82 146L100 170L118 146Z" fill="#f4ecdf"/>
+    <!-- Neck -->
+    <path d="M86 122H114V150C108 158 92 158 86 150Z" fill="#e9b48f"/>
+    <!-- Face -->
+    <ellipse cx="100" cy="98" rx="34" ry="38" fill="#f6c9a5"/>
+    <!-- Fringe swept to one side -->
+    <path d="M64 92C62 60 82 44 104 44C126 44 140 58 138 84C126 70 110 62 92 62C84 74 74 84 64 92Z" fill="#8d4b2b"/>
+    <!-- Side locks over the shoulders -->
+    <path d="M66 86C60 112 62 140 56 162C50 150 50 118 54 94Z" fill="#8d4b2b"/>
+    <path d="M134 82C142 110 140 140 146 162C152 150 152 116 146 92Z" fill="#8d4b2b"/>
+    <!-- Eyes, cheeks, smile -->
+    <ellipse cx="86" cy="100" rx="4" ry="5" fill="#3b2a24"/>
+    <ellipse cx="114" cy="100" rx="4" ry="5" fill="#3b2a24"/>
+    <circle cx="78" cy="114" r="6" fill="#f4a7b9" opacity=".7"/>
+    <circle cx="122" cy="114" r="6" fill="#f4a7b9" opacity=".7"/>
+    <path d="M89 117C95 125 105 125 111 117" fill="none" stroke="#a5523d" stroke-width="4" stroke-linecap="round"/>
+  </g>
+</svg>

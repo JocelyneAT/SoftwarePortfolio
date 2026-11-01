@@ -17,12 +17,24 @@
 <header class="nav" id="nav">
   <a class="nav-name" href="#top">Jocelyne</a>
   <nav aria-label="Main">
-    <a href="#work">Work</a>
+    <a href="#work">Projects</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
+  <button class="button button-ghost nav-resume" type="button" data-resume aria-haspopup="dialog">Resume</button>
   <a class="button button-dark nav-cta" href="#contact">Get in touch</a>
 </header>
+
+<dialog class="resume" id="resume" aria-labelledby="resume-title">
+  <div class="resume-bar">
+    <h2 id="resume-title">Resume</h2>
+    <a class="button button-dark" href="assets/resume.pdf" download="Jocelyne-Audrey-Tando-Resume.pdf">Download PDF</a>
+    <button class="resume-close" type="button" data-close aria-label="Close resume">✕</button>
+  </div>
+  <div class="resume-paper" tabindex="0" aria-label="Resume page" data-lenis-prevent>
+    <img data-src="assets/resume.webp" alt="Resume of Jocelyne Audrey Tando: profile, education at Xiamen University Malaysia, skills, experience, extracurricular activities and references." width="1800" height="2546">
+  </div>
+</dialog>
 
 <main id="main" tabindex="-1">
   <section class="hero" id="top">
@@ -55,9 +67,44 @@
     </ul>
   </section>
 
+  <section class="skills" id="skills" aria-labelledby="skills-title">
+    <div class="gift-glow" aria-hidden="true"></div>
+    <div class="skills-head">
+      <h2 id="skills-title" data-reveal>Tools I <em>work with</em></h2>
+      <p data-reveal>Everything I use to sketch and build my ideas.</p>
+    </div>
+    <div class="gift">
+      <ul class="tool-cloud" aria-label="Tools and languages">
+        <li class="tool" tabindex="0" style="--i:0"><img src="assets/logos/figma.webp" alt="" width="40" height="40" loading="lazy"><span class="tool-name">Figma</span><span class="tool-tip" role="tooltip"><b>Figma</b>UI design and prototypes</span></li>
+        <li class="tool" tabindex="0" style="--i:1"><img src="assets/logos/illustrator.webp" alt="" width="40" height="40" loading="lazy"><span class="tool-name">Adobe Illustrator</span><span class="tool-tip" role="tooltip"><b>Adobe Illustrator</b>Icons and illustration</span></li>
+        <li class="tool" tabindex="0" style="--i:2"><img src="assets/logos/animate.webp" alt="" width="40" height="40" loading="lazy"><span class="tool-name">Adobe Animate</span><span class="tool-tip" role="tooltip"><b>Adobe Animate</b>2D animation</span></li>
+        <li class="tool" tabindex="0" style="--i:3"><img src="assets/logos/audition.webp" alt="" width="40" height="40" loading="lazy"><span class="tool-name">Adobe Audition</span><span class="tool-tip" role="tooltip"><b>Adobe Audition</b>Sound editing</span></li>
+        <li class="tool" tabindex="0" style="--i:4"><img src="assets/logos/canva.webp" alt="" width="40" height="40" loading="lazy"><span class="tool-name">Canva</span><span class="tool-tip" role="tooltip"><b>Canva</b>Quick visuals and posters</span></li>
+        <li class="tool" tabindex="0" style="--i:5"><img src="assets/logos/capcut.webp" alt="" width="40" height="40" loading="lazy"><span class="tool-name">CapCut</span><span class="tool-tip" role="tooltip"><b>CapCut</b>Video editing</span></li>
+        <li class="tool" tabindex="0" style="--i:6"><img src="assets/logos/unity.webp" alt="" width="40" height="40" loading="lazy"><span class="tool-name">Unity</span><span class="tool-tip" role="tooltip"><b>Unity</b>Game development</span></li>
+        <li class="tool" tabindex="0" style="--i:7"><img src="assets/logos/maya.webp" alt="" width="40" height="40" loading="lazy"><span class="tool-name">Maya</span><span class="tool-tip" role="tooltip"><b>Maya</b>3D modelling and animation</span></li>
+        <li class="tool" tabindex="0" style="--i:8"><img src="assets/logos/firebase.svg" alt="" width="40" height="40" loading="lazy"><span class="tool-name">Firebase</span><span class="tool-tip" role="tooltip"><b>Firebase</b>App backend and data</span></li>
+        <li class="tool" tabindex="0" style="--i:9"><img src="assets/logos/github.svg" alt="" width="40" height="40" loading="lazy"><span class="tool-name">GitHub</span><span class="tool-tip" role="tooltip"><b>GitHub</b>Version control</span></li>
+        <li class="tool" tabindex="0" style="--i:10"><img src="assets/logos/claude.svg" alt="" width="40" height="40" loading="lazy"><span class="tool-name">Claude</span><span class="tool-tip" role="tooltip"><b>Claude</b>AI assistant</span></li>
+        <li class="tool" tabindex="0" style="--i:11"><img src="assets/logos/codex.svg" alt="" width="40" height="40" loading="lazy"><span class="tool-name">Codex</span><span class="tool-tip" role="tooltip"><b>Codex</b>AI coding assistant</span></li>
+        <li class="tool" tabindex="0" style="--i:12"><img src="assets/logos/antigravity.svg" alt="" width="40" height="40" loading="lazy"><span class="tool-name">Antigravity</span><span class="tool-tip" role="tooltip"><b>Antigravity</b>AI coding editor</span></li>
+        <li class="tool" tabindex="0" style="--i:13"><img src="assets/logos/html5.svg" alt="" width="40" height="40" loading="lazy"><span class="tool-name">HTML</span><span class="tool-tip" role="tooltip"><b>HTML</b>Language</span></li>
+        <li class="tool" tabindex="0" style="--i:14"><img src="assets/logos/css3.svg" alt="" width="40" height="40" loading="lazy"><span class="tool-name">CSS</span><span class="tool-tip" role="tooltip"><b>CSS</b>Language</span></li>
+        <li class="tool" tabindex="0" style="--i:15"><img src="assets/logos/javascript.svg" alt="" width="40" height="40" loading="lazy"><span class="tool-name">JavaScript</span><span class="tool-tip" role="tooltip"><b>JavaScript</b>Language</span></li>
+        <li class="tool" tabindex="0" style="--i:16"><img src="assets/logos/cplusplus.svg" alt="" width="40" height="40" loading="lazy"><span class="tool-name">C++</span><span class="tool-tip" role="tooltip"><b>C++</b>Language</span></li>
+        <li class="tool" tabindex="0" style="--i:17"><img src="assets/logos/react.svg" alt="" width="40" height="40" loading="lazy"><span class="tool-name">React</span><span class="tool-tip" role="tooltip"><b>React</b>Framework</span></li>
+      </ul>
+      <div class="box" aria-hidden="true">
+        <div class="box-light"></div>
+        <div class="box-lid"><span class="bow"></span></div>
+        <div class="box-body"></div>
+      </div>
+    </div>
+  </section>
+
   <section class="work" id="work" aria-labelledby="work-title">
     <div class="work-head">
-      <h2 id="work-title" data-reveal>Selected <em>work</em></h2>
+      <h2 id="work-title" data-reveal>Featured <em>projects</em></h2>
       <div class="filters" role="group" aria-label="Filter projects" data-reveal>
         <button type="button" aria-pressed="true" data-filter="all">All</button>
         <button type="button" aria-pressed="false" data-filter="app">Mobile apps</button>
@@ -65,11 +112,11 @@
       </div>
     </div>
     <div class="projects">
-      <article class="project" data-kind="app" data-reveal style="--tint:#fde3ea">
-        <div class="mock phone"><div class="screen"><img src="assets/work/habit.webp" alt="" onerror="this.remove()"><i class="ui ui-head"></i><i class="ui ui-ring"></i><i class="ui ui-row"></i><i class="ui ui-row short"></i><i class="ui ui-btn"></i></div></div>
-        <h3>Habit tracker app</h3>
-        <p>Mobile app · UX research, UI design, prototype</p>
-      </article>
+      <a class="project" href="projects/kitchin/" data-kind="app" data-reveal style="--tint:#e6f2e2">
+        <div class="mock phone"><div class="screen"><img src="projects/kitchin/screens/home.png" alt="" loading="lazy"></div></div>
+        <h3>Kitchin</h3>
+        <p>Mobile app · Smart fridge companion that cuts food waste</p>
+      </a>
       <article class="project" data-kind="web" data-reveal style="--tint:#e3f1ec">
         <div class="mock browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><div class="screen"><img src="assets/work/travel.webp" alt="" onerror="this.remove()"><i class="ui ui-hero"></i><i class="ui ui-cards"></i></div></div>
         <h3>Travel agency website</h3>
@@ -99,8 +146,8 @@
     </div>
   </section>
 
-  <div class="marquee" aria-label="Tools I use">
-    <div class="marquee-track"><span>Figma</span><span>FigJam</span><span>Protopie</span><span>Notion</span><span>Maze</span><span>HTML &amp; CSS</span><span aria-hidden="true">Figma</span><span aria-hidden="true">FigJam</span><span aria-hidden="true">Protopie</span><span aria-hidden="true">Notion</span><span aria-hidden="true">Maze</span><span aria-hidden="true">HTML &amp; CSS</span></div>
+  <div class="marquee" aria-label="Soft skills">
+    <div class="marquee-track"><span>Time management</span><span>Leadership</span><span>Communication</span><span>Adaptability</span><span aria-hidden="true">Time management</span><span aria-hidden="true">Leadership</span><span aria-hidden="true">Communication</span><span aria-hidden="true">Adaptability</span></div>
   </div>
 
   <section class="contact" id="contact" aria-labelledby="contact-title">

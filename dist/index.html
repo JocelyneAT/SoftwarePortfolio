@@ -48,26 +48,28 @@
 </header>
 
 <main>
-<section class="beach" id="top" aria-label="A beach walk with my black poodle">
-  <img class="beach-art" id="beachArt" src="assets/beach/shore.webp" alt="Clear jade water washing onto a sandy beach, with shells and soft palm shadows" fetchpriority="high" width="1536" height="1024">
+<section class="beach" id="top" aria-label="An illustrated seaside with my floating black poodle">
+  <img class="beach-art" id="beachArt" src="assets/beach/illustrated-shore.webp" alt="An illustrated teal sea framed by peach sand, tropical leaves and hibiscus blossoms" fetchpriority="high" width="1536" height="1024">
   <canvas class="beach-water" id="beachWater" aria-hidden="true"></canvas>
   <canvas class="beach-tracks" id="beachTracks" aria-hidden="true"></canvas>
   <header class="beach-header">
     <a class="beach-signature" href="#top" aria-label="Jocelyne, home">j.</a>
-    <nav aria-label="Portfolio"><a href="#work" data-go="work">Work</a><a href="#life" data-go="life">About</a><a href="#hello" data-go="hello">Say hello ↗</a></nav>
+    <nav aria-label="Portfolio"><a class="shore-link-work" href="#work" data-go="work">My work ↗</a><a class="shore-link-about" href="#life" data-go="life">A little about me ↗</a><a class="shore-link-contact" href="#hello" data-go="hello">Say hello ↗</a></nav>
   </header>
   <div class="beach-copy">
     <h1><span>hi, i'm</span> <em>jocelyne.</em></h1>
-    <p>A curious mind, a playful heart.<br>Welcome to my little corner of the internet.</p>
-    <a class="beach-work" href="#work" data-go="work">Explore my work <span aria-hidden="true">↗</span></a>
+    <p>welcome to my little corner of the internet :)</p>
   </div>
-  <div class="beach-dog" id="beachDog" role="img" aria-label="A small black poodle exploring the beach"><div class="beach-dog-sprite"></div></div>
-  <div class="beach-ball" id="beachBall" hidden aria-hidden="true"></div>
-  <div class="beach-play">
-    <button class="beach-fetch" id="beachFetch" type="button"><span class="beach-ball-icon" aria-hidden="true"></span>Play fetch</button>
-    <p id="beachHint">Move through the water. Click the sand.<br>Someone’s always up for a little fetch.</p>
-  </div>
-  <a class="beach-scroll" href="#story" data-go="story">A little more about me <span aria-hidden="true">↓</span></a>
+  <svg class="beach-float float-shell-one" aria-hidden="true"><use href="assets/beach/float-items.svg#shell"/></svg>
+  <svg class="beach-float float-star-one" aria-hidden="true"><use href="assets/beach/float-items.svg#star"/></svg>
+  <svg class="beach-float float-flower-one" aria-hidden="true"><use href="assets/beach/float-items.svg#flower"/></svg>
+  <svg class="beach-float float-shell-two" aria-hidden="true"><use href="assets/beach/float-items.svg#shell"/></svg>
+  <svg class="beach-float float-star-two" aria-hidden="true"><use href="assets/beach/float-items.svg#star"/></svg>
+  <svg class="beach-float float-flower-two" aria-hidden="true"><use href="assets/beach/float-items.svg#flower"/></svg>
+  <svg class="beach-float float-bottle" aria-hidden="true"><use href="assets/beach/float-items.svg#bottle"/></svg>
+  <img class="beach-float float-poodle" id="beachDog" src="assets/beach/floating-poodle.webp" alt="My small black poodle relaxing in a coral and ivory float, with sunglasses on her head" width="360" height="300">
+  <button class="beach-ripple-button" id="beachRipple" type="button">Make a little ripple <span aria-hidden="true">◌</span></button>
+  <a class="beach-scroll" href="#story" data-go="story" aria-label="Scroll to my story">↓</a>
   <button class="beach-pause" id="beachPause" type="button" aria-pressed="false">Pause motion</button>
   <p class="beach-status" id="beachStatus" role="status"></p>
 </section>

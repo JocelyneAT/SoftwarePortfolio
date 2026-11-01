@@ -4,7 +4,7 @@ A portfolio website in development. The design, content, and project showcases w
 
 Live preview: https://jocelyneat.github.io/SoftwarePortofolio/
 
-The opening is an interactive overhead beach with original generated artwork and a small black poodle. Move over the water for ripples; click the sand or use **Play fetch** to throw a ball. **Pause motion** stops the animation, and reduced-motion preferences are respected. `dist/beach.css` and `dist/beach.js` contain the opening’s styles and interactions.
+The opening is a softly shaded illustrated seaside with a small black poodle relaxing in a float. Move over or tap the water to make ripples; floating shells, flowers, a message bottle and the poodle gently bob in response. **Make a little ripple** provides the same interaction from the keyboard. **Pause motion** stops the animation, and reduced-motion preferences are respected. `dist/beach.css` and `dist/beach.js` contain the opening’s styles and interactions; the floating objects are separate illustrated assets.
 
 Run `node server.cjs`, then open http://127.0.0.1:4173. Website files and assets are in `dist/`. Fonts are loaded from Google Fonts, and Lenis 1.1.13 is stored locally under `dist/vendor/`.
 

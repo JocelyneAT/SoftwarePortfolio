@@ -5,11 +5,8 @@
   const art = document.querySelector('#beachArt');
   const canvas = document.querySelector('#beachWater');
   const tracks = document.querySelector('#beachTracks');
-  const dog = document.querySelector('#beachDog');
-  const sprite = dog.firstElementChild;
-  const ball = document.querySelector('#beachBall');
   const pause = document.querySelector('#beachPause');
-  const fetchButton = document.querySelector('#beachFetch');
+  const rippleButton = document.querySelector('#beachRipple');
   const status = document.querySelector('#beachStatus');
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const ink = tracks.getContext('2d');
@@ -18,36 +15,21 @@
   let w = 1, h = 1, cover = 1, imageLeft = 0, imageTop = 0;
   let clock = 0, last = 0, request = 0, visible = true, paused = motion.matches;
   let gl = null, program, uniforms, imageReady = false, rippleIndex = 0, lastRipple = -1;
-  let pointer = null, target = null, home = null, nextWander = 3, stepDistance = 0;
-  let x = 0, y = 0, angle = 0, gait = 0, state = 'wandering';
-  const prints = [];
-  const dogMargin = () => Math.max(42, dog.clientWidth * .5 + 8);
-
-  // The shore follows the generated artwork; cover coordinates keep the dog on sand at every width.
-  const shoreline = v => .76 - .22 * v + .08 * Math.sin(Math.PI * v);
-  function sandMin(py) {
-    const v = clamp((py - imageTop) / (1024 * cover), 0, 1);
-    return clamp(imageLeft + shoreline(v) * 1536 * cover + 28, w * .32, w - dogMargin());
+  const floats = [...document.querySelectorAll('.beach-float')].map((el,i)=>({el,phase:i*1.7,x:0,y:0,vx:0,vy:0,rotation:0,spin:0}));
+  function onWater(px,py) {
+    const u=(px-imageLeft)/(1536*cover), v=(py-imageTop)/(1024*cover);
+    return u+v>.25 && u+v<1.82;
   }
-  function onSand(px, py) { return px >= sandMin(py) - 20; }
-  function sandPoint(px, py) {
-    const sy = clamp(py, h * .23, h * .83);
-    return { x: clamp(px, sandMin(sy), w - dogMargin()), y: sy };
-  }
-  function wanderPoint() { return sandPoint(w * (.68 + Math.random() * .23), h * (.30 + Math.random() * .47)); }
   function resize() {
-    const beforeW = w, beforeH = h;
     w = beach.clientWidth; h = beach.clientHeight;
     cover = Math.max(w / 1536, h / 1024);
-    imageLeft = (w - 1536 * cover) * .58; imageTop = (h - 1024 * cover) * .5;
+    imageLeft = (w - 1536 * cover) * .5; imageTop = (h - 1024 * cover) * .5;
     const dpr = Math.min(devicePixelRatio || 1, 1.5);
     canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
     tracks.width = Math.round(w * dpr); tracks.height = Math.round(h * dpr);
     ink?.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const position = sandPoint(beforeW > 1 ? x / beforeW * w : w * .82, beforeH > 1 ? y / beforeH * h : h * .60);
-    x = position.x; y = position.y; home = { ...position };
-    target = null; pointer = null; state = 'wandering'; ball.hidden = true; prints.length = 0;
-    paintDog(); drawWater();
+    floats.forEach(item=>{item.x=item.y=item.vx=item.vy=item.rotation=item.spin=0;});
+    paintFloats(0); drawWater();
   }
   function initWater() {
     try {
@@ -69,8 +51,8 @@
         uniform vec4 rings[8];
         void main() {
           vec2 source = (uv * resolution - imageOffset) / imageSize;
-          float shore = .76 - .22 * source.y + .08 * sin(3.14159 * source.y);
-          float water = 1. - smoothstep(shore - .04, shore, source.x);
+          vec3 ground = texture2D(art,clamp(source,0.,1.)).rgb;
+          float water = smoothstep(.02,.12,(ground.g+ground.b)*.5-ground.r);
           vec2 offset = vec2(sin(source.y*39.+time*.6), cos(source.x*31.+time*.7)) * .0012;
           float light = 0.;
           for(int i=0;i<8;i++) {
@@ -78,7 +60,7 @@
             vec2 delta=(uv-rings[i].xy)*vec2(resolution.x/resolution.y,1.);
             float distance=length(delta);
             float wave=sin((distance-age*.12)*105.)*exp(-abs(distance-age*.12)*32.);
-            float strength=step(0.,age)*(1.-smoothstep(0.,2.8,age));
+            float strength=step(0.,age)*(1.-smoothstep(0.,2.8,age))*rings[i].w;
             offset+=normalize(delta+vec2(.0001))*wave*strength*.004;
             light+=wave*strength*.07;
           }
@@ -117,32 +99,40 @@
     gl.uniform4fv(uniforms['rings[0]'],ripples);
     gl.drawArrays(gl.TRIANGLES,0,6);
   }
-  function ripple(px, py) {
-    if (paused || clock-lastRipple < .085 || onSand(px,py)) return;
-    ripples.set([px/w,py/h,clock,1],rippleIndex*4);
+  function ripple(px, py, strong=false) {
+    if (paused || (!strong && clock-lastRipple < .085) || !onWater(px,py)) return;
+    ripples.set([px/w,py/h,clock,strong?1.3:.6],rippleIndex*4);
     rippleIndex=(rippleIndex+1)%8; lastRipple=clock;
+    beach.dataset.ripples=String((Number(beach.dataset.ripples)||0)+1);
+    for(const item of floats) {
+      const dx=item.el.offsetLeft-px,dy=item.el.offsetTop-py,distance=Math.max(1,Math.hypot(dx,dy));
+      const force=(strong?75:6)/(1+distance/(Math.min(w,h)*.65));
+      item.vx+=dx/distance*force; item.vy+=dy/distance*force;
+      item.spin+=(dx/distance*.6+dy/distance*.4)*force*.35;
+    }
   }
-  function paintDog() {
-    dog.style.left=`${x}px`; dog.style.top=`${y}px`;
-    dog.style.transform=`translate(-50%, -50%) rotate(${angle}rad)`;
-    sprite.style.backgroundPosition=`${(Math.floor(gait)%4)*100/3}% center`;
-    dog.dataset.state=state;
-    dog.dataset.x=x.toFixed(1); dog.dataset.y=y.toFixed(1);
-    if (state==='returning') {
-      const reach=dog.clientWidth*.35;
-      ball.style.left=`${x+Math.cos(angle)*reach}px`; ball.style.top=`${y+Math.sin(angle)*reach}px`;
+  function paintFloats(dt) {
+    for(const item of floats) {
+      item.vx+=(-item.x*8-item.vx*3.6)*dt; item.vy+=(-item.y*8-item.vy*3.6)*dt;
+      item.spin+=(-item.rotation*6-item.spin*3.3)*dt;
+      const roomLeft=Math.max(0,item.el.offsetLeft-item.el.clientWidth*.5-4);
+      const roomRight=Math.max(0,w-item.el.offsetLeft-item.el.clientWidth*.5-4);
+      item.x=clamp(item.x+item.vx*dt,-Math.min(26,roomLeft),Math.min(26,roomRight)); item.y=clamp(item.y+item.vy*dt,-26,26);
+      item.rotation=clamp(item.rotation+item.spin*dt,-8,8);
+      const bob=paused?0:Math.sin(clock*.8+item.phase)*2.5;
+      const yaw=paused?0:Math.sin(clock*.4+item.phase)*1.3;
+      item.el.style.transform=`translate(-50%, -50%) translate3d(${item.x.toFixed(2)}px,${(item.y+bob).toFixed(2)}px,0) rotate(${(item.rotation+yaw).toFixed(2)}deg)`;
     }
   }
   function paintTracks() {
     if (!ink) return;
     ink.clearRect(0,0,w,h);
-    while(prints.length && clock-prints[0].time>7) prints.shift();
-    for(const mark of prints) {
-      ink.save(); ink.translate(mark.x,mark.y); ink.rotate(mark.angle);
-      ink.fillStyle=`rgba(101,83,57,${.22*(1-(clock-mark.time)/7)})`;
-      ink.beginPath(); ink.ellipse(0,0,3,2.3,0,0,Math.PI*2); ink.fill();
-      for(const toe of [-2.6,0,2.6]) { ink.beginPath(); ink.arc(4,toe,1.1,0,Math.PI*2); ink.fill(); }
-      ink.restore();
+    for(const item of floats) {
+      const cx=item.el.offsetLeft+item.x,cy=item.el.offsetTop+item.y+item.el.clientHeight*.33;
+      const radius=item.el.clientWidth*.49;
+      ink.strokeStyle='rgba(233,240,211,.27)'; ink.lineWidth=1.3;
+      ink.beginPath(); ink.ellipse(cx,cy,radius+Math.sin(clock*.8+item.phase)*3,radius*.26,0,.1,Math.PI*.82); ink.stroke();
+      ink.beginPath(); ink.ellipse(cx,cy,radius*1.14,radius*.35,0,Math.PI*1.02,Math.PI*1.85); ink.stroke();
     }
     // A 2D ring fallback keeps pointer feedback available without WebGL.
     if(!gl) for(let i=0;i<8;i++) {
@@ -152,43 +142,12 @@
       ink.beginPath(); ink.ellipse(ripples[i*4]*w,ripples[i*4+1]*h,age*h*.12,age*h*.10,0,0,Math.PI*2); ink.stroke();
     }
   }
-  function throwBall(point) {
-    home=sandPoint(x,y); target=sandPoint(point.x,point.y); state='fetching';
-    ball.hidden=false; ball.style.left=`${target.x}px`; ball.style.top=`${target.y}px`;
-    status.textContent='Ball thrown. Your poodle is fetching it.';
-    if(paused) { x=target.x; y=target.y; state='resting'; ball.hidden=true; status.textContent='Your poodle found the ball. Motion is paused.'; }
-    paintDog();
-  }
-  function advance(dt) {
-    if(state!=='fetching' && state!=='returning') {
-      if(pointer && clock-pointer.time<1.4 && onSand(pointer.x,pointer.y)) { target=sandPoint(pointer.x,pointer.y); state='following'; }
-      else if(clock>nextWander) { target=wanderPoint(); state='wandering'; nextWander=clock+4+Math.random()*3; }
-    }
-    if(!target) return;
-    const dx=target.x-x,dy=target.y-y,distance=Math.hypot(dx,dy);
-    if(distance<8) {
-      if(state==='fetching') { state='returning'; target={...home}; }
-      else if(state==='returning') { state='resting'; target=null; ball.hidden=true; nextWander=clock+3; status.textContent='Ball returned. Ready for another throw!'; }
-      else { target=null; state='resting'; }
-      return;
-    }
-    const speed=state==='fetching'||state==='returning'?155:52;
-    const step=Math.min(distance,speed*dt),desired=Math.atan2(dy,dx);
-    angle+=Math.atan2(Math.sin(desired-angle),Math.cos(desired-angle))*Math.min(1,dt*9);
-    x+=dx/distance*step; y+=dy/distance*step; gait+=step*.11; stepDistance+=step;
-    if(stepDistance>22) {
-      stepDistance=0;
-      const side=Math.floor(gait)%2?1:-1;
-      prints.push({x:x-Math.sin(angle)*side*8,y:y+Math.cos(angle)*side*8,angle,time:clock});
-      if(prints.length>50) prints.shift();
-    }
-  }
   function frame(time) {
     request=0;
     if(!visible||document.hidden||paused) return;
     if(time-last>=1000/30) {
       const dt=Math.min(.05,(time-last)/1000); last=time; clock+=dt;
-      advance(dt); paintDog(); paintTracks(); drawWater();
+      paintFloats(dt); paintTracks(); drawWater();
     }
     request=requestAnimationFrame(frame);
   }
@@ -200,16 +159,18 @@
   }
   beach.addEventListener('pointermove',event=>{
     if(event.pointerType==='touch') return;
-    const rect=beach.getBoundingClientRect(); pointer={x:event.clientX-rect.left,y:event.clientY-rect.top,time:clock};
-    ripple(pointer.x,pointer.y);
+    const rect=beach.getBoundingClientRect();
+    ripple(event.clientX-rect.left,event.clientY-rect.top);
   },{passive:true});
-  beach.addEventListener('pointerleave',()=>{pointer=null;});
   beach.addEventListener('click',event=>{
     if(event.target.closest('a,button')) return;
     const rect=beach.getBoundingClientRect(),px=event.clientX-rect.left,py=event.clientY-rect.top;
-    if(onSand(px,py)) throwBall({x:px,y:py}); else ripple(px,py);
+    ripple(px,py,true);
   });
-  fetchButton.addEventListener('click',()=>throwBall(wanderPoint()));
+  rippleButton.addEventListener('click',()=>{
+    if(paused){status.textContent='Motion is paused. Use Resume motion to make ripples.';return;}
+    ripple(w*.5,h*.55,true);status.textContent='A little ripple sends the shells and your poodle gently bobbing.';
+  });
   pause.addEventListener('click',()=>{paused=!paused;syncPause();});
   motion.addEventListener('change',event=>{paused=event.matches;syncPause();});
   document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(request);request=0;}else start();});

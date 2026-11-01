@@ -13,4 +13,4 @@ Alex Morgan, company labels, visitor count, and guestbook notes are demo data. A
 
 ## GitHub Pages
 
-In the repository's Settings → Pages, select GitHub Actions as the source. Pushes to `main` then publish `dist/` using `.github/workflows/pages.yml`; the workflow sets the base URL for the repository path. Local preview still uses `node server.cjs`. Section and case-study interactions work in-page on Pages; the local server's clean URL routes require that server.
+GitHub Pages publishes the root of the `gh-pages` branch. Development files live on `main`; the publishing branch contains the files from `dist/`, with the HTML base URL set to `/SoftwarePortofolio/`. Publishing that branch through GitHub Desktop triggers GitHub’s Pages build. Local preview uses `node server.cjs`. Section and case-study interactions work in-page on Pages; the local server's clean URL routes require that server.

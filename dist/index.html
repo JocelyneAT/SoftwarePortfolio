@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><base href="/"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<link rel="icon" href="data:,"><title>Alex Morgan — Portfolio design study</title>
+<link rel="icon" href="data:,"><title>Jocelyne — Portfolio</title>
 
 
 
@@ -12,7 +12,7 @@
 
 <meta name="theme-color" content="#2F7FD8">
 
-<meta name="description" content="Alex Morgan, product designer. A painted valley of the places I’ve worked, and the numbers my work moved.">
+<meta name="description" content="Jocelyne’s digital playground. A little creativity, a little curiosity, and a black poodle by the sea.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Geist:wght@400;600&family=Gaegu:wght@400;700&family=Anton&family=Mrs+Saint+Delafield&display=block">
@@ -20,8 +20,10 @@
 
 
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap">
+<link rel="stylesheet" href="beach.css">
 <script>document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme')||'light';</script>
-</head><body>
+</head><body class="beach-opening beach-at-top">
 <header class="bar">
   <button class="np" id="np" type="button" aria-label="Play music" title="Play music"><span class="np-d" aria-hidden="true"></span><span class="np-t">Music on the hill</span><span class="np-b" aria-hidden="true"><i></i><i></i></span></button>
 <div class="vc" id="vc" aria-live="polite"><i aria-hidden="true"></i><span><b>0</b><span class="vc-w"> visitors</span></span></div>
@@ -46,8 +48,31 @@
 </header>
 
 <main>
+<section class="beach" id="top" aria-label="A beach walk with my black poodle">
+  <img class="beach-art" id="beachArt" src="assets/beach/shore.webp" alt="Clear jade water washing onto a sandy beach, with shells and soft palm shadows" fetchpriority="high" width="1536" height="1024">
+  <canvas class="beach-water" id="beachWater" aria-hidden="true"></canvas>
+  <canvas class="beach-tracks" id="beachTracks" aria-hidden="true"></canvas>
+  <header class="beach-header">
+    <a class="beach-signature" href="#top" aria-label="Jocelyne, home">j.</a>
+    <nav aria-label="Portfolio"><a href="#work" data-go="work">Work</a><a href="#life" data-go="life">About</a><a href="#hello" data-go="hello">Say hello ↗</a></nav>
+  </header>
+  <div class="beach-copy">
+    <h1><span>hi, i'm</span> <em>jocelyne.</em></h1>
+    <p>A curious mind, a playful heart.<br>Welcome to my little corner of the internet.</p>
+    <a class="beach-work" href="#work" data-go="work">Explore my work <span aria-hidden="true">↗</span></a>
+  </div>
+  <div class="beach-dog" id="beachDog" role="img" aria-label="A small black poodle exploring the beach"><div class="beach-dog-sprite"></div></div>
+  <div class="beach-ball" id="beachBall" hidden aria-hidden="true"></div>
+  <div class="beach-play">
+    <button class="beach-fetch" id="beachFetch" type="button"><span class="beach-ball-icon" aria-hidden="true"></span>Play fetch</button>
+    <p id="beachHint">Move through the water. Click the sand.<br>Someone’s always up for a little fetch.</p>
+  </div>
+  <a class="beach-scroll" href="#story" data-go="story">A little more about me <span aria-hidden="true">↓</span></a>
+  <button class="beach-pause" id="beachPause" type="button" aria-pressed="false">Pause motion</button>
+  <p class="beach-status" id="beachStatus" role="status"></p>
+</section>
 <!-- 1 · THE VALLEY -->
-<section class="valley" id="top" aria-label="The valley">
+<section class="valley" id="legacyValley" hidden inert aria-hidden="true">
   <div class="stage" id="stage">
     <div class="ph-hero" aria-hidden="true"></div>
     <canvas class="gl-plate" id="glPlate" aria-hidden="true"></canvas>
@@ -430,5 +455,6 @@
 
 
 <script src="script.js"></script>
+<script src="beach.js"></script>
 </body></html>
 

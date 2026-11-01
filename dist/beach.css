@@ -1,0 +1,56 @@
+.beach-opening #legacyValley { display: none !important; }
+.beach-opening .story { margin-top: 0 !important; }
+.beach-opening .story::before { display: none !important; }
+.beach-at-top > .bar, .beach-at-top > .bar * { visibility: hidden !important; pointer-events: none !important; }
+.beach-at-top > .np { display: none !important; }
+.beach, .beach *, .beach *::before, .beach *::after { box-sizing: border-box; }
+.beach { position: relative; height: 100svh; min-height: 640px; overflow: hidden; isolation: isolate; background: #0b5559; color: #fff8e9; font-family: "Geist", sans-serif; touch-action: pan-y; }
+.beach-art, .beach-water, .beach-tracks { position: absolute; inset: 0; width: 100%; height: 100%; }
+.beach-art { object-fit: cover; object-position: 58% center; }
+/* taste-skill-ignore: neutral scrim over artwork keeps the introduction readable. */ .beach::after { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: linear-gradient(90deg, rgb(0 30 32 / 35%), transparent 70%); }
+.beach-water, .beach-tracks { pointer-events: none; }
+.beach-tracks { z-index: 1; }
+.beach-header { position: absolute; z-index: 5; top: 0; left: 0; width: 100%; padding: 30px 5%; display: flex; align-items: center; justify-content: space-between; }
+.beach a { color: inherit; text-decoration: none; }
+.beach-signature { font-family: "Cormorant Garamond", Georgia, serif; font-style: italic; font-size: 52px; line-height: 1; }
+.beach-header nav { display: flex; gap: 32px; align-items: center; padding: 12px 22px; border-radius: 30px; color: #203f3c; background: rgb(255 250 237 / 87%); }
+.beach-header nav a { font-size: 15px; padding: 4px 0; }
+.beach-copy { position: absolute; z-index: 3; left: 9%; top: 30%; width: 58%; pointer-events: none; }
+.beach-copy h1 { margin: 0 0 25px; font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(80px, 10.2vw, 160px); font-weight: 400; letter-spacing: -.055em; line-height: .91; text-wrap: initial; }
+.beach-copy h1 span { display: block; font-size: .6em; letter-spacing: -.035em; margin-bottom: 8px; }
+.beach-copy h1 em { font-weight: 400; color: #f0c5c0; }
+.beach-copy p { margin: 30px 0 25px; font-size: clamp(15px, 1.2vw, 18px); line-height: 1.7; letter-spacing: .01em; }
+.beach-work { display: inline-flex; align-items: center; gap: 30px; padding: 13px 21px; border-radius: 30px; background: #fbf5e7; color: #234943 !important; font-size: 15px; pointer-events: auto; transition: transform .2s; }
+.beach a:hover, .beach button:hover { transform: translateY(-2px); }
+.beach a:focus-visible, .beach button:focus-visible { outline: 3px solid #fff; outline-offset: 5px; }
+.beach-header a:focus-visible, .beach-play button:focus-visible { outline-color: #153f3d; }
+/* taste-skill-ignore: the moving dog casts a physical shadow onto the sand. */ .beach-dog { position: absolute; z-index: 2; left: 81%; top: 65%; width: clamp(110px, 10vw, 160px); aspect-ratio: 543 / 724; pointer-events: none; transform: translate(-50%, -50%); filter: drop-shadow(5px 9px 5px rgb(27 40 34 / 23%)); }
+.beach-dog-sprite { width: 100%; height: 100%; background: url("assets/beach/poodle-walk.webp") 0 center / 400% 100% no-repeat; }
+/* taste-skill-ignore: lighting and contact shadow make the moving ball sit on the sand. */ .beach-ball { position: absolute; z-index: 2; width: 16px; height: 16px; border-radius: 50%; background: #dfe968; box-shadow: inset -3px -4px 3px #98ab45, 3px 5px 4px rgb(46 64 34 / 22%); transform: translate(-50%, -50%); pointer-events: none; }
+.beach-ball::after, .beach-ball-icon::after { content: ""; position: absolute; inset: 1px 4px; border-left: 1.5px solid #ffffd2; border-right: 1.5px solid #ffffd2; border-radius: 50%; transform: rotate(-30deg); }
+.beach-play { position: absolute; z-index: 4; right: 6%; bottom: 13%; max-width: 260px; color: #26443c; text-align: center; }
+.beach button { font-family: inherit; cursor: pointer; border: 0; transition: transform .2s; }
+.beach-fetch { display: inline-flex; gap: 10px; align-items: center; padding: 13px 22px; border-radius: 30px; background: #234d45; color: #fff8e9; font-size: 15px; }
+.beach-ball-icon { display: inline-block; position: relative; width: 17px; height: 17px; border-radius: 50%; background: #dfe968; }
+.beach-play p { margin: 13px 0 0; font-size: 13px; line-height: 1.6; }
+.beach-scroll { position: absolute; z-index: 4; left: 9%; bottom: 30px; display: flex; align-items: center; gap: 22px; padding: 8px 15px; border-radius: 30px; background: rgb(255 250 237 / 90%); color: #25473f !important; font-size: 14px; }
+.beach-scroll span { font-size: 22px; }
+.beach-pause { position: absolute; z-index: 4; right: 5%; bottom: 30px; font-size: 13px; padding: 8px 12px; background: rgb(255 250 237 / 85%); border-radius: 20px; color: #25473f; }
+.beach-status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+@media (min-width: 1800px) { .beach-copy { top: 31%; } }
+@media (max-width: 700px) {
+  .beach { min-height: 720px; max-height: 1100px; }
+  .beach-header { padding: 22px 6%; }
+  .beach-signature { font-size: 42px; }
+  .beach-header nav { gap: 19px; padding: 10px 17px; }
+  .beach-header nav a { font-size: 13px; }
+  .beach-copy { left: 7%; top: 21%; width: 86%; }
+  .beach-copy h1 { font-size: clamp(75px, 19vw, 128px); }
+  .beach-copy p { font-size: 14px; max-width: 290px; line-height: 1.65; margin-top: 24px; }
+  .beach-work { font-size: 14px; padding: 12px 18px; }
+  .beach-play { right: 7%; bottom: 12%; text-align: right; }
+  .beach-play p { font-size: 12px; max-width: 210px; }
+  .beach-scroll { left: 7%; bottom: 25px; font-size: 12px; gap: 10px; }
+  .beach-pause { right: 6%; bottom: 24px; font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { .beach *, .beach *::before, .beach *::after { animation: none !important; transition: none !important; } }

@@ -198,7 +198,7 @@ setTimeout(() => { const c = document.getElementById('cue'); if (c && scrollY < 
   /* =========================================================
      1 · THE VALLEY
      ========================================================= */
-  const heroScrim = $('#heroScrim'), stage = $('#stage'), cam = $('#cam'), scene = $('#scene'), valley = $('#top');
+  const heroScrim = $('#heroScrim'), stage = $('#stage'), cam = $('#cam'), scene = $('#scene'), valley = $('#legacyValley');
   const layers = $$('.ly', scene).map(el => ({ el, d: +el.dataset.d || 0 }));
   const chips = document.createElement('div'), heroCopy = $('#heroCopy'), places = document.createElement('div'), cue = $('#cue'), hint = $('#hint'), sheet = $('#sheet');
   const shade = $('#shade'); const t0 = performance.now();
@@ -221,6 +221,7 @@ setTimeout(() => { const c = document.getElementById('cue'); if (c && scrollY < 
   const gain = (e, d) => 1 + e * (.02 + d * .12);
   // the painting's texture upload is heavy, so it starts once the headline has finished arriving (the plain image shows until then)
   setTimeout(function initGL() {
+    if (document.body.classList.contains('beach-opening')) return;
     if (matchMedia('(max-width: 859px)').matches) { addEventListener('resize', () => { if (!gl && innerWidth >= 860) initGL(); }); }
     let g; try { g = glc.getContext('webgl2', { antialias: false, alpha: false, powerPreference: 'high-performance' }); } catch (_) {}
     if (!g) return;
@@ -316,6 +317,7 @@ void main() {
     }
   }
   function layoutValley() {
+    if (document.body.classList.contains('beach-opening')) return;
     // phones: the whole valley fits the width and sits above the places bar, so every place is in view
     // desktop shows the whole painting (nothing cropped); phones keep their own hero
     SW = mobile ? vw * 1.14 : Math.min(vw, vh * AR); SH = mobile ? SW * 944 / 1680 : SW / AR;
@@ -428,6 +430,7 @@ void main() {
   if (!hoverable) hint.innerHTML = hint.innerHTML.replace('click a place', 'tap a place');
 
   function frameValley(dt, y) {
+    if (document.body.classList.contains('beach-opening')) return;
     pV = mobile ? 0 : clamp((y - vTop) / vRange);
     if (focusId && pV > .04) unfocus();
     const e = ss(pV);
@@ -2725,7 +2728,7 @@ void main() {
     $('#csClose').focus({ preventScroll: true });
   }
   /* ---------- addresses: every case study and section gets its own link and tab title ---------- */
-  const SITE = 'Alex Morgan';
+  const SITE = 'Jocelyne';
   const CS_SLUG = { coupon: 'eazydiner', requests: 'makemytrip', swipr: 'swipr', traum: 'traum', lastlook: 'lastlook', campusx: 'campusx' };
   const SEC_PATH = { journey: ['journey', 'The journey'], work: ['work', 'Work'], life: ['about', 'About me'], hello: ['contact', 'Say hi'] };
   const ROUTED = location.protocol.startsWith('http') && /(^|\.)jameschugh\.com$|\.vercel\.app$|^localhost$|^127\./.test(location.hostname);
@@ -3552,7 +3555,6 @@ function emailOk(e) {
     const dt = Math.min(.05, (t - last) / 1000); last = t;
     if (lenis) lenis.raf(t);
     let y = Y();
-    fold('v', valley, $('#journey'), () => { story.style.marginTop = '0px'; });
     fold('s', story, $('#journey'));
     if (!jCar) fold('j', jTrack, $('#work'));
     if (boxOpen) fold('box', boxTrack, $('#brand'));

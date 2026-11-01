@@ -1,441 +1,123 @@
-<!doctype html><html lang="en"><head><base href="/"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<link rel="icon" href="data:,"><title>Jocelyne — Portfolio</title>
-
-
-
-
-
-
-
-
-
-
-<meta name="theme-color" content="#2F7FD8">
-
-<meta name="description" content="Jocelyne’s digital playground. A little creativity, a little curiosity, and a black poodle by the sea.">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jocelyne — UI/UX Designer</title>
+<meta name="description" content="Jocelyne is a UI/UX designer who designs mobile apps and websites that feel simple to use.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Geist:wght@400;600&family=Gaegu:wght@400;700&family=Anton&family=Mrs+Saint+Delafield&display=block">
-
-
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap">
-<link rel="stylesheet" href="beach.css">
-<script>document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme')||'light';</script>
-</head><body class="beach-opening beach-at-top">
-<header class="bar">
-  <button class="np" id="np" type="button" aria-label="Play music" title="Play music"><span class="np-d" aria-hidden="true"></span><span class="np-t">Music on the hill</span><span class="np-b" aria-hidden="true"><i></i><i></i></span></button>
-<div class="vc" id="vc" aria-live="polite"><i aria-hidden="true"></i><span><b>0</b><span class="vc-w"> visitors</span></span></div>
-    <button type="button" class="sfx-btn" id="sfxBtn" aria-pressed="true" aria-label="Sound effects on" title="Sound on/off"><svg class="on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg><svg class="off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg></button>
-<button class="theme-btn" id="themeBtn" type="button" aria-label="Switch theme"><span class="ti"><svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg></span><span class="tl"><b class="tl-n">Night</b><b class="tl-d">Day</b></span></button>
-  <a class="logo" href="#top" data-go="top" aria-label="Alex Morgan, back to top"><i><img src="v2/s/photo.webp" alt=""><b class="jc" aria-hidden="true">JC</b></i><span class="lt">Alex Morgan</span></a>
-  <nav class="nav" aria-label="Sections">
-    <span class="ind" id="navInd" aria-hidden="true"></span>
-    <a href="#top" data-go="top" class="nv-home"><i class="ni face"><img src="v2/s/photo.webp" alt=""></i>Home</a>
-    <a href="#journey" data-go="journey"><i class="ni"><svg viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg></i>Journey</a>
-    <a href="#work" data-go="work"><i class="ni"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3 12.5h18"/></svg></i>Work</a>
-    <a href="#life" data-go="life"><i class="ni"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></i>About</a>
-    <a href="#hello" data-go="hello"><i class="ni"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M4 7l8 6 8-6"/></svg></i>Contact</a>
-    <span class="sep" aria-hidden="true"></span>
-    <a class="cta" href="resume.html" target="_blank" rel="noopener">Resume ↗</a>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="cursor" aria-hidden="true"><span>View</span></div>
+
+<header class="nav" id="nav">
+  <a class="nav-name" href="#top">Jocelyne</a>
+  <nav aria-label="Main">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
   </nav>
+  <a class="button button-dark nav-cta" href="#contact">Get in touch</a>
 </header>
 
-<main>
-<section class="beach" id="top" aria-label="An illustrated seaside with my floating black poodle">
-  <canvas class="beach-water" id="beachFlat" aria-hidden="true"></canvas>
-  <canvas class="beach-water" id="beachWater" aria-hidden="true"></canvas>
-  <header class="beach-header">
-    <a class="beach-signature" href="#top" aria-label="Jocelyne, home">j.</a>
-  </header>
-  <div class="beach-copy">
-    <h1><span>hi, i'm</span> <em>jocelyne.</em></h1>
-    <p>welcome to my little corner of the internet :)</p>
-  </div>
-  <img class="beach-float float-poodle" id="beachDog" src="assets/beach/floating-poodle.webp" alt="My small black poodle relaxing in a coral and ivory float, with sunglasses on her head" width="360" height="300">
-  <a class="beach-scroll" href="#story" data-go="story" aria-label="Scroll to my story">↓</a>
-  <button class="beach-pause" id="beachPause" type="button" aria-pressed="false">Pause motion</button>
-</section>
-<!-- 1 · THE VALLEY -->
-<section class="valley" id="legacyValley" hidden inert aria-hidden="true">
-  <div class="stage" id="stage">
-    <div class="ph-hero" aria-hidden="true"></div>
-    <canvas class="gl-plate" id="glPlate" aria-hidden="true"></canvas>
-    <div class="cam" id="cam">
-      <div class="scene" id="scene">
-        <div class="ly keep" data-d=".3" id="L-plate"><i class="pmir t" aria-hidden="true"></i><i class="pmir b" aria-hidden="true"></i><i class="pmir l" aria-hidden="true"></i><i class="pmir r" aria-hidden="true"></i><img class="plate" src="v2/h/plate.webp" alt="Painted sunset valley: a college with a clock tower, a lake, a hillside hotel and a cafe, with a person and a golden retriever on a stone terrace"></div>
-        <div class="hero-scrim" id="heroScrim" aria-hidden="true"></div>
-        <div class="ly" data-d=".5" data-id="oyo"><button class="hot" data-id="oyo" aria-label="Orbit, the hotel on the hill" style="left:85%;top:21.8%;width:14.2%;height:18.2%"></button><button class="pin" data-id="oyo" style="left:89%;top:28%;--c:#DC402A"><b><img src="v2/s/logo-oyo.webp" alt="">Orbit<small class="pyr">Now</small></b><i class="pd" aria-hidden="true"></i></button></div>
-        <div class="ly" data-d=".5" data-id="mmt"><button class="hot" data-id="mmt" aria-label="Wayfinder, the balloon tower" style="left:63.5%;top:38%;width:19%;height:13%"></button><button class="pin" data-id="mmt" style="left:72%;top:42.5%;--c:#E4262C"><b><img src="v2/s/logo-mmt.webp" alt="">Wayfinder<small class="pyr">2025</small></b><i class="pd" aria-hidden="true"></i></button></div>
-        <div class="ly" data-d=".5" data-id="nsut"><button class="hot" data-id="nsut" aria-label="Design school, my college" style="left:4%;top:29.3%;width:14.5%;height:21.3%"></button><button class="pin" data-id="nsut" style="left:12%;top:48%;--c:#C4553A"><b><img src="v2/s/logo-nsut.webp" alt="">Design school<small class="pyr">2021</small></b><i class="pd" aria-hidden="true"></i></button></div>
-        <div class="ly" data-d=".62" data-id="eazydiner"><button class="hot" data-id="eazydiner" aria-label="Tablely, the bistro" style="left:72.5%;top:60.4%;width:17.5%;height:15.1%"></button><button class="pin" data-id="eazydiner" style="left:80.5%;top:62.5%;--c:#EE5A2B"><span class="hint" id="hint" aria-hidden="true">click a place<svg viewBox="0 0 40 22"><path d="M3 6C14 2 26 6 37 14M37 14l-9-1M37 14l-3-8"/></svg></span><b><img src="v2/s/logo-eazydiner.webp" alt="">Tablely<small class="pyr">2025</small></b><i class="pd" aria-hidden="true"></i></button></div>
-        <div class="ly" data-d="1" data-id="radio"><div class="radio" id="radio" style="left:7%;top:69.5%;width:5.2%"><img class="rs" src="v2/h/gramophone.png" alt="" draggable="false"><span class="rn" aria-hidden="true"><i>♪</i><i>♫</i><i>♪</i><i>♬</i></span></div><button class="pin rpin" id="radioPin" style="left:7.2%;top:54.5%;--c:#7B5CD6" aria-pressed="false"><b><span class="rpi"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span><span class="rpl">Play some music</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></b><i class="pd" aria-hidden="true"></i></button></div>
-        <div class="ly" data-d=".97" data-id="me"><button class="hot" data-id="me" aria-label="About me" style="left:7.5%;top:58.6%;width:30.5%;height:30.2%"></button><button class="pin" data-id="me" style="left:17.5%;top:62%;--c:#F2B705"><b><img src="v2/s/photo.webp" alt="">Me</b><i class="pd" aria-hidden="true"></i></button></div>
+<main id="main" tabindex="-1">
+  <section class="hero" id="top">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <h1 class="hero-title"><span class="line"><span>UI/UX</span></span> <span class="line"><em>Designer</em></span></h1>
+    <figure class="hero-photo">
+      <img src="assets/me.webp" alt="Jocelyne smiling, in a soft pink cardigan" width="510" height="1100" fetchpriority="high">
+    </figure>
+    <p class="hero-status" data-reveal><span class="dot" aria-hidden="true"></span>Open to internships &amp; freelance</p>
+    <div class="hero-side" data-reveal>
+      <p>I'm Jocelyne. I design mobile apps and websites that feel simple, so people get things done without thinking twice.</p>
+      <div class="hero-actions">
+        <a class="button button-dark magnetic" href="#contact">Get in touch</a>
+        <a class="button button-ghost" href="#work">See my work</a>
       </div>
     </div>
+  </section>
 
-    <div class="sky-birds" id="skyBirds" aria-hidden="true"></div>
-    <div class="hero-copy" id="heroCopy">
-      <p class="hey"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M9 17c-2-3-3-6-1-7s3 2 4 4M11 13l-2-6c-1-2 2-3 3-1l3 7M14 12l-1-6c0-2 3-2 3 0l1 6M17 12v-4c0-2 3-2 3 0v8c0 5-3 9-8 9-3 0-5-2-6-5" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><path d="M23 6c2 1 3 3 3 5M5 7C4 9 3 10 3 12" stroke="#FFD23F" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>hey, I'm Alex</p>
-      <h1>
-        <span class="ln"><span>Designing so you</span></span>
-        <span class="ln" style="--dl:1.9s"><span>don't <span class="rq b-sun" style="--b:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60' preserveAspectRatio='none'%3E%3Cpath d='M7 33C18 12 58 8 108 9c42 1 78-2 87 14 5 11-4 24-35 27-40 4-100 5-137 1C6 49 1 43 7 33z' fill='%23FFD23F'/%3E%3C/svg%3E&quot;)">rage quit.<svg viewBox="0 0 220 30" preserveAspectRatio="none" aria-hidden="true"><path d="M4 18C40 8 80 22 118 12s70 8 98-4"/></svg></span></span></span>
-      </h1>
-      <p class="sub">Product designer. Mechanical engineer who <span class="br">Googled his way here.</span></p>
-    </div>
-    <div class="scroll-cue" id="cue"><i></i>scroll to fly in</div>
-    
+  <section class="principles" id="principles" aria-labelledby="principles-title">
+    <h2 id="principles-title" data-reveal>My <em>principles</em></h2>
+    <p class="statement" data-reveal>I start with the people who will use it, test early, and keep every screen as clear as it can be. Good design should feel obvious.</p>
+    <ul class="chips" aria-label="What I do">
+      <li style="--x:6%;--y:18%;--c:#f4a7b9">User research</li>
+      <li style="--x:2%;--y:62%;--c:#9fd3c7">Wireframing</li>
+      <li style="--x:20%;--y:88%;--c:#f6c56f">Prototyping</li>
+      <li style="--x:78%;--y:12%;--c:#b7a6f0">Design systems</li>
+      <li style="--x:84%;--y:56%;--c:#f4a7b9">Usability testing</li>
+      <li style="--x:66%;--y:90%;--c:#9fd3c7">Interaction design</li>
+    </ul>
+  </section>
 
-    <aside class="sheet" id="sheet" aria-live="polite" data-lenis-prevent>
-      <div class="sh-top"><span class="tag" id="s-tag"></span><button class="x" id="s-x" aria-label="Close">×</button></div>
-      <h2 id="s-t"></h2>
-      <p class="role" id="s-r"></p>
-      <p class="lead" id="s-l"></p>
-      <div class="did" id="s-d"></div>
-      <div class="s-fun" id="s-f" hidden></div>
-      <div class="s-gal" id="s-p"></div>
-      <ul class="nums" id="s-n"></ul>
-      <div class="row" id="s-row"></div>
-    </aside>
+  <section class="work" id="work" aria-labelledby="work-title">
+    <div class="work-head">
+      <h2 id="work-title" data-reveal>Selected <em>work</em></h2>
+      <div class="filters" role="group" aria-label="Filter projects" data-reveal>
+        <button type="button" aria-pressed="true" data-filter="all">All</button>
+        <button type="button" aria-pressed="false" data-filter="app">Mobile apps</button>
+        <button type="button" aria-pressed="false" data-filter="web">Websites</button>
+      </div>
+    </div>
+    <div class="projects">
+      <article class="project" data-kind="app" data-reveal style="--tint:#fde3ea">
+        <div class="mock phone"><div class="screen"><img src="assets/work/habit.webp" alt="" onerror="this.remove()"><i class="ui ui-head"></i><i class="ui ui-ring"></i><i class="ui ui-row"></i><i class="ui ui-row short"></i><i class="ui ui-btn"></i></div></div>
+        <h3>Habit tracker app</h3>
+        <p>Mobile app · UX research, UI design, prototype</p>
+      </article>
+      <article class="project" data-kind="web" data-reveal style="--tint:#e3f1ec">
+        <div class="mock browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><div class="screen"><img src="assets/work/travel.webp" alt="" onerror="this.remove()"><i class="ui ui-hero"></i><i class="ui ui-cards"></i></div></div>
+        <h3>Travel agency website</h3>
+        <p>Website · Information architecture, UI design</p>
+      </article>
+      <article class="project" data-kind="web" data-reveal style="--tint:#ece7fb">
+        <div class="mock browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><div class="screen"><img src="assets/work/bakery.webp" alt="" onerror="this.remove()"><i class="ui ui-hero"></i><i class="ui ui-cards"></i></div></div>
+        <h3>Bakery online store</h3>
+        <p>Website · E-commerce flow, design system</p>
+      </article>
+      <article class="project" data-kind="app" data-reveal style="--tint:#fdf0d8">
+        <div class="mock phone"><div class="screen"><img src="assets/work/cafe.webp" alt="" onerror="this.remove()"><i class="ui ui-head"></i><i class="ui ui-tile"></i><i class="ui ui-tile"></i><i class="ui ui-btn"></i></div></div>
+        <h3>Café ordering app</h3>
+        <p>Mobile app · User flows, usability testing</p>
+      </article>
+    </div>
+  </section>
 
+  <section class="about" id="about" aria-labelledby="about-title">
+    <div class="about-photo" data-reveal>
+      <img src="assets/me.webp" alt="" width="510" height="1100" loading="lazy">
+      <span class="about-sticker" aria-hidden="true">hi there</span>
+    </div>
+    <div class="about-text">
+      <h2 id="about-title" data-reveal>Getting to <em>know me</em></h2>
+      <p class="lead" data-reveal>Building games taught me how things work. Watching people play them made me curious about how things feel. That curiosity led me to UI/UX.</p>
+      <p data-reveal>Now I design apps and websites the same way I used to test levels: watch real people use them, notice where they get stuck, and fix it until it feels effortless.</p>
+    </div>
+  </section>
 
-    <div class="night" aria-hidden="true"><i></i></div>
-    <div class="shade" id="shade"></div>
-    <div class="veil" aria-hidden="true"></div>
+  <div class="marquee" aria-label="Tools I use">
+    <div class="marquee-track"><span>Figma</span><span>FigJam</span><span>Protopie</span><span>Notion</span><span>Maze</span><span>HTML &amp; CSS</span><span aria-hidden="true">Figma</span><span aria-hidden="true">FigJam</span><span aria-hidden="true">Protopie</span><span aria-hidden="true">Notion</span><span aria-hidden="true">Maze</span><span aria-hidden="true">HTML &amp; CSS</span></div>
   </div>
-</section>
 
-<!-- 2 · MY STORY -->
-<section class="story" id="story" aria-label="My story">
-  <div class="story-pin">
-    <div class="wrap">
-      <div class="tell-box" id="tellBox">
-        <p class="tell" id="tell"><span class="hl b-sky" data-dd="gear">Building games</span> taught me <span class="hl" data-dd="circle">how things work.</span> Watching people play them made me curious about <span class="hl b-sun" data-dd="under">how things feel.</span> That curiosity led me to <span class="hl b-coral" data-dd="stars">UI/UX</span>.</p>
-        <svg class="doodles" id="doodles" aria-hidden="true"></svg>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 3 · THE JOURNEY -->
-<section class="journey torn torn-bot" id="journey" aria-label="The journey">
-  <div class="j-track" id="jTrack">
-    <div class="j-pin" id="jPin">
-      <div class="mapview" id="mapview">
-        <div class="world3" id="world3">
-          <svg id="mapArt" aria-hidden="true"></svg>
-          <div class="me-tip" id="meTip"><svg viewBox="0 0 48 48"><path class="cone" d="M24 24 L6 -14 A40 40 0 0 1 42 -14 Z"/><circle cx="24" cy="24" r="17" fill="#fff"/><path d="M24 10 L34 34 L24 28.5 L14 34 Z" fill="#4285F4" stroke="#1A5FD0" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
-          <div class="pols" id="pols"></div>
-        </div>
-      </div>
-      <div class="j-fade" id="jFade" aria-hidden="true"></div>
-      <div class="j-head" id="jHead">
-        <div class="sec-head">
-          <p class="kicker"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1l2.2 7.1L21 5l-3.6 6.5L24 14l-7.1 1.3L19 22l-7-3.9L5 22l2.1-6.7L0 14l6.6-2.5L3 5l6.8 3.1z"/></svg>The journey</p>
-          <h2>Engineer by degree, <span class="hl b-sky" id="journeyHl">designer by obsession.</span></h2>
-          <p>Nine stops between 2021 and now. <span class="j-how">Scroll to walk the path.</span></p>
-        </div>
-      </div>
-      <div class="compass" id="compass" aria-hidden="true">
-        <svg viewBox="0 0 108 108">
-          <circle cx="54" cy="54" r="50" fill="#FFFDF8" stroke="#13233A" stroke-width="1.5"/>
-          <circle cx="54" cy="54" r="42" fill="none" stroke="#13233A" stroke-width=".8" stroke-dasharray="1.5 4.1"/>
-          <g font-family="Bricolage Grotesque, sans-serif" font-size="11" font-weight="800" fill="#13233A" text-anchor="middle"><text x="54" y="20">N</text><text x="54" y="96">S</text><text x="91" y="58">E</text><text x="17" y="58">W</text></g>
-          <g class="needle" id="needle"><path d="M54 26 L60 54 L54 58 L48 54Z" fill="#FF6B4A"/><path d="M54 82 L60 54 L54 50 L48 54Z" fill="#13233A"/><circle cx="54" cy="54" r="3.5" fill="#FFFDF8" stroke="#13233A"/></g>
-        </svg>
-      </div>
-      <article class="jcard" id="jcard" aria-live="polite"><div class="portfolio-in" id="jcIn"></div></article>
-      <div class="mapctl" aria-label="Map controls">
-        <button class="solo" id="mapRe" type="button" aria-label="Recenter"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></button>
-        <div class="grp"><button id="mapIn" type="button" aria-label="Zoom in">+</button><button id="mapOut" type="button" aria-label="Zoom out">&minus;</button></div>
-      </div>
-      <div class="jcar" aria-label="Journey stops"><button type="button" id="jcPrev" aria-label="Previous stop" disabled>←</button><span id="jcCount"></span><button type="button" id="jcNext" class="nx">Start the journey <span aria-hidden="true">→</span></button></div>
-      <button type="button" class="jtl-view" id="jtlView"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>View journey map</button>
-      <nav class="jtl" id="jtl" aria-label="Years"><ol id="jtlDots"></ol><span class="yr" id="jtlYr">2021 &rarr; now</span></nav>
-    </div>
-  </div>
-</section>
-
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photos" data-lenis-prevent>
-  <div class="lb-head"><div><p id="lbWhen"></p><h4 id="lbTitle"></h4></div><button class="lb-x" id="lbX" type="button" aria-label="Close photos">&times;</button></div>
-  <div class="lb-track" id="lbTrack"></div>
-  <div class="lb-foot"><button id="lbPrev" type="button" aria-label="Previous photo"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><span id="lbCount">1 / 3</span><button id="lbNext" type="button" aria-label="Next photo"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div>
-</div>
-
-<!-- 4 · WORK -->
-<section class="work" id="work" aria-label="Selected work">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="kicker"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1l2.2 7.1L21 5l-3.6 6.5L24 14l-7.1 1.3L19 22l-7-3.9L5 22l2.1-6.7L0 14l6.6-2.5L3 5l6.8 3.1z"/></svg>Selected work</p>
-      <h2>Things I shipped, and the <span class="hl b-sun" id="workHl">numbers they moved.</span></h2>
-      <p>Real products, live in people's pockets. Pick a card from the box.</p>
-    </div>
-  </div>
-  <div class="box-track" id="boxTrack">
-  <div class="box-stage" id="boxStage">
-    <div class="box-fit" id="boxFit">
-      <div class="box3" id="box3">
-        <div class="box-shadow"></div>
-        <div class="box-floor"></div>
-      </div>
-    </div>
-    <p class="box-cap" id="boxCap"><span class="hint2">pick a card →</span></p>
-  </div>
-  </div>
-</section>
-
-<!-- 4b · BRAND & WEB -->
-<section class="brand-sec torn" id="brand" aria-label="Brand and web work">
-  <div class="brand-pin" id="brandPin">
-    <div class="brand-head">
-      <div class="bh-l">
-        <h2>Brands &amp; <span class="hl b-coral" id="brandHl">websites</span></h2>
-        <p class="bh-sub">I also design beautiful websites and brands that people remember, from the first sketch to launch day.</p>
-        <a class="bh-cta" href="#hello" target="_blank" rel="noopener" data-book><i></i>Book a free call ↗</a>
-      </div>
-    </div>
-    <div class="brand-car"><div class="brand-row" id="brandRow"></div><button type="button" class="bnav prev" id="bPrev" aria-label="Previous site">←</button><button type="button" class="bnav next" id="bNext" aria-label="Next site">→</button></div>
-    <div class="brand-prog"><i id="brandProg"></i></div>
-  </div>
-</section>
-
-<div class="cs" id="cs" data-lenis-prevent role="dialog" aria-modal="true" aria-label="Case study"></div>
-
-<!-- 6 · LASTLOOK -->
-<section class="ll torn" id="lastlook" aria-label="PocketCheck, my app">
-  <div class="ll-rev-track" id="llRevTrack">
-    <div class="ll-rev-pin"><div class="wrap">
-      <div class="sec-head">
-        <p class="kicker"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1l2.2 7.1L21 5l-3.6 6.5L24 14l-7.1 1.3L19 22l-7-3.9L5 22l2.1-6.7L0 14l6.6-2.5L3 5l6.8 3.1z"/></svg>My app</p>
-        <h2>I built my <span class="hl b-coral" id="llHl">own app.</span></h2>
-      </div>
-      <p class="tell ll-tell" id="llRev">I kept <span class="hl b-sun">forgetting my things.</span> So I built <span class="w ll-app" aria-hidden="true"><img src="v2/s/llicon.webp" alt=""></span> <span class="hl b-coral"><span class="w">LastL<i class="oo"><s></s></i><i class="oo"><s></s></i>k.</span></span> It’s like <span class="w ll-ic fm" aria-hidden="true"><svg viewBox="0 0 40 40"><defs><linearGradient id="fmG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5BE17A"/><stop offset="1" stop-color="#1DB954"/></linearGradient></defs><rect width="40" height="40" rx="9" fill="url(#fmG)"/><circle cx="20" cy="20" r="12" fill="none" stroke="#fff" stroke-width="2.6"/><circle cx="20" cy="20" r="6.5" fill="none" stroke="#fff" stroke-width="2.4" opacity=".85"/><circle cx="20" cy="20" r="2.4" fill="#fff"/></svg></span> <span class="hl b-mint">FindMy,</span> but for <span class="hl b-caramel">everything you own:</span> <span class="w ll-ic ll-loc" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 38s12-11.5 12-21a12 12 0 0 0-24 0c0 9.5 12 21 12 21z" fill="#FF6B4A"/><circle cx="20" cy="17" r="4.6" fill="#fff"/></svg></span> smart, <span class="hl b-peach">location-based reminders</span> that give you one last look before you walk out.</p>
-    </div></div>
-  </div>
-  <div class="ll-end wrap">
-    <div class="ll-roles" id="llRoles">
-      <p class="ll-roles-k">Every hat I wore to ship it</p>
-      <ol>
-        <li style="--c:#FF6B4A;--d:0"><i class="hat"><svg viewBox="0 0 64 44"><path d="M8 30c0-12 11-22 24-22s24 10 24 22z" fill="#1F2D44"/><path d="M4 30h56c0 4-4 7-8 7H12c-4 0-8-3-8-7z" fill="#13233A"/><rect x="8" y="26" width="48" height="5" fill="#E2BF7E"/><circle cx="32" cy="18" r="4.5" fill="#E2BF7E"/></svg></i><b>Founder</b><span>Spotted the problem: my own forgetting</span></li>
-        <li style="--c:#F2A93B;--d:1"><i class="hat"><svg viewBox="0 0 64 44"><path d="M10 32c0-14 10-24 22-24s22 10 22 24z" fill="#FF6B4A"/><path d="M26 10h12l-2-4h-8z" fill="#E14F30"/><path d="M4 32h30c-2 5-8 8-14 8-8 0-14-3-16-8z" fill="#E14F30"/><path d="M34 32h24v4H34z" fill="#C63E22"/><path d="M40 14c4 2 7 6 8 11" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".5"/></svg></i><b>Product designer</b><span>Places, items and smart reminders</span></li>
-        <li style="--c:#C98B52;--d:2"><i class="hat"><svg viewBox="0 0 64 44"><ellipse cx="32" cy="26" rx="26" ry="12" fill="#C98B52"/><ellipse cx="30" cy="24" rx="22" ry="9" fill="#DDA36B"/><path d="M31 15c1-5 3-8 3-8" stroke="#8B5E33" stroke-width="3" stroke-linecap="round"/><circle cx="20" cy="24" r="3" fill="#FF6B4A"/><circle cx="30" cy="27" r="3" fill="#4285F4"/><circle cx="40" cy="24" r="3" fill="#FFD23F"/></svg></i><b>Brand designer</b><span>The name, the eyes, the icon</span></li>
-        <li style="--c:#1DB954;--d:3"><i class="hat"><svg viewBox="0 0 64 44"><path d="M10 30c0-13 10-22 22-22s22 9 22 22z" fill="#FFC21A"/><path d="M26 9h12v21H26z" fill="#F2AE00"/><path d="M4 30h56v5c0 2-2 4-4 4H8c-2 0-4-2-4-4z" fill="#F2AE00"/><path d="M16 22c2-6 6-10 10-11" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".6"/></svg></i><b>iOS developer</b><span>Built it myself in Xcode</span></li>
-        <li style="--c:#0B0B0C;--d:4"><i class="hat"><svg viewBox="0 0 64 44"><path d="M32 2L50 38H14z" fill="#9C7BFF"/><path d="M23 20l18 8M19 28l24 9M28 10l12 6" stroke="#FFD23F" stroke-width="3" stroke-linecap="round"/><circle cx="32" cy="3" r="4" fill="#FF6B4A"/><path d="M10 38h44" stroke="#7B5CD6" stroke-width="4" stroke-linecap="round"/></svg></i><b>Launch</b><span>Live on the App Store</span></li>
-        <li style="--c:#E1306C;--d:5"><i class="hat"><svg viewBox="0 0 64 44"><rect x="18" y="4" width="28" height="28" rx="2" fill="#1B1B1F"/><rect x="18" y="22" width="28" height="6" fill="#E1306C"/><path d="M4 34c0-2 2-3 4-3h48c2 0 4 1 4 3s-2 4-4 4H8c-2 0-4-2-4-4z" fill="#111114"/><path d="M22 8v10" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".25"/></svg></i><b>Marketer</b><span>Built in public, 500K+ views</span></li>
-      </ol>
-    </div>
-    <ul class="ll-stats"><li><b>400+</b><span>downloads</span></li><li><b>10</b><span>paying subscribers</span></li><li><b>500K+</b><span>organic views, building in public</span></li></ul>
-    <div class="ll-cta">
-      <a class="ll-store" href="#hello" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span><small>Download on the</small>App Store</span></a>
-      <a class="ll-follow" href="#hello" target="_blank" rel="noopener">Follow the build on Instagram, @alexmakes</a>
-    </div>
-  </div>
-</section>
-
-<!-- 5 · MY STACK -->
-<section class="stack torn" id="stack" aria-label="My stack">
-  <div class="stack-track" id="stackTrack">
-    <div class="stack-pin">
-      <div class="stack-head" id="stackHead">
-        <div class="sec-head">
-          <p class="kicker"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1l2.2 7.1L21 5l-3.6 6.5L24 14l-7.1 1.3L19 22l-7-3.9L5 22l2.1-6.7L0 14l6.6-2.5L3 5l6.8 3.1z"/></svg>My stack</p>
-          <h2>Everything I know, <span class="hl b-sun" id="stackHl">unwrapped</span>.</h2>
-          <p>Seventeen tools I know well, from the first sketch to the shipped build.</p>
-        </div>
-      </div>
-      <div class="gift-stage" id="giftStage">
-        <div class="burst" id="burst" aria-hidden="true"></div>
-        <div class="beam" id="beam" aria-hidden="true"></div>
-        <div class="confetti" id="confetti" aria-hidden="true"></div>
-        <div class="gift" id="gift">
-          <svg viewBox="0 0 300 300" aria-hidden="true">
-            <defs>
-              <linearGradient id="gFront" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2A3B58"/><stop offset="1" stop-color="#16223A"/></linearGradient>
-              <linearGradient id="gSide" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#131D30"/><stop offset="1" stop-color="#0C1424"/></linearGradient>
-              <linearGradient id="gLid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34496C"/><stop offset="1" stop-color="#24344F"/></linearGradient>
-              <linearGradient id="gTop" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#3B5178"/><stop offset="1" stop-color="#2C3E5E"/></linearGradient>
-              <linearGradient id="gGold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C79B52"/><stop offset=".35" stop-color="#F4DDA6"/><stop offset=".6" stop-color="#D9B26C"/><stop offset="1" stop-color="#B98D45"/></linearGradient>
-              <linearGradient id="gGoldV" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4DDA6"/><stop offset="1" stop-color="#C39650"/></linearGradient>
-              <linearGradient id="gSheen" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".07"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
-              <radialGradient id="gGlow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF4D6"/><stop offset=".45" stop-color="#FFD98C" stop-opacity=".75"/><stop offset="1" stop-color="#FFD98C" stop-opacity="0"/></radialGradient>
-            </defs>
-            <ellipse cx="152" cy="288" rx="132" ry="11" fill="#13233A" opacity=".18"/>
-            <path d="M40 132 L100 108 L262 108 L202 132 Z" fill="#0A111D"/>
-            <ellipse id="gGlowEl" cx="152" cy="116" rx="130" ry="64" fill="url(#gGlow)" opacity="0"/>
-            <path d="M202 132 L262 108 L262 256 L202 282 Z" fill="url(#gSide)"/>
-            <rect x="40" y="132" width="162" height="150" fill="url(#gFront)"/>
-            <rect x="40" y="132" width="162" height="150" fill="url(#gSheen)"/>
-            <rect x="110" y="132" width="22" height="150" fill="url(#gGold)"/>
-            <path d="M226 122.4 L240 116.8 L240 264.8 L226 270.4 Z" fill="#A98040"/>
-            <path d="M40 132h162" stroke="#43587E" stroke-width="1.2"/>
-            <g id="lid">
-              <path d="M30 104 L94 78 L272 78 L208 104 Z" fill="url(#gTop)"/>
-              <path d="M104 104 L168 78 L190 78 L126 104 Z" fill="url(#gGoldV)"/>
-              <path d="M46 97.5 L224 97.5 L238 91.8 L60 91.8 Z" fill="#E2BF7E"/>
-              <path d="M208 104 L272 78 L272 110 L208 136 Z" fill="#1A2740"/>
-              <path d="M232 94.2 L246 88.5 L246 120.5 L232 126.2 Z" fill="#A98040"/>
-              <rect x="30" y="104" width="178" height="32" fill="url(#gLid)"/>
-              <path d="M30 104.6h178" stroke="#5A7098" stroke-width="1.4"/>
-              <rect x="106" y="104" width="30" height="32" fill="url(#gGold)"/>
-              <g transform="translate(150 90)">
-                <path d="M0 0 C -12 -30, -58 -40, -62 -16 C -64 -2, -30 4, 0 0 Z" fill="url(#gGold)"/>
-                <path d="M-2 -1 C -16 -18, -40 -24, -48 -14" fill="none" stroke="#A98040" stroke-width="2" stroke-linecap="round" opacity=".7"/>
-                <path d="M0 0 C 12 -30, 58 -40, 62 -16 C 64 -2, 30 4, 0 0 Z" fill="url(#gGold)"/>
-                <path d="M2 -1 C 16 -18, 40 -24, 48 -14" fill="none" stroke="#A98040" stroke-width="2" stroke-linecap="round" opacity=".7"/>
-                <path d="M-4 3 L-24 38 L-15 33 L-11 43 L4 5 Z" fill="#C79B52"/>
-                <path d="M4 3 L22 36 L13 32 L9 42 L-4 5 Z" fill="#D9B26C"/>
-                <rect x="-9" y="-7" width="18" height="13" rx="5" fill="#F0D69C" stroke="#B98D45" stroke-width="1.5"/>
-              </g>
-              <path d="M200 112 C 214 124, 222 140, 230 150" fill="none" stroke="#C79B52" stroke-width="1.4"/>
-              <g transform="translate(232 150) rotate(-14)"><path d="M0 0 H34 L42 10 L34 20 H0 Z" fill="#FBF3E3" stroke="#D9C6A1" stroke-width="1"/><circle cx="35" cy="10" r="2.4" fill="none" stroke="#C79B52" stroke-width="1.2"/><text x="14" y="15" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-size="12" fill="#2A3B58">J.</text></g>
-            </g>
-          </svg>
-        </div>
-        <p class="gift-cap" id="giftCap">My toolkit. <span id="giftCapV">Hover</span> a tool to see what I do with it.</p>
-        <div class="ring" id="ring"></div>
-        <div class="tool-tip" id="toolTip" role="status"><div class="tt-h"><span class="tt-i" id="ttI"></span><div><b id="ttN"></b><span id="ttC"></span></div></div><p id="ttP"></p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 7 · HOW I WORK -->
-<section class="process torn" id="process" aria-label="How I work">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="kicker"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1l2.2 7.1L21 5l-3.6 6.5L24 14l-7.1 1.3L19 22l-7-3.9L5 22l2.1-6.7L0 14l6.6-2.5L3 5l6.8 3.1z"/></svg>How I work</p>
-      <h2>I start with the <span class="hl b-mint" id="procHl">numbers,</span> then go find the people.</h2>
-      <p>The Coupon Hunter at Tablely, step by step. It's how I approach most problems.</p>
-    </div>
-    <div class="proc-line" id="procLine">
-      <svg id="procSvg" aria-hidden="true"><path class="ln-bg" id="procBg"/><path id="procFg" stroke="#13233A"/></svg>
-    </div>
-  </div>
-</section>
-
-<!-- 8 · OFF THE CLOCK -->
-<section class="life torn" id="life" aria-label="Off the clock">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="kicker"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1l2.2 7.1L21 5l-3.6 6.5L24 14l-7.1 1.3L19 22l-7-3.9L5 22l2.1-6.7L0 14l6.6-2.5L3 5l6.8 3.1z"/></svg>Off the clock</p>
-      <h2>Calculated <span class="hl b-coral" id="lifeHl">chaos.</span></h2>
-      <p>23. Based between India and Makassar. When I'm not in Figma, I'm usually making noise.</p>
-    </div>
-    <div class="desk" id="desk">
-      <figure class="item polaroid pinned p1" style="width:250px;left:2%;top:3%;--r:-5deg;--pc:#E4402A;margin:0"><img src="v2/s/photo.webp" alt="Alex in a backwards cap and sunglasses, smiling at sunset"><figcaption>me, probably mid-laugh</figcaption></figure>
-      <div class="item about pinned p2" style="left:27%;top:3%;--r:1.5deg;--pc:#2A7BD1">
-        <p class="ab-k">Off the clock</p>
-        <h4>Hi, I’m Alex. Not the work version.</h4>
-        <b>Things I can’t stop doing</b>
-        <ul><li>Drums, piano and guitar</li><li>Long drives, music way too loud</li><li>Lifting heavy things at the gym</li><li>Flying between Jakarta and Makassar</li></ul>
-        <b>When I’m not in Figma</b>
-        <ul><li>Apple Music is on. Always.</li><li>Asking “but why?” about everything</li></ul>
-      </div>
-      <figure class="item polaroid pinned pol-sm pc1" style="left:63%;top:3%;--r:4deg;--pc:#E4402A;width:165px;margin:0"><img src="v2/s/life-coldplay.png" alt="Wristbands glowing at a Coldplay stadium show" loading="lazy"><figcaption>Coldplay. Best night ever.</figcaption></figure>
-      <figure class="item polaroid pinned pol-sm pc2" style="left:80%;top:2%;--r:-3deg;--pc:#7B5CD6;width:165px;margin:0"><img src="v2/s/life-jersey.png" alt="A yellow Lakers number 23 Alex jersey" loading="lazy"><figcaption>first gift from my friends</figcaption></figure>
-      <figure class="item polaroid pinned pol-sm pc3" style="left:81%;top:34%;--r:5deg;--pc:#2E9E6B;width:165px;margin:0"><img src="v2/s/life-drums.png" alt="Alex’s drum kit with sticks resting on the snare" loading="lazy"><figcaption>the happy noise</figcaption></figure>
-      <div class="item vinyl p5" style="left:38%;top:44%;--r:-3deg" tabindex="0" title="Tap to open my playlist"><div class="vn-sleeve"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><b>On repeat</b><small>Apple Music</small></div><div class="vn-disc"><i></i></div><span>music is life</span><div class="vn-ask" role="dialog" aria-label="Open my playlist"><b>Wanna hear what’s on repeat?</b><a href="#hello" target="_blank" rel="noopener">Open “Songs that see me” ↗</a><button type="button" class="vn-x" aria-label="Close">×</button></div></div>
-      <figure class="item polaroid pinned pol-sm pc4" style="left:64%;top:32%;--r:3deg;--pc:#2A7BD1;width:165px;margin:0"><img src="v2/s/life-sister.png" alt="Alex’s sister using the PocketCheck app on her phone" loading="lazy"><figcaption>user #1: my sister</figcaption></figure>
-      <figure class="item polaroid pinned pol-sm pc5" style="left:2%;top:45%;--r:-4deg;--pc:#F2B705;width:165px;margin:0"><img src="v2/s/life-cars.png" alt="Cars at a Makassar junction at night under a purple-lit water tower" loading="lazy"><figcaption>I stop for cars. always.</figcaption></figure>
-      <figure class="item polaroid pinned pol-sm pc6" style="left:19%;top:47%;--r:3deg;--pc:#E4402A;width:175px;margin:0"><img src="v2/s/life-olive.png" alt="Olive, a golden retriever, riding in the car" loading="lazy"><figcaption>my roommate, Olive</figcaption></figure>
-      <figure class="item polaroid pinned pol-sm pc7" style="left:47%;top:66%;--r:-3deg;--pc:#2A7BD1;width:165px;margin:0"><img src="v2/s/life-gym.png" alt="Alex taking a mirror selfie at the gym" loading="lazy"><figcaption>gym, my reset button</figcaption></figure>
-      <div class="item note taped p17" style="--sc:#D9CCFF;left:78%;top:70%;--r:-4deg;width:180px">My brain has 40 tabs open.<small>Overthinker. Mostly curiosity.</small></div>
-      <div class="item ticket pinned p7" style="left:4%;top:76%;--r:3deg;--pc:#D71920">
-        <div class="tk-main">
-          <div class="tk-top"><span class="tk-air">Emirates</span><small>Boarding pass</small></div>
-          <div class="tk-route"><div><b>DEL</b><span>Jakarta</span></div><i><svg viewBox="0 0 24 24"><path d="M2 13l8-1 4-8h2l-2 8 6 1 2-3h2l-1 4 1 4h-2l-2-3-6 1 2 8h-2l-4-8-8-1z"/></svg></i><div><b>DXB</b><span>Makassar</span></div></div>
-          <div class="tk-meta"><span><small>Passenger</small>Alex Morgan</span><span><small>Seat</small>23A</span><span><small>Home</small>Both</span></div>
-        </div>
-        <div class="tk-stub"><small>DEL ⇄ DXB</small><i class="tk-bar"></i></div>
-      </div>
-      <p class="desk-hint">it’s my board, but go ahead, move things around ;)</p>
-    </div>
-  </div>
-</section>
-
-<!-- 9 · NOTES WALL -->
-<section class="notes torn torn-bot" id="notes" aria-label="Notes wall">
-  <div class="wrap nw-head">
-    <div class="sec-head">
-      <p class="kicker"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1l2.2 7.1L21 5l-3.6 6.5L24 14l-7.1 1.3L19 22l-7-3.9L5 22l2.1-6.7L0 14l6.6-2.5L3 5l6.8 3.1z"/></svg>The wall</p>
-      <h2>Before you leave, <span class="hl b-sun" id="notesHl">leave a note.</span></h2>
-      <p>Say hi, share feedback, or tell me what you’re building. It goes up on the wall.</p>
-    </div>
-    <div class="nw-actions"><button class="nw-view" id="nwView" type="button" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6"/></svg>View notes</button><button class="nw-cta" id="nwOpen" type="button"><span class="nw-pen" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span>Write a note</button></div>
-  </div>
-  <div class="nw-rows" aria-live="polite">
-    <div class="nw-row"><div class="nw-track" id="nwRow1"></div></div>
-    <div class="nw-row rev"><div class="nw-track" id="nwRow2"></div></div>
-  </div>
-  <div class="nw-modal" id="nwModal" role="dialog" aria-modal="true" aria-labelledby="nwTitle" data-lenis-prevent>
-    <form class="nw-sheet" id="nwForm" novalidate>
-      <button class="nw-x" type="button" id="nwClose" aria-label="Close">&times;</button>
-      <p class="nw-k">Pin a note</p>
-      <h3 id="nwTitle">Leave your mark.</h3>
-      <div class="nw-face">
-        <span class="nw-av" id="nwAv"></span>
-        <div class="nw-face-b">
-          <button type="button" id="nwShuffle">Shuffle avatar</button>
-          <label class="nw-up">Upload a photo<input type="file" id="nwPhoto" accept="image/*"></label>
-          <button type="button" id="nwClear" hidden>Use an avatar instead</button>
-        </div>
-      </div>
-      <label class="nw-f"><span>Your name</span><input id="nwName" name="name" maxlength="40" autocomplete="name" required></label>
-      <div class="nw-two">
-        <label class="nw-f"><span>Where do you work? <em>optional</em></span><div class="nw-co"><i class="nw-lg" id="nwLg" aria-hidden="true"></i><input id="nwCo" name="company" maxlength="40" autocomplete="off" placeholder="Company" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="nwSug"><ul class="nw-sug" id="nwSug" role="listbox" hidden></ul></div></label>
-        <label class="nw-f"><span>Your role <em>optional</em></span><input id="nwRole" name="role" maxlength="40" autocomplete="organization-title" placeholder="Designation"></label>
-      </div>
-      <label class="nw-f"><span>Email <em>only I’ll see this</em></span><input id="nwEmail" name="email" type="email" maxlength="120" autocomplete="email" required></label>
-      <label class="nw-f"><span>Your note <em id="nwCount">0 / 200</em></span><textarea id="nwNote" name="note" maxlength="200" rows="3" required></textarea></label>
-      <p class="nw-err" id="nwErr" role="alert"></p>
-      <button class="nw-go" type="submit" id="nwGo">Pin it to the wall</button>
-      <p class="nw-fine" id="nwFine"></p>
-      <div class="nw-done" id="nwDone" hidden>
-        <span class="nw-tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-        <h3 id="nwDoneT">Pinned.</h3>
-        <p>Your note is up on the wall. If you liked the work, I post what I’m learning on LinkedIn.</p>
-        <a class="nw-follow" href="#hello" target="_blank" rel="noopener">Follow me on LinkedIn ↗</a>
-        <button type="button" class="nw-home" id="nwHome">Back to home</button>
-      </div>
-    </form>
-  </div>
-</section>
-
-<!-- 10 · SAY HI -->
-<section class="hello" id="hello" aria-label="Contact">
-  <img class="skyimg" src="v2/h/sky.webp" alt="">
-  <div class="wrap inner">
-    <h2>Let's make something nobody <span class="rq" style="--b:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60' preserveAspectRatio='none'%3E%3Cpath d='M7 33C18 12 58 8 108 9c42 1 78-2 87 14 5 11-4 24-35 27-40 4-100 5-137 1C6 49 1 43 7 33z' fill='%23FFD23F'/%3E%3C/svg%3E&quot;)" id="helloRq">rage quits.</span></h2>
-    <p>Open to projects with founders, startups and personal brands. I reply fast.</p>
-    <div class="keys-mat" id="keysMat">
-      <p class="keys-hint">psst, these work on your keyboard too: <kbd>M</kbd> <kbd>I</kbd> <kbd>L</kbd> <kbd>T</kbd> <kbd>R</kbd></p>
-      <div class="keys">
-        <div class="kw"><span></span><a class="key" data-k="m" href="mailto:hello@example.com" style="--kc:#EA4335;--kd:#A92A20" aria-label="Email me"><span class="cap"><i>M</i><svg viewBox="0 0 24 24"><path fill="#fff" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg></span></a>
-          <p class="knote dn"><svg viewBox="0 0 40 30" aria-hidden="true"><path d="M30 26C26 16 20 8 12 4M12 4l2 8M12 4l8 1"/></svg>Roles, projects, or just hi.<br><span class="mailrow"><span id="mailText">hello@example.com</span><button id="copy" type="button" aria-label="Copy email" title="Copy email"><svg class="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11.5" height="11.5" rx="3"/><path d="M15.5 8.5V6.5a2.5 2.5 0 0 0-2.5-2.5H6.5A2.5 2.5 0 0 0 4 6.5V13a2.5 2.5 0 0 0 2.5 2.5h2"/></svg><svg class="i-ok" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></button></span></p></div>
-        <div class="kw"><p class="knote up">Where I build in public.<br>@alexmakes<svg viewBox="0 0 40 30" aria-hidden="true"><path d="M10 4C16 12 20 18 22 26M22 26l-7-4M22 26l3-8"/></svg></p><a class="key" data-k="i" href="#hello" target="_blank" rel="noopener" style="--kc:#DD2A7B;--kd:#8A1E57;--kbg:linear-gradient(40deg, #F9A13A, #EE2A7B 45%, #8134AF 80%, #515BD4)" aria-label="Instagram"><span class="cap"><i>I</i><svg viewBox="0 0 24 24"><path fill="#fff" d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span></a><span></span></div>
-        <div class="kw"><span></span><a class="key" data-k="l" href="#hello" target="_blank" rel="noopener" style="--kc:#0A66C2;--kd:#063F7A" aria-label="LinkedIn"><span class="cap"><i>L</i><svg viewBox="0 0 24 24"><path fill="#fff" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span></a>
-          <p class="knote dn"><svg viewBox="0 0 40 30" aria-hidden="true"><path d="M20 26C20 18 20 10 20 4M20 4l-5 7M20 4l5 7"/></svg>The work, and what I<br>learned doing it.</p></div>
-        <div class="kw"><p class="knote up">Book a 1:1. Portfolio,<br>resume or job search.<svg viewBox="0 0 40 30" aria-hidden="true"><path d="M10 4C16 12 20 18 22 26M22 26l-7-4M22 26l3-8"/></svg></p><a class="key" data-k="t" href="#hello" target="_blank" rel="noopener" style="--kc:#E3412F;--kd:#A32818" aria-label="Book a call on Topmate"><span class="cap"><i>T</i><svg viewBox="0 0 24 24"><path d="M12 12 L19.4 7.6 A8.6 8.6 0 1 0 19.4 16.4 Z" fill="#fff"/></svg></span></a><span></span></div>
-        <div class="kw"><span></span><a class="key" data-k="r" href="resume.html" target="_blank" rel="noopener" style="--kc:#FFD23F;--kd:#C99A0E;--kfg:#13233A" aria-label="Resume"><span class="cap"><i>R</i><svg viewBox="0 0 24 24"><path d="M12 3v15M5.5 11.5L12 18l6.5-6.5" fill="none" stroke="#13233A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-          <p class="knote dn"><svg viewBox="0 0 40 30" aria-hidden="true"><path d="M20 26C20 18 20 10 20 4M20 4l-5 7M20 4l5 7"/></svg>My resume, one<br>click away.</p></div>
-      </div>
-    </div>
-    </div>
-  </div>
-  <div class="clouds-foot" id="cloudsFoot" aria-hidden="true">
-    <img src="v2/h/cloud_s.webp" alt="" style="left:-14%;width:min(62%, 760px)" data-sp=".18">
-    <img src="v2/h/cloud_s.webp" alt="" style="right:-16%;width:min(66%, 800px);transform:scaleX(-1)" data-sp=".28" data-f="1">
-    <img class="front" src="v2/h/cloud_s.webp" alt="" style="left:50%;margin-left:max(-35%, -430px);width:min(70%, 860px);bottom:-18vh" data-sp=".1">
-  </div>
-</section>
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="contact-glow" aria-hidden="true"></div>
+    <h2 id="contact-title" data-reveal>Let's make something <em>people love using</em></h2>
+    <p data-reveal>Have a project, an internship or just a question? I'd love to hear from you.</p>
+    <a class="contact-mail" href="mailto:hello@example.com" data-reveal>hello@example.com <span aria-hidden="true">↗</span></a>
+  </section>
 </main>
 
+<footer class="footer">
+  <p class="footer-name">Jocelyne</p>
+  <nav aria-label="Social"><a href="#">LinkedIn</a><a href="#">Dribbble</a><a href="#">Behance</a></nav>
+  <p class="footer-note">© 2026 Jocelyne</p>
+</footer>
+
 <script src="vendor/lenis.min.js"></script>
-
-
-
 <script src="script.js"></script>
-<script src="beach.js"></script>
-</body></html>
-
+</body>
+</html>

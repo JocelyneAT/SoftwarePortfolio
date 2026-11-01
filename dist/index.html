@@ -27,18 +27,20 @@
 <main id="main" tabindex="-1">
   <section class="hero" id="top">
     <div class="hero-glow" aria-hidden="true"></div>
-    <h1 class="hero-title"><span class="line"><span>UI/UX</span></span> <span class="line"><em>Designer</em></span></h1>
+    <canvas class="hero-water" aria-hidden="true"></canvas>
+    <h1 class="hero-title"><span class="line"><span>Hi I'm Celyne.</span></span><span class="line"><em>UI/UX Designer</em></span></h1>
     <figure class="hero-photo">
       <img src="assets/me.webp" alt="Jocelyne smiling, in a soft pink cardigan" width="510" height="1100" fetchpriority="high">
     </figure>
-    <p class="hero-status" data-reveal><span class="dot" aria-hidden="true"></span>Open to internships &amp; freelance</p>
+    <p class="hero-status" data-reveal><span class="dot" aria-hidden="true"></span>Open to internships</p>
     <div class="hero-side" data-reveal>
-      <p>I'm Jocelyne. I design mobile apps and websites that feel simple, so people get things done without thinking twice.</p>
+      <p>I design mobile apps and websites that feel simple, thoughtful, and easy to use.</p>
       <div class="hero-actions">
         <a class="button button-dark magnetic" href="#contact">Get in touch</a>
-        <a class="button button-ghost" href="#work">See my work</a>
       </div>
     </div>
+    <a class="hero-work" href="#work">Explore my work <span aria-hidden="true">↓</span></a>
+    <button class="hero-ripple" type="button" aria-pressed="false">Pause ripples</button>
   </section>
 
   <section class="principles" id="principles" aria-labelledby="principles-title">
@@ -119,5 +121,6 @@
 
 <script src="vendor/lenis.min.js"></script>
 <script src="script.js"></script>
+<script src="hero-interaction.js"></script>
 </body>
 </html>

@@ -484,7 +484,6 @@ void main() {
     });
   })(tell, null);
   words.forEach((w, i) => { if (w.mark) w.mark.last = i; });
-  const stickies = $$('.sticky', tellBox);
   let sTop = 0, sRange = 1;
 
   const rnd = (a => () => (a = (a * 16807) % 2147483647) / 2147483647)(7);
@@ -539,16 +538,7 @@ void main() {
       const t = clamp((lit - m.last - 1) / 3);
       m.paths.forEach((P, k) => { const tt = clamp(t * m.paths.length - k); P.p.style.strokeDashoffset = (P.L * (1 - ss(tt))).toFixed(1); });
     });
-    stickies.forEach(s => { if (q >= +s.dataset.at) s.classList.add('in'); });
-    const mh = $('#moveHint'); if (q > .8 && !mh.classList.contains('in')) placeHint(); mh.classList.toggle('in', q > .8);
   }
-  // "these notes move" sits on the left edge of the yellow note, pointing into it
-  function placeHint() {
-    const mh = $('#moveHint'), note = stickies[0]; if (!mh || !note) return;
-    mh.style.left = (note.offsetLeft - mh.offsetWidth + 16) + 'px';
-    mh.style.top = (note.offsetTop + note.offsetHeight * .72 - mh.offsetHeight / 2) + 'px';
-  }
-  addEventListener('resize', () => { if ($('#moveHint').classList.contains('in')) placeHint(); });
   function draggable(el, onMove) {
     let s = null;
     el.addEventListener('pointerdown', e => {
@@ -562,7 +552,6 @@ void main() {
     el.addEventListener('pointerup', end); el.addEventListener('pointercancel', end);
   }
   draggable.z = 10;
-  stickies.forEach(s => { draggable(s); s.addEventListener('pointerdown', () => $('#moveHint').classList.add('done'), { once: true }); });
   $$('.item', $('#desk')).forEach(el => {
     el.style.transform = 'translate(var(--tx,0), var(--ty,0)) rotate(var(--r,0deg))';
     draggable(el);

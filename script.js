@@ -40,7 +40,7 @@
   // Entrances: content stays visible without script; with it, each group rises in on a short stagger, once.
   if (!calm) {
     root.classList.add('motion');
-    document.querySelectorAll('section').forEach(section => section.querySelectorAll('[data-reveal]').forEach((el, i) => el.style.setProperty('--delay', `${i * .08}s`)));
+    document.querySelectorAll('section').forEach(section => section.querySelectorAll('[data-reveal]').forEach((el, i) => el.style.setProperty('--delay', `${Math.min(i * .06, .6)}s`)));
     const reveal = new IntersectionObserver(entries => entries.forEach(entry => {
       if (entry.isIntersecting) { entry.target.classList.add('is-in'); reveal.unobserve(entry.target); }
     }), { rootMargin: '0px 0px -10% 0px' });
@@ -84,6 +84,35 @@
       button.addEventListener('pointerleave', () => { button.style.transform = ''; });
     });
   }
+
+  // Gift box: opens while it sits in the middle of the screen and packs up again once scrolled past (either way).
+  const gift = document.querySelector('.gift');
+  if (calm) gift.classList.add('is-open');
+  else {
+    const box = gift.querySelector('.box'), tools = [...gift.querySelectorAll('.tool')];
+    // Every tool remembers how far it sits from the box (layout offsets ignore transforms), so it can start inside it.
+    const cloud = gift.querySelector('.tool-cloud');
+    const pack = () => {
+      const cx = box.offsetLeft + box.offsetWidth / 2, cy = box.offsetTop + box.offsetHeight * .6;
+      tools.forEach(tool => {
+        tool.style.setProperty('--fx', `${(cx - cloud.offsetLeft - tool.offsetLeft - tool.offsetWidth / 2).toFixed(0)}px`);
+        tool.style.setProperty('--fy', `${(cy - cloud.offsetTop - tool.offsetTop - tool.offsetHeight / 2).toFixed(0)}px`);
+      });
+    };
+    pack(); addEventListener('resize', pack);
+    new IntersectionObserver(([entry]) => gift.classList.toggle('is-open', entry.isIntersecting), { rootMargin: '-25% 0px -25% 0px' }).observe(gift);
+  }
+
+  // Resume: opens in a dialog as a plain page image; the image loads on first open.
+  const resume = document.querySelector('#resume');
+  const paper = resume.querySelector('.resume-paper img');
+  document.querySelector('[data-resume]').addEventListener('click', () => {
+    if (!paper.src) paper.src = paper.dataset.src;
+    resume.showModal(); lenis?.stop();
+  });
+  resume.querySelector('[data-close]').addEventListener('click', () => resume.close());
+  resume.addEventListener('click', event => { if (event.target === resume) resume.close(); });
+  resume.addEventListener('close', () => lenis?.start());
 
   // Project filter: cards fade out, the grid updates, the remaining cards fade back in.
   const buttons = [...document.querySelectorAll('.filters button')];

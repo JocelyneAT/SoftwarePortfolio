@@ -1,71 +1,206 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kitchin — Celyne’s UI/UX work</title>
-  <meta name="description" content="Kitchin, a mobile app prototype for keeping track of groceries, finding recipes and sharing food. A UI/UX project by Celyne.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="kitchin.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kitchin — Jocelyne, UI/UX Designer</title>
+<meta name="description" content="Kitchin, a smart-fridge companion app that cuts household food waste: expiry tracking, recipes from what you have, and donations to food banks and orphanages. A UI/UX and HCI project by Jocelyne.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=chillax@400,500,600&display=swap">
+<link rel="icon" href="kitchin-icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="kitchin.css">
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-  <header class="project-nav wrap">
-    <a class="name" href="../../index.html">Celyne</a>
-    <a href="../../index.html#work">Back to my work <span aria-hidden="true">↗</span></a>
-  </header>
-  <main id="main" tabindex="-1">
-    <section class="intro wrap" aria-labelledby="project-title">
-      <div><h1 id="project-title">Kitchin</h1><p class="project-kind">A mobile app concept for less food waste.</p></div>
-      <div class="intro-note"><p>A little less waste.<br>  A little more care.</p><a href="#walkthrough-title" class="text-link">See Kitchin in motion <span aria-hidden="true">↓</span></a></div>
-    </section>
+<a class="skip" href="#main">Skip to content</a>
 
-    <section class="demo wrap" aria-labelledby="walkthrough-title">
-      <h2 class="sr-only" id="walkthrough-title">Kitchin app walkthrough</h2>
-      <div id="walkthrough"><img class="fallback-screen" src="screens/home.png" width="412" height="917" alt="Kitchin home screen with Recipes, grocery offers and fridge navigation"><p>Loading the phone walkthrough…</p></div>
-      <noscript><p>JavaScript is needed for the animated walkthrough. You can explore the screens and project information below.</p></noscript>
-      <p class="media-note">The app moves through a recipe flow automatically. Original screens from the Figma prototype.</p>
-    </section>
+<header class="nav" id="nav">
+  <a class="nav-name" href="../../index.html">Jocelyne</a>
+  <nav aria-label="Main">
+    <a href="../../index.html#work">Projects</a>
+    <a href="../../index.html#about">About</a>
+  </nav>
+  <a class="button button-dark nav-cta" href="../../index.html#contact">Get in touch</a>
+</header>
 
-    <section class="overview wrap section" aria-labelledby="overview-title">
-      <h2 id="overview-title">A kitchen companion<br> for everyday life.</h2>
-      <div class="prose"><p class="lead">Kitchin brings grocery shopping, fridge tracking, recipes and food donations into one mobile app concept.</p><p>Designed for busy households, it helps people see what they already have, decide what to cook and buy what is missing. A donation flow offers another way to use food before it goes to waste.</p><p>This project explores those ideas through interface design, an interactive Figma prototype and a usability evaluation.</p></div>
-      <dl class="project-facts">
-        <div><dt>Project</dt><dd>UI/UX &amp; HCI</dd></div>
-        <div><dt>Platform</dt><dd>Mobile app prototype</dd></div>
-        <div><dt>Design &amp; prototyping</dt><dd>Figma</dd></div>
-        <div><dt>Evaluation</dt><dd>Google Forms questionnaire</dd></div>
-      </dl>
-    </section>
+<main id="main" tabindex="-1">
+  <section class="case-hero" aria-labelledby="title">
+    <div class="case-glow" aria-hidden="true"></div>
+    <a class="back-link" href="../../index.html#work"><span aria-hidden="true">←</span> All projects</a>
+    <p class="case-name" data-reveal><img class="case-mark" src="kitchin-icon.svg" alt="" width="40" height="40">Kitchin</p>
+    <p class="case-label" data-reveal>Mobile app · UI/UX &amp; HCI research</p>
+    <h1 id="title" data-reveal>Know what you have.<br><em>Cook with care. Give with heart.</em></h1>
+    <p class="case-intro" data-reveal>A smart-fridge companion that tracks expiry dates, suggests recipes from what you already have, and helps you give food to food banks and orphanages before it goes to waste.</p>
+    <ul class="case-pills" data-reveal>
+      <li><b>Course</b>Human Computer Interaction (HCI)</li>
+      <li><b>Platform</b>Mobile app prototype</li>
+      <li><b>Tested with</b>24 participants</li>
+    </ul>
+  </section>
 
-    <section class="feature-section section" aria-labelledby="features-title">
-      <div class="wrap"><div class="section-head"><h2 id="features-title">From fridge<br> to dinner.</h2><p>The main flows support the small decisions that happen around food every day.</p></div>
-      <div class="feature-list">
-        <article><h3>Keep track of the fridge</h3><p>The proposed fridge flow connects through a QR code, with items organised by category and expiry date. Products can be added by barcode or entered manually.</p></article>
-        <article><h3>Find a recipe that fits</h3><p>Browse by cuisine and cooking difficulty. Recipe details separate available and missing ingredients, then offer a clear set of cooking instructions.</p></article>
-        <article><h3>Shop for what is missing</h3><p>The grocery flow includes product information, price filters, a shopping cart and a delivery-tracking concept.</p></article>
-        <article><h3>Make room to give</h3><p>The charity flow explores donating food from the fridge, purchasing items for a food bank and rounding up a grocery bill to donate.</p></article>
-      </div></div>
-    </section>
-
-    <section class="screens-section wrap section" aria-labelledby="screens-title">
-      <div class="section-head"><h2 id="screens-title">A closer look.</h2><a class="text-link" href="https://www.figma.com/proto/Q5gTXsWb1tPzoU5ZLWw5bB/HCI-Prototype?node-id=0-1&amp;starting-point-node-id=149%3A87&amp;scaling=scale-down" target="_blank" rel="noopener">Try the Figma prototype ↗</a></div>
-      <div class="screen-gallery">
-        <figure><a href="screens/recipes.png" target="_blank" rel="noopener" aria-label="Open Recipes screen at full size"><img src="screens/recipes.png" alt="Recipes screen showing cuisine and difficulty filters, Caprese Salad and Arrabbiata Penne" width="412" height="917" loading="lazy"></a><figcaption>Discover a recipe</figcaption></figure>
-        <figure><a href="screens/ingredients.png" target="_blank" rel="noopener" aria-label="Open Ingredients screen at full size"><img src="screens/ingredients.png" alt="Arrabbiata Penne recipe with nutrition, available ingredients and missing parmesan cheese" width="412" height="917" loading="lazy"></a><figcaption>Check the ingredients</figcaption></figure>
-        <figure><a href="screens/instructions.png" target="_blank" rel="noopener" aria-label="Open Instructions screen at full size"><img src="screens/instructions.png" alt="Arrabbiata Penne recipe with the Instructions tab selected and six cooking steps" width="412" height="917" loading="lazy"></a><figcaption>Follow the steps</figcaption></figure>
+  <!-- The phone taps through the app on its own; the steps beside it follow along and can be picked. -->
+  <section class="demo" aria-labelledby="demo-title">
+    <div class="demo-text">
+      <h2 id="demo-title" class="sr-only">Kitchin in motion</h2>
+      <p class="demo-step-title" aria-live="polite">Everything in one place</p>
+      <p class="demo-step-text">Groceries, the fridge, recipes and charity all start from home.</p>
+      <ol class="demo-steps" aria-label="Walkthrough steps"></ol>
+      <button class="demo-pause" type="button" aria-pressed="false">Pause</button>
+    </div>
+    <div class="k-phone" aria-hidden="true">
+      <div class="k-phone-screen">
+        <img class="k-screen k-screen-current" src="screens/home.png" alt="" width="412" height="917">
+        <img class="k-screen k-screen-next" alt="" width="412" height="917">
+        <span class="finger"></span>
+        <span class="tap"></span>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="research wrap section" aria-labelledby="research-title">
-      <div><h2 id="research-title">Putting the<br> prototype to the test.</h2><p>The project’s research poster reports a usability evaluation with 24 participants aged 18–23, using prototype tasks and a questionnaire.</p><p>The reported overall usability score was <strong>85.4</strong>. The study used a student sample, so it offers early feedback rather than evidence of how every household would use the app.</p><a class="text-link" href="research-poster.png" target="_blank" rel="noopener">Read the original research poster ↗</a></div>
-      <a href="research-poster.png" target="_blank" rel="noopener" aria-label="Open Kitchin research poster at full size"><img src="research-poster.png" alt="Original Kitchin poster documenting the persona, user tasks, prototype, study method and results" width="1500" height="2000" loading="lazy"></a>
-    </section>
-    <section class="project-end wrap section" aria-labelledby="next-title"><h2 id="next-title">Explore it for yourself.</h2><p>Try the full prototype, from the welcome screen through the app’s connected flows.</p><a class="button" href="https://www.figma.com/proto/Q5gTXsWb1tPzoU5ZLWw5bB/HCI-Prototype?node-id=0-1&amp;starting-point-node-id=149%3A87&amp;scaling=scale-down" target="_blank" rel="noopener">Open Figma prototype <span aria-hidden="true">↗</span></a><a class="text-link" href="../../index.html#work">Back to my work</a></section>
-  </main>
-  <footer class="wrap"><span class="name">Celyne</span><span>Kitchin · UI/UX project</span></footer>
-  <script defer src="player.js"></script>
+  <section class="chapter problem" aria-labelledby="problem-title">
+    <p class="chapter-no" data-reveal>01 · The problem</p>
+    <h2 id="problem-title" data-reveal>Good food, <em>quietly wasted.</em></h2>
+    <p class="chapter-lead" data-reveal>Busy households buy food with the best intentions. Then life happens, and a lot of it never gets eaten.</p>
+    <ul class="problem-cards">
+      <li data-reveal><span class="card-no" aria-hidden="true">01</span><h3>Food expires unnoticed</h3><p>Items get pushed to the back of the fridge and forgotten until they have gone off.</p></li>
+      <li data-reveal><span class="card-no" aria-hidden="true">02</span><h3>"What do I cook with this?"</h3><p>Leftover ingredients go unused because it is hard to think of a meal that fits what is left.</p></li>
+      <li data-reveal><span class="card-no" aria-hidden="true">03</span><h3>Shopping without seeing</h3><p>Without knowing what is at home, it is easy to buy things twice or forget what is missing.</p></li>
+      <li data-reveal><span class="card-no" aria-hidden="true">04</span><h3>Nowhere for spare food to go</h3><p>Sealed food a family will not finish often ends up in the bin instead of with people who need it.</p></li>
+    </ul>
+  </section>
+
+  <section class="chapter persona" aria-labelledby="persona-title">
+    <p class="chapter-no" data-reveal>02 · Who it's for</p>
+    <h2 id="persona-title" data-reveal>Meet <em>Maria.</em></h2>
+    <div class="persona-card" data-reveal>
+      <div class="persona-who">
+        <img class="persona-avatar" src="maria.svg" alt="" width="88" height="88">
+        <div><p class="persona-name">Maria Paige</p><p class="persona-meta">38 · Full-time housewife · Mom of 3 · London</p></div>
+      </div>
+      <blockquote>"If I can see what I need, what I have, and get it delivered, that would change everything."</blockquote>
+      <div class="persona-goals">
+        <p>Goals and needs</p>
+        <ul>
+          <li>Organise and track fridge items</li>
+          <li>Reduce food waste</li>
+          <li>Find cooking ideas from what's available</li>
+          <li>Cut the budget and find affordable products</li>
+          <li>Track deliveries in real time</li>
+          <li>Help others in need</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter helps" aria-labelledby="helps-title">
+    <p class="chapter-no" data-reveal>03 · How Kitchin helps</p>
+    <h2 id="helps-title" data-reveal>Three habits, <em>one app.</em></h2>
+
+    <article class="feature">
+      <div class="feature-media" data-reveal><img src="screens/charity-fridge.png" alt="Charity screen listing fridge items expiring soon: Greek yogurt in 1 day, milk in 3 days, crackers in 6 days" width="412" height="917" loading="lazy"></div>
+      <div class="feature-text">
+        <h3 data-reveal>Know what's about to expire</h3>
+        <p data-reveal>Connect your smart fridge by scanning its QR code. Every item is tracked by name, category and expiry date, and anything new can be added by scanning its barcode or typing it in. Items close to their date are flagged, so nothing gets forgotten.</p>
+        <ul class="k-principles" data-reveal>
+          <li><b>Error prevention</b>Set fields for name, category, expiry date and quantity cut down on mistakes.</li>
+          <li><b>Recognition over recall</b>Scanning, product photos and category filters mean people recognise items instead of remembering them.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="feature feature-flip">
+      <div class="feature-media feature-media-pair" data-reveal>
+        <img src="screens/recipes.png" alt="Recipes screen with cuisine and difficulty filters and recommendations" width="412" height="917" loading="lazy">
+        <img src="screens/ingredients.png" alt="Arrabbiata Penne recipe showing available ingredients and one missing item" width="412" height="917" loading="lazy">
+      </div>
+      <div class="feature-text">
+        <h3 data-reveal>Cook with what you already have</h3>
+        <p data-reveal>Recipes are recommended from the ingredients in your fridge. Filter by cuisine and difficulty, then see at a glance which ingredients you have and which are missing, with clear cooking steps to follow.</p>
+        <ul class="k-principles" data-reveal>
+          <li><b>Match with the real world</b>Familiar food categories, cuisines and photos make choosing a dish feel natural.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="feature">
+      <div class="feature-media feature-media-pair" data-reveal>
+        <img src="screens/charity-foodbank.png" alt="Donating fridge items to Hope FoodBank, with delivery options" width="412" height="917" loading="lazy">
+        <img src="screens/charity-orphanage.png" alt="Hope Orphanage page listing needed items to buy and donate" width="412" height="917" loading="lazy">
+      </div>
+      <div class="feature-text">
+        <h3 data-reveal>Give it to someone who needs it</h3>
+        <p data-reveal>Tap <b>From Fridge</b> to donate sealed food to the nearest food bank. Tap <b>Browse Items</b> to buy what a food bank or orphanage needs most. At checkout, <b>Round up to donate</b> turns small change into a donation.</p>
+        <ul class="k-principles" data-reveal>
+          <li><b>Consistency</b>Buttons share the same shapes and colours across the flow.</li>
+          <li><b>Efficiency</b>Donating follows one short, simple path.</li>
+          <li><b>Feedback</b>The next screen confirms the chosen items, so people know it worked.</li>
+        </ul>
+      </div>
+    </article>
+
+  </section>
+
+  <section class="chapter testing" aria-labelledby="testing-title">
+    <p class="chapter-no" data-reveal>04 · Testing it</p>
+    <h2 id="testing-title" data-reveal>Putting it in <em>people's hands.</em></h2>
+    <div class="testing-grid">
+      <div class="method" data-reveal>
+        <h3>How I tested</h3>
+        <dl>
+          <div><dt>Participants</dt><dd>24 Digital Media Technology and Software Engineering students</dd></div>
+          <div><dt>Age</dt><dd>18 to 23</dd></div>
+          <div><dt>Study</dt><dd>Quantitative, using the System Usability Scale (SUS)</dd></div>
+          <div><dt>Setup</dt><dd>Laptop, phone or tablet, consent form, Figma prototype and Google Forms questionnaire</dd></div>
+        </dl>
+        <ol class="procedure">
+          <li>UI design review</li>
+          <li>Prototype testing</li>
+          <li>Questionnaire &amp; feedback</li>
+        </ol>
+        <p class="tasks-title">Tasks people completed</p>
+        <ul class="tasks">
+          <li>Connect a smart fridge to the app</li>
+          <li>Buy groceries, from browsing to checkout and delivery tracking</li>
+          <li>Donate expiring food, or round up a bill for charity</li>
+          <li>Edit their profile</li>
+        </ul>
+      </div>
+      <div class="result" data-reveal>
+        <p class="result-label">Overall usability score</p>
+        <p class="score"><span class="score-value" data-target="85.4">85.4</span><span class="score-max">/ 100</span></p>
+        <p class="result-note">Excellent usability with high satisfaction. The usual SUS average is around 68.</p>
+        <figure class="bars" aria-label="Participants by SUS score: 3 below 60, 1 from 60 to 70, 4 from 70 to 80, 7 from 80 to 90, 9 above 90">
+          <div style="--n:3"><span>3</span><i></i><small>&lt;60</small></div>
+          <div style="--n:1"><span>1</span><i></i><small>60–70</small></div>
+          <div style="--n:4"><span>4</span><i></i><small>70–80</small></div>
+          <div style="--n:7"><span>7</span><i></i><small>80–90</small></div>
+          <div style="--n:9"><span>9</span><i></i><small>&gt;90</small></div>
+          <figcaption>Participants by score</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-end" aria-labelledby="end-title">
+    <div class="case-glow" aria-hidden="true"></div>
+    <h2 id="end-title" data-reveal>Try it <em>yourself.</em></h2>
+    <p data-reveal>Click through the full prototype, from the welcome screen to every connected flow.</p>
+    <div class="case-actions" data-reveal>
+      <a class="button button-dark" href="https://www.figma.com/proto/Q5gTXsWb1tPzoU5ZLWw5bB/HCI-Prototype?node-id=0-1&amp;starting-point-node-id=149%3A87&amp;scaling=scale-down" target="_blank" rel="noopener">Open the Figma prototype ↗</a>
+      <a class="button button-ghost" href="research-poster.png" target="_blank" rel="noopener">See the research poster</a>
+    </div>
+    <a class="back-link" href="../../index.html#work" data-reveal><span aria-hidden="true">←</span> Back to all projects</a>
+  </section>
+</main>
+
+<footer class="footer">
+  <p class="footer-name">Jocelyne</p>
+  <nav aria-label="Social"><a href="#">LinkedIn</a><a href="#">Dribbble</a><a href="#">Behance</a></nav>
+  <p class="footer-note">© 2026 Jocelyne</p>
+</footer>
+
+<script src="../../vendor/lenis.min.js"></script>
+<script src="kitchin.js"></script>
 </body>
 </html>

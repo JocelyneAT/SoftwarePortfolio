@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://api.fontshare.com">
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=chillax@400,500,600&display=swap">
-<link rel="stylesheet" href="style.css?v=20261102">
+<link rel="stylesheet" href="style.css?v=20261102-show">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -67,6 +67,100 @@
     </ul>
   </section>
 
+  <!-- The left side stays put while the timeline scrolls past; the year rolls to match the entry in the middle. -->
+  <section class="journey" id="journey" aria-labelledby="journey-title">
+    <div class="journey-side">
+      <h2 id="journey-title" data-reveal>Education &amp; <em>experience</em></h2>
+      <div class="journey-clock" aria-hidden="true">
+        <div class="journey-year"></div>
+        <p class="journey-when"></p>
+        <div class="journey-meter"><b class="journey-count">01</b><span class="journey-of"></span><i><u></u></i></div>
+      </div>
+    </div>
+    <div class="journey-line">
+      <span class="journey-rail" aria-hidden="true"><span class="journey-tail"></span></span>
+      <span class="journey-dot" aria-hidden="true"></span>
+      <ol class="journey-list">
+        <li class="stop" data-year="2020">
+          <p class="stop-date"><b>Education</b><span>Jul 2020 — Jul 2023</span></p>
+          <h3>Natural Science</h3>
+          <p class="stop-org">SMA Karangturi · Grade 94 / 100</p>
+          <ul>
+            <li>Top 5 highest overall score, and a member of the Student Council.</li>
+          </ul>
+        </li>
+        <li class="stop" data-year="2023">
+          <p class="stop-date"><b>Education</b><span>2023 — 2027</span></p>
+          <h3>Bachelor of Engineering, Digital Media Technology</h3>
+          <p class="stop-org">Xiamen University Malaysia · Grade 3.93 / 4.00</p>
+          <ul>
+            <li>100% International Student Merit Scholarship.</li>
+            <li>Top CGPA in Digital Media Technology, and on the Dean's List every semester.</li>
+          </ul>
+        </li>
+        <li class="stop" data-year="2024">
+          <p class="stop-date"><b>Experience</b><span>Jul 2024 — Jul 2025</span></p>
+          <h3>Director of Club Service</h3>
+          <p class="stop-org">Rotaract Club of Xiamen University Malaysia</p>
+          <ul>
+            <li>Led fellowship activities that built strong connections among members.</li>
+            <li>Organizing Chairperson of 4 events, including Find the Lost Star and Mystique Under the Moon.</li>
+          </ul>
+        </li>
+        <li class="stop" data-year="2024">
+          <p class="stop-date"><b>Experience</b><span>Oct 2024 — Nov 2024</span></p>
+          <h3>Student Helper, Career Services</h3>
+          <p class="stop-org">Xiamen University Malaysia · Part-time</p>
+        </li>
+        <li class="stop" data-year="2024">
+          <p class="stop-date"><b>Experience</b><span>Dec 2024 — Apr 2025</span></p>
+          <h3>Public Relations, Encore Orientation 2025</h3>
+          <p class="stop-org">Xiamen University Malaysia Student Council</p>
+          <ul>
+            <li>Handled publicity, marketing and sponsorship coordination.</li>
+          </ul>
+        </li>
+        <li class="stop" data-year="2025">
+          <p class="stop-date"><b>Experience</b><span>Mar 2025 — Mar 2026</span></p>
+          <h3>Head of the Help Center</h3>
+          <p class="stop-org">PPI Malaysia · Data &amp; Information Systems</p>
+          <ul>
+            <li>Managed and answered inquiries through Instagram and WhatsApp.</li>
+            <li>Guided Indonesian students on scholarships, visas, universities and student life in Malaysia.</li>
+          </ul>
+        </li>
+        <li class="stop" data-year="2025">
+          <p class="stop-date"><b>Experience</b><span>Jun 2025 — Nov 2025</span></p>
+          <h3>Head of Technical Team, D'Pickleball</h3>
+          <p class="stop-org">XMUM Artificial Intelligence Club (MINDS)</p>
+          <ul>
+            <li>Led the technical team of a digital pickleball competition, across AI, HCI and BCI.</li>
+            <li>Developed game environments and gameplay logic in the Unity team.</li>
+          </ul>
+        </li>
+        <li class="stop" data-year="2025">
+          <p class="stop-date"><b>Experience</b><span>Jul 2025 — Jul 2026</span></p>
+          <h3>Director of Community Services</h3>
+          <p class="stop-org">Rotaract Club of Xiamen University Malaysia</p>
+          <ul>
+            <li>Led the Community Service Avenue, creating events aligned with Rotary's 7 Areas of Focus.</li>
+            <li>Organizing Chairperson of Harmony Hour 2.0.</li>
+          </ul>
+        </li>
+        <li class="stop" data-year="2026">
+          <p class="stop-date"><b>Experience</b><span>10 Oct 2026 — 11 Oct 2026</span></p>
+          <h3>Student Helper, Convocation Ceremonies</h3>
+          <p class="stop-org">Xiamen University Malaysia</p>
+        </li>
+        <li class="stop" data-year="2026">
+          <p class="stop-date"><b>Experience</b><span>Mar 2025 — Present</span></p>
+          <h3>Student Helper, Administrative Office</h3>
+          <p class="stop-org">Xiamen University Malaysia · Part-time</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <section class="skills" id="skills" aria-labelledby="skills-title">
     <div class="gift-glow" aria-hidden="true"></div>
     <div class="skills-head">
@@ -103,50 +197,63 @@
   </section>
 
   <section class="work" id="work" aria-labelledby="work-title">
-    <div class="work-head">
-      <h2 id="work-title" data-reveal>Featured <em>projects</em></h2>
-      <div class="filters" role="group" aria-label="Filter projects" data-reveal>
-        <button type="button" aria-pressed="true" data-filter="all">All</button>
-        <button type="button" aria-pressed="false" data-filter="app">Mobile apps</button>
-        <button type="button" aria-pressed="false" data-filter="web">Websites</button>
-      </div>
-    </div>
-    <div class="projects">
-      <a class="project" href="projects/kitchin/" data-kind="app" data-reveal style="--tint:#e6f2e2">
-        <div class="mock phone"><div class="screen"><img src="projects/kitchin/screens/home.png" alt="" loading="lazy"></div></div>
+    <h2 id="work-title" data-reveal>Featured <em>projects</em></h2>
+    <div class="show">
+      <a class="show-item show-app" href="projects/kitchin/" data-reveal style="--tint:#e6f2e2">
+        <div class="show-panel" aria-hidden="true"><span class="device-phone"><img src="projects/kitchin/screens/home.png" alt="" loading="lazy"></span></div>
         <h3>Kitchin</h3>
         <p>Mobile app · Smart fridge companion that cuts food waste</p>
       </a>
-      <a class="project" href="projects/bestrate/" data-kind="app" data-reveal style="--tint:#e3f1ec">
-        <div class="mock"><img src="projects/bestrate/screens/home.jpg" alt="BestRate currency comparison app" loading="lazy" style="width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply"></div>
+      <a class="show-item show-app" href="projects/bestrate/" data-reveal style="--tint:#e3f1ec">
+        <div class="show-panel" aria-hidden="true"><span class="device-phone"><img src="projects/bestrate/screens/home-app.webp" alt="" loading="lazy"></span></div>
         <h3>BestRate</h3>
         <p>Mobile app · Compare exchange rates, fees and target-rate alerts</p>
       </a>
-      <a class="project" href="projects/codu/" data-kind="app" data-reveal style="--tint:#e4f3fb">
-        <div class="mock"><img src="projects/codu/screens/home.png" alt="Codu coding-learning app" loading="lazy" style="width:100%;height:100%;object-fit:contain"></div>
+      <a class="show-item show-app" href="projects/codu/" data-reveal style="--tint:#e4f3fb">
+        <div class="show-panel" aria-hidden="true"><span class="device-phone"><img src="projects/codu/screens/home-app.webp" alt="" loading="lazy"></span></div>
         <h3>Codu</h3>
         <p>Mobile app · Learn to code through levels, rewards and quiz duels</p>
       </a>
-      <a class="project" href="projects/fivepawns/" data-kind="web" data-reveal style="--tint:#e8e8e1">
-        <div class="mock browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><div class="screen"><img src="projects/fivepawns/screens/home.png" alt="FivePawns business website" loading="lazy"></div></div>
+      <a class="show-item show-web" href="projects/fivepawns/" data-reveal style="--tint:#fde4ea">
+        <div class="show-panel" aria-hidden="true">
+          <span class="device-pc"><span class="device-pc-screen"><img src="projects/fivepawns/screens/home.png" alt="" loading="lazy"></span></span>
+          <span class="device-phone device-phone-side"><img src="projects/fivepawns/screens/home-mobile.png" alt="" loading="lazy"></span>
+        </div>
         <h3>FivePawns</h3>
-        <p>Business website · Table booking and a mahjong score calculator</p>
+        <p>Website and mobile, one package · Table booking and a mahjong score calculator</p>
       </a>
-      <article class="project" data-kind="web" data-reveal style="--tint:#e3f1ec">
-        <div class="mock browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><div class="screen"><img src="assets/work/travel.webp" alt="" onerror="this.remove()"><i class="ui ui-hero"></i><i class="ui ui-cards"></i></div></div>
-        <h3>Travel agency website</h3>
-        <p>Website · Information architecture, UI design</p>
-      </article>
-      <article class="project" data-kind="web" data-reveal style="--tint:#ece7fb">
-        <div class="mock browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><div class="screen"><img src="assets/work/bakery.webp" alt="" onerror="this.remove()"><i class="ui ui-hero"></i><i class="ui ui-cards"></i></div></div>
-        <h3>Bakery online store</h3>
-        <p>Website · E-commerce flow, design system</p>
-      </article>
-      <article class="project" data-kind="app" data-reveal style="--tint:#fdf0d8">
-        <div class="mock phone"><div class="screen"><img src="assets/work/cafe.webp" alt="" onerror="this.remove()"><i class="ui ui-head"></i><i class="ui ui-tile"></i><i class="ui ui-tile"></i><i class="ui ui-btn"></i></div></div>
-        <h3>Café ordering app</h3>
-        <p>Mobile app · User flows, usability testing</p>
-      </article>
+      <div class="show-item show-web" data-reveal style="--tint:#ece7fb">
+        <div class="show-panel" aria-hidden="true">
+          <span class="device-pc"><span class="device-pc-screen device-pc-empty">Coming soon</span></span>
+        </div>
+        <h3>Next website</h3>
+        <p>In progress</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="awards" id="achievements" aria-labelledby="awards-title">
+    <h2 id="awards-title" data-reveal>Achievements <em>so far</em></h2>
+    <div class="awards-body">
+      <!-- The list carries the words and the controls, so the pictures are decoration for screen readers. -->
+      <div class="awards-deck" data-reveal aria-hidden="true">
+        <div class="award award-wide"><img src="assets/awards/deans-2025-09.webp" alt="" loading="lazy"></div>
+        <div class="award award-tall"><img src="assets/awards/top-cgpa.webp" alt="" loading="lazy"></div>
+        <div class="award award-wide"><img src="assets/awards/deans-2025-04.webp" alt="" loading="lazy"></div>
+        <div class="award award-tall"><img src="assets/awards/popular-booth.webp" alt="" loading="lazy"></div>
+        <div class="award award-tall"><img src="assets/awards/sea-vagabond.webp" alt="" loading="lazy"></div>
+        <div class="award award-tall"><img src="assets/awards/code-eternis.webp" alt="" loading="lazy"></div>
+        <div class="award award-wide"><img src="assets/awards/deans-2024-09.webp" alt="" loading="lazy"></div>
+      </div>
+      <ol class="awards-list" aria-label="Awards and honours">
+        <li><button type="button" aria-pressed="true"><span class="award-date">May 2026</span><span class="award-name">Dean's List, 2025/09 semester</span><span class="award-note">GPA 3.81</span></button></li>
+        <li><button type="button" aria-pressed="false"><span class="award-date">Apr 2026</span><span class="award-name">Top CGPA Achiever</span><span class="award-note">Highest CGPA in Digital Media Technology, September 2025 semester</span></button></li>
+        <li><button type="button" aria-pressed="false"><span class="award-date">Nov 2025</span><span class="award-name">Dean's List, 2025/04 semester</span><span class="award-note">GPA 3.95</span></button></li>
+        <li><button type="button" aria-pressed="false"><span class="award-date">Oct 2025</span><span class="award-name">1st Prize, Most Popular Booth</span><span class="award-note">Code Eternis at the RenDify DMT Student Showcase 2025, with the most votes from participants, lecturers and industry visitors</span></button></li>
+        <li><button type="button" aria-pressed="false"><span class="award-date">Sep 2025</span><span class="award-name">Best Creative Third-Person Action-Adventure Game</span><span class="award-note">Sea Vagabond, Unity 3D, team of 6, at EGDAD-XMUM 2025</span></button></li>
+        <li><button type="button" aria-pressed="false"><span class="award-date">Aug 2025</span><span class="award-name">1st Place, Best Advanced and Creative 3D FPS Adventure Game</span><span class="award-note">Code Eternis, Unity 3D, team of 5, at GD-XMUM 2025</span></button></li>
+        <li><button type="button" aria-pressed="false"><span class="award-date">Mar 2025</span><span class="award-name">Dean's List, 2024/09 semester</span><span class="award-note">GPA 3.81</span></button></li>
+      </ol>
     </div>
   </section>
 
@@ -180,7 +287,7 @@
 </footer>
 
 <script src="vendor/lenis.min.js"></script>
-<script src="script.js?v=20261102"></script>
+<script src="script.js?v=20261102-show"></script>
 <script src="hero-interaction.js?v=20261102"></script>
 </body>
 </html>

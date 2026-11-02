@@ -35,7 +35,10 @@
     { img: 'badge', title: 'Collect rewards', text: 'Reach a milestone and unlock a new badge.', tap: [433, 1253] },
     { img: 'matched', title: 'Find a rival', text: 'Matchmaking pairs you with a player on similar trophies.' },
     { img: 'battle', title: 'Duel in real time', text: 'Solve the same code question and race for points.', tap: [169, 1492] },
-    { img: 'ranks', title: 'Climb the leaderboard', text: 'Wins earn trophies that count on global and friends rankings.', tap: [130, 1789] },
+    { img: 'ranks', title: 'Climb the leaderboard', text: 'Wins earn trophies that count on global and friends rankings.', tap: [769, 1800] },
+    { img: 'profile', title: 'Track your progress', text: 'See your streak, trophies and badges in one place.', tap: [120, 1805] },
+    { img: 'home-app', title: 'Ask for help any time', text: 'Tap the mascot on the home screen to open the chatbot.', tap: [609, 215] },
+    { img: 'chatbot', title: 'Get answers fast', text: 'Type a question, or pick a common one with a single tap.', tap: [90, 78] },
   ];
   const STEP = 3300;
   const demo = document.querySelector('.demo');
@@ -119,4 +122,76 @@
   if (calm) { pause.hidden = true; screen.classList.remove('is-live'); }
   new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; visible ? schedule() : clear(); }, { threshold: .35 }).observe(demo);
   show(0); place([435, 1450]);
+
+  // Mini walkthroughs. Tap points are in the images' own 440 x 892 pixels; a step without one just rests.
+  const flows = {
+    signin: [
+      { img: 'login', cap: 'Create an account', tap: [300, 252] },
+      { img: 'register', cap: 'Fill in your details', tap: [220, 680] },
+      { img: 'verify', cap: 'Verify your email', tap: [220, 732] },
+      { img: 'character', cap: 'Pick your character', tap: [154, 332] },
+      { img: 'home', cap: 'Ready to learn' },
+    ],
+    friends: [
+      { img: 'profile', cap: 'See your profile', tap: [220, 404] },
+      { img: 'friend-list', cap: 'Check your friend list', tap: [361, 223] },
+      { img: 'add-friend', cap: 'Add someone new', tap: [128, 504] },
+    ],
+  };
+  document.querySelectorAll('.mini-box').forEach(box => {
+    const walk = box.querySelector('.mini-walk'), flow = flows[walk.dataset.flow];
+    const shown = walk.querySelector('.mw-current'), incoming = walk.querySelector('.mw-next');
+    const hand = walk.querySelector('.finger'), ripple = walk.querySelector('.tap');
+    const caption = box.querySelector('.mw-caption'), toggle = box.querySelector('.mw-pause');
+    let at = 0, later = [], stopped = calm, inView = false;
+    flow.forEach(s => { new Image().src = `ui/${s.img}.webp`; });
+    const point = ([x, y]) => {
+      walk.style.setProperty('--fx', `${(x / 440 * walk.clientWidth).toFixed(1)}px`);
+      walk.style.setProperty('--fy', `${(y / 892 * walk.clientHeight).toFixed(1)}px`);
+    };
+    const advance = () => {
+      at = (at + 1) % flow.length;
+      const src = `ui/${flow[at].img}.webp`, was = at;
+      caption.textContent = flow[at].cap;
+      incoming.src = src;
+      const fade = () => {
+        walk.classList.add('is-fading');
+        setTimeout(() => {
+          if (was !== at) return;
+          shown.src = src;
+          shown.decode().catch(() => {}).then(() => walk.classList.remove('is-fading'));
+        }, 620);
+      };
+      incoming.decode().then(fade, fade);
+      play();
+    };
+    function play() {
+      later.forEach(clearTimeout); later = [];
+      if (stopped || !inView) return;
+      const s = flow[at];
+      if (!s.tap) { later.push(setTimeout(advance, 2400)); return; }
+      const [x, y] = s.tap;
+      later.push(setTimeout(() => {
+        hand.classList.add('no-glide');
+        point([Math.min(400, x + 50), y > 700 ? y - 90 : y + 90]);
+        void hand.offsetWidth;
+        hand.classList.remove('no-glide');
+        walk.classList.add('is-live');
+      }, 500));
+      later.push(setTimeout(() => point(s.tap), 700));
+      later.push(setTimeout(() => { hand.classList.add('is-pressing'); ripple.classList.remove('is-on'); void ripple.offsetWidth; ripple.classList.add('is-on'); }, 2150));
+      later.push(setTimeout(() => hand.classList.remove('is-pressing'), 2450));
+      later.push(setTimeout(() => walk.classList.remove('is-live'), 2950));
+      later.push(setTimeout(advance, 3300));
+    }
+    toggle.addEventListener('click', () => {
+      stopped = !stopped;
+      toggle.textContent = stopped ? 'Play' : 'Pause';
+      toggle.setAttribute('aria-pressed', String(stopped));
+      walk.classList.remove('is-live');
+      play();
+    });
+    if (calm) toggle.hidden = true;
+    new IntersectionObserver(([entry]) => { inView = entry.isIntersecting; play(); }, { threshold: .35 }).observe(walk);
+  });
 })();

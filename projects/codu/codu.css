@@ -41,6 +41,16 @@
 .finger.no-glide { transition: opacity .3s; }
 .finger.is-pressing::before { scale: .72; background: rgb(244 167 185 / 85%); }
 
+/* Mini walkthroughs: same pointer and crossfade, using the phone-framed exports. */
+.mini-box { display: grid; justify-items: center; gap: 12px; width: 100%; margin: 0; }
+.mini-walk { position: relative; width: min(270px, 100%); aspect-ratio: 440 / 892; }
+.feature-media .mini-walk img { position: absolute; inset: 0; width: 100%; height: 100%; box-shadow: none; transform: none; }
+.mw-next { opacity: 0; }
+.mini-walk.is-fading .mw-next { opacity: 1; transition: opacity .6s ease-in-out; }
+.mini-walk.is-live .finger { opacity: 1; }
+.mw-caption { font-weight: 500; text-align: center; }
+.mw-pause { margin-top: 0; }
+
 /* Hero */
 .case-hero { position: relative; display: grid; justify-items: center; padding-top: 120px; text-align: center; isolation: isolate; }
 .case-name { display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; font: 600 26px/1 var(--display); letter-spacing: -.03em; }
@@ -106,6 +116,17 @@
 .contribution { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 56px; align-items: start; }
 .contribution > .chapter-no { grid-column: 1 / -1; }
 .contribution .k-principles { margin-top: 0; }
-.feature-media img { border-radius: 12% / 6%; }
 @media (min-width: 600px) and (max-width: 860px) { .case-hero h1 { font-size: 46px; } }
 @media (max-width: 860px) { .contribution { grid-template-columns: 1fr; } }
+
+/* Phone-framed exports have a transparent background, so they sit straight on the page. */
+.feature-media { background: radial-gradient(circle at 50% 40%, var(--accent-soft), transparent 70%); border: 0; box-shadow: none; }
+.feature-media img { border-radius: 0; box-shadow: none; filter: drop-shadow(0 14px 22px rgb(150 60 90 / 16%)); }
+.feature-media-pair img:last-child { translate: 0 20px; }
+.feature-media-trio { gap: 10px; }
+.feature-media-trio img { width: min(170px, 32%); }
+.phone-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(10px, 2vw, 24px); margin-top: 40px; }
+.phone-row img { width: 100%; height: auto; filter: drop-shadow(0 14px 22px rgb(150 60 90 / 16%)); }
+@media (max-width: 860px) {
+  .phone-row { grid-template-columns: repeat(2, 1fr); }
+}

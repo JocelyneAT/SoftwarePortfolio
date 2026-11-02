@@ -6,7 +6,7 @@
 <meta name="description" content="Codu is a gamified coding-learning Android app with progressive lessons, quiz duels and social features. A team project for Mobile App System Design.">
 <link rel="preconnect" href="https://api.fontshare.com"><link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=chillax@400,500,600&display=swap">
-<link rel="stylesheet" href="../../style.css?v=20261102"><link rel="stylesheet" href="codu.css?v=20261102-motion">
+<link rel="stylesheet" href="../../style.css?v=20261102"><link rel="stylesheet" href="codu.css?v=20261102-features">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -15,7 +15,7 @@
   <section class="case-hero" aria-labelledby="title">
     <div class="case-glow" aria-hidden="true"></div>
     <a class="back-link" href="../../index.html#work"><span aria-hidden="true">←</span> All projects</a>
-    <p class="case-name" data-reveal>Codu</p>
+    <p class="case-name" data-reveal><img class="case-mark" src="codu-logo.png" alt="" width="40" height="40">Codu</p>
     <p class="case-label" data-reveal>Android app · Gamified coding education</p>
     <h1 id="title" data-reveal>Learn to code.<br><em>Play to progress.</em></h1>
     <p class="case-intro" data-reveal>A beginner-friendly coding app that turns practice into levels, rewards and quiz duels. Learn Python, C++, JavaScript or Java, then put your skills to the test against a friend.</p>
@@ -39,61 +39,81 @@
     </div>
   </section>
 
-  <section class="chapter problem" aria-labelledby="problem-title">
-    <p class="chapter-no" data-reveal>01 · The design challenge</p>
-    <h2 id="problem-title" data-reveal>Start small.<br><em>Build confidence.</em></h2>
-    <p class="chapter-lead" data-reveal>Codu was designed to make programming feel approachable for new learners. The challenge was to turn learning, practice and progress into a connected experience that people would want to return to.</p>
+  <section class="chapter problem" aria-labelledby="why-title">
+    <p class="chapter-no" data-reveal>01 · Why Codu</p>
+    <h2 id="why-title" data-reveal>Coding is hard.<br><em>Games help.</em></h2>
+    <p class="chapter-lead" data-reveal>Learning to code can feel intimidating: unfamiliar words, no clear next step, and little sense of progress. Gamified learning has become popular because levels, streaks and rewards turn practice into something you want to come back to. Codu brings that to programming, and adds real-time duels so you can test what you've learned against someone else.</p>
     <ul class="problem-cards">
-      <li data-reveal><span class="card-no" aria-hidden="true">01</span><h3>Where do I begin?</h3><p>Beginners need a clear starting point and a path that builds difficulty gradually.</p></li>
-      <li data-reveal><span class="card-no" aria-hidden="true">02</span><h3>Practice needs a purpose</h3><p>Each question should contribute to a visible goal, with progress beyond a completed exercise.</p></li>
-      <li data-reveal><span class="card-no" aria-hidden="true">03</span><h3>Mistakes need feedback</h3><p>Correct answers, wrong attempts and level results need to communicate what happened.</p></li>
-      <li data-reveal><span class="card-no" aria-hidden="true">04</span><h3>Learning can be social</h3><p>Friends, challenges and shared rankings give learners another reason to practise.</p></li>
+      <li data-reveal><span class="card-no" aria-hidden="true">01</span><h3>Gamified learning</h3><p>Levels, hearts, stars and streaks make every lesson feel like a game, not homework.</p></li>
+      <li data-reveal><span class="card-no" aria-hidden="true">02</span><h3>Duel mode</h3><p>Compete in real-time programming quizzes, with points based on speed and accuracy.</p></li>
+      <li data-reveal><span class="card-no" aria-hidden="true">03</span><h3>Beginner friendly</h3><p>Simple lessons in Python, C++, JavaScript and Java, with difficulty that rises fairly.</p></li>
+      <li data-reveal><span class="card-no" aria-hidden="true">04</span><h3>Better with friends</h3><p>Add friends, challenge them and compare trophies on the leaderboard.</p></li>
     </ul>
   </section>
 
-  <section class="chapter helps" aria-labelledby="learning-title">
-    <p class="chapter-no" data-reveal>02 · Learning through play</p>
-    <h2 id="learning-title" data-reveal>Small lessons.<br><em>Visible progress.</em></h2>
+  <section class="chapter helps" aria-labelledby="start-title">
+    <p class="chapter-no" data-reveal>02 · Getting started</p>
+    <h2 id="start-title" data-reveal>From sign-up<br><em>to first lesson.</em></h2>
     <article class="feature">
-      <div class="feature-media feature-media-pair" data-reveal><img src="screens/home.png" alt="Codu home showing programming subjects and course completion history" width="417" height="877" loading="lazy"><img src="screens/levels.png" alt="A winding learning path with completed, current and locked levels" width="402" height="887" loading="lazy"></div>
-      <div class="feature-text"><h3 data-reveal>Follow a path, one level at a time</h3><p data-reveal>Choose from Python, C++, JavaScript and Java. Short interactive questions increase in difficulty, with a coding assessment every five levels that asks learners to write code from scratch.</p><ul class="k-principles" data-reveal><li><b>Clear progression</b>The level path distinguishes completed stages, the next challenge and locked content.</li><li><b>Recognition over recall</b>Subject cards and learning history make it easy to find a course and see where to continue.</li></ul></div>
+      <div class="feature-media" data-reveal><figure class="mini-box" data-reveal><div class="mini-walk" data-flow="signin" aria-hidden="true"><img class="mw-current" src="ui/login.webp" alt="" width="440" height="892"><img class="mw-next" alt="" width="440" height="892"><span class="finger"></span><span class="tap"></span></div><figcaption class="mw-caption">Create an account</figcaption><button class="demo-pause mw-pause" type="button" aria-pressed="false">Pause</button></figure></div>
+      <div class="feature-text"><h3 data-reveal>Join in a few taps</h3><p data-reveal>Register with an email address, or use a Google or Facebook account. A 6-digit code verifies the email, then you choose the character that represents you. Forgot your password? The app emails a link to reset it.</p></div>
+    </article>
+  </section>
+
+  <section class="chapter helps" aria-labelledby="mascot-title">
+    <p class="chapter-no" data-reveal>03 · The mascot</p>
+    <h2 id="mascot-title" data-reveal>A friendly face<br><em>at every step.</em></h2>
+    <article class="feature feature-flip">
+      <div class="feature-media feature-media-trio" data-reveal><img src="ui/forgot.webp" alt="The mascot reassuring a user on the forgot password screen" width="440" height="892" loading="lazy"><img src="ui/home.webp" alt="The mascot offering help on the home screen" width="440" height="892" loading="lazy"><img src="ui/lose.webp" alt="The mascot as a 404 screen when a level is lost" width="440" height="892" loading="lazy"></div>
+      <div class="feature-text"><h3 data-reveal>Keeps it warm, not intimidating</h3><p data-reveal>A little robot makes Codu feel welcoming for beginners. It says welcome back when you log in, reassures you when you forget your password, offers help on the home screen, and turns a lost level into a playful 404 instead of a harsh failure.</p></div>
+    </article>
+  </section>
+
+  <section class="chapter helps" aria-labelledby="learn-title">
+    <p class="chapter-no" data-reveal>04 · Learning</p>
+    <h2 id="learn-title" data-reveal>Small lessons.<br><em>Visible progress.</em></h2>
+    <article class="feature">
+      <div class="feature-media feature-media-pair" data-reveal><img src="ui/home.webp" alt="Home screen with subjects and learning history" width="440" height="892" loading="lazy"><img src="ui/levels.webp" alt="Winding level path with stars and locked levels" width="440" height="892" loading="lazy"></div>
+      <div class="feature-text"><h3 data-reveal>Follow a path, one level at a time</h3><p data-reveal>Pick a language on the home screen, then work along a path that shows your progress and the stars you've earned. An assessment every 5 levels asks you to write code from scratch.</p></div>
     </article>
     <article class="feature feature-flip">
-      <div class="feature-media" data-reveal><img src="screens/leaderboard.png" alt="Codu leaderboard with Global and Friends tabs, trophy totals and a podium" width="403" height="881" loading="lazy"></div>
-      <div class="feature-text"><h3 data-reveal>Make effort visible</h3><p data-reveal>In learning levels, wrong answers cost a heart. Remaining hearts determine the stars earned on completion, while losing all hearts ends the attempt. A daily streak rewards completing a level, and hidden missions unlock badges.</p><ul class="k-principles" data-reveal><li><b>Immediate feedback</b>Hearts, stars and distinct win or lose screens communicate the result of an attempt.</li><li><b>Different rewards, different goals</b>Stars reflect level performance, streaks track daily practice, and trophies support competitive rankings.</li></ul></div>
+      <div class="feature-media feature-media-pair" data-reveal><img src="ui/lesson.webp" alt="Lesson question: arrange code blocks to print Hello, World" width="440" height="892" loading="lazy"><img src="ui/wrong.webp" alt="Wrong answer feedback, with the mascot and one heart lost" width="440" height="892" loading="lazy"></div>
+      <div class="feature-text"><h3 data-reveal>Practise with hearts on the line</h3><p data-reveal>Questions are short and interactive. A wrong answer costs a heart and shows what went wrong, and running out of hearts ends the attempt, so every answer counts.</p></div>
+    </article>
+    <article class="feature">
+      <div class="feature-media feature-media-pair" data-reveal><img src="ui/complete.webp" alt="Level complete screen with stars, streak and rewards" width="440" height="892" loading="lazy"><img src="ui/badge.webp" alt="New badge earned screen" width="440" height="892" loading="lazy"></div>
+      <div class="feature-text"><h3 data-reveal>Stars, streaks and badges</h3><p data-reveal>Finish a level to earn up to 3 stars, based on the hearts you have left. Completing a level each day builds your streak, and hidden missions unlock badges to collect on your profile.</p></div>
     </article>
   </section>
 
   <section class="chapter helps" aria-labelledby="duel-title">
-    <p class="chapter-no" data-reveal>03 · The duel mechanism</p>
+    <p class="chapter-no" data-reveal>05 · Duel mode</p>
     <h2 id="duel-title" data-reveal>Learn together.<br><em>Play to win.</em></h2>
-    <p class="chapter-lead" data-reveal>Duel Mode turns programming practice into a real-time quiz competition, with points based on speed and accuracy.</p>
+    <p class="chapter-lead" data-reveal>Choose a language and Codu finds an opponent with a similar number of trophies, or challenge a friend directly. Both players answer programming questions, and speed and accuracy decide the points.</p>
+    <div class="phone-row" data-reveal><img src="ui/match-select.webp" alt="Match selection with a chosen subject" width="440" height="892" loading="lazy"><img src="ui/match-found.webp" alt="Match found: two players with similar trophies" width="440" height="892" loading="lazy"><img src="ui/duel.webp" alt="Duel question with both players’ scores" width="440" height="892" loading="lazy"><img src="ui/battle-result.webp" alt="Battle result with trophies, time and accuracy" width="440" height="892" loading="lazy"></div>
+  </section>
+
+  <section class="chapter helps" aria-labelledby="social-title">
+    <p class="chapter-no" data-reveal>06 · Friends and support</p>
+    <h2 id="social-title" data-reveal>Better together.<br><em>Help on hand.</em></h2>
+    <article class="feature feature-flip">
+      <div class="feature-media" data-reveal><figure class="mini-box" data-reveal><div class="mini-walk" data-flow="friends" aria-hidden="true"><img class="mw-current" src="ui/profile.webp" alt="" width="440" height="892"><img class="mw-next" alt="" width="440" height="892"><span class="finger"></span><span class="tap"></span></div><figcaption class="mw-caption">See your profile</figcaption><button class="demo-pause mw-pause" type="button" aria-pressed="false">Pause</button></figure></div>
+      <div class="feature-text"><h3 data-reveal>Add friends, then challenge them</h3><p data-reveal>Your profile shows your streak, trophies and badges. Open your Friend List to see friends and challenge them to a duel, or tap Add to find someone new and send a request.</p></div>
+    </article>
     <article class="feature">
-      <div class="feature-media feature-media-pair" data-reveal><img src="screens/duel.png" alt="Match selection with a programming subject and Start Match button" width="403" height="881" loading="lazy"><img src="screens/match.png" alt="Matched players, their trophy counts, a start countdown and Cancel match action" width="403" height="881" loading="lazy"></div>
-      <div class="feature-text"><h3 data-reveal>Choose a subject. Find a rival.</h3><p data-reveal>Learners can challenge a friend or look for another player. After selecting a programming language, matchmaking looks for an opponent with a similar trophy count. The match-found screen introduces both players before the duel begins.</p><ul class="k-principles" data-reveal><li><b>Visible system status</b>The matching flow, player details and countdown make the transition into a battle understandable.</li><li><b>User control</b>A cancel action gives the learner a way out before the match starts.</li></ul></div>
+      <div class="feature-media" data-reveal><img src="ui/leaderboard.webp" alt="Leaderboard with podium, Global and Friends tabs" width="440" height="892" loading="lazy"></div>
+      <div class="feature-text"><h3 data-reveal>Climb the leaderboard</h3><p data-reveal>Winning duels earns trophies. Global and Friends leaderboards show who's on top, whether that's the whole app or just your group.</p></div>
     </article>
     <article class="feature feature-flip">
-      <div class="feature-media" data-reveal><img src="screens/question.png" alt="Codu duel showing both players' scores and a Python code-completion question" width="402" height="889" loading="lazy"></div>
-      <div class="feature-text"><h3 data-reveal>Put your coding skills into play</h3><p data-reveal>Both players compete in programming exercises, with their scores visible above the question. The winner earns trophies. Global and friends leaderboards extend the challenge beyond one match.</p><ul class="k-principles" data-reveal><li><b>Visual hierarchy</b>Player scores remain visible, while the question and answer choices hold the main focus.</li><li><b>Consistent structure</b>Familiar question panels, rounded controls and the same visual language connect learning and competition.</li></ul></div>
+      <div class="feature-media" data-reveal><img src="ui/chatbot.webp" alt="Help Center chatbot with frequently asked questions" width="440" height="892" loading="lazy"></div>
+      <div class="feature-text"><h3 data-reveal>A chatbot for quick help</h3><p data-reveal>In the Help Center, type a question or pick one from the FAQ list. The chatbot answers, so you can get unstuck and carry on.</p></div>
     </article>
   </section>
 
   <section class="chapter contribution" aria-labelledby="contribution-title">
-    <p class="chapter-no" data-reveal>04 · My contribution</p>
+    <p class="chapter-no" data-reveal>07 · My contribution</p>
     <div><h2 id="contribution-title" data-reveal>My part in<br><em>the project.</em></h2><p class="chapter-lead" data-reveal>I worked on the UI for character selection, the level path, level win and lose states, badge rewards, match found, duel battle, leaderboard, Add Friend and Help Center. I also wrote the UI Design and CRUD sections of our report.</p></div>
     <ul class="k-principles" data-reveal><li><b>A four-person team project</b>My teammates contributed authentication screens, home and profile screens, questions, settings, navigation implementation and Firebase setup. Add Friend UI was a shared contribution.</li><li><b>Welcoming, game-inspired UI</b>Friendly characters, colourful subjects and visible rewards carry the learning theme through the app.</li><li><b>Design and implementation</b>The interface was designed in Figma and developed as a Flutter app with Firebase-backed account and friend features.</li></ul>
-  </section>
-
-  <section class="chapter problem" aria-labelledby="social-title">
-    <p class="chapter-no" data-reveal>05 · Behind the social features</p>
-    <h2 id="social-title" data-reveal>Friends stay<br><em>in sync.</em></h2>
-    <p class="chapter-lead" data-reveal>The report documents Firebase Authentication, Cloud Firestore and local SharedPreferences storage. Related friend operations are grouped in batch writes so both users' records update together.</p>
-    <ul class="problem-cards">
-      <li data-reveal><span class="card-no" aria-hidden="true">01</span><h3>Update a username</h3><p>Save the display name locally for a quick update, then update Firebase Authentication.</p></li>
-      <li data-reveal><span class="card-no" aria-hidden="true">02</span><h3>Send and accept requests</h3><p>Create incoming and outgoing requests together. Accepting removes those requests and creates the friendship records.</p></li>
-      <li data-reveal><span class="card-no" aria-hidden="true">03</span><h3>Keep the list current</h3><p>Firestore snapshot listeners update the friends list when records change, without a manual refresh.</p></li>
-      <li data-reveal><span class="card-no" aria-hidden="true">04</span><h3>Remove a friendship</h3><p>A batch deletion removes each user from the other's friends list.</p></li>
-    </ul>
   </section>
 
   <section class="case-end" aria-labelledby="end-title">
@@ -105,6 +125,6 @@
   </section>
 </main>
 <footer class="footer"><p class="footer-name">Jocelyne</p><a class="back-link" href="../../index.html#contact">Get in touch ↗</a><p class="footer-note">© 2026 Jocelyne</p></footer>
-<script src="../../vendor/lenis.min.js"></script><script src="codu.js?v=20261102-motion"></script>
+<script src="../../vendor/lenis.min.js"></script><script src="codu.js?v=20261102-features"></script>
 </body>
 </html>

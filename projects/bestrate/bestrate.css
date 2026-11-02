@@ -14,11 +14,6 @@
 .feature-media-pair .b-screen:last-child { translate: 0 28px; }
 .feature-media-pair .b-screen img:last-child { translate: none; }
 .feature:hover .b-screen img { transform: none; }
-@media (min-width: 861px) {
-  .reflection { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 56px; align-items: center; }
-  .reflection .chapter-no { grid-column: 1 / -1; }
-  .reflection .chapter-lead { margin-top: 0; }
-}
 .case-hero, .case-end { overflow-x: clip; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .case-glow { position: absolute; z-index: -1; left: 50%; top: 40%; width: min(1100px, 130vw); height: 760px; margin: -380px 0 0 calc(min(1100px, 130vw) / -2); border-radius: 50%; background: radial-gradient(closest-side, rgb(244 167 185 / 50%), rgb(244 167 185 / 15%) 55%, transparent); filter: blur(40px); }
@@ -29,8 +24,7 @@
 /* Hero */
 .case-hero { position: relative; display: grid; justify-items: center; padding-top: 120px; text-align: center; isolation: isolate; }
 .case-name { display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; font: 600 26px/1 var(--display); letter-spacing: -.03em; }
-/* Kitchin app icon: a fridge whose lower door holds a leaf. */
-.case-mark { width: 40px; height: 40px; }
+.case-mark { width: 40px; height: 40px; object-fit: contain; }
 .case-label { margin-top: 18px; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-deep); }
 .case-hero h1 { margin-top: 14px; font: 600 clamp(36px, 4.6vw, 68px)/1.05 var(--display); letter-spacing: -.04em; }
 .case-hero h1 em { font-style: normal; color: var(--accent-deep); }

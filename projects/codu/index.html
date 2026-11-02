@@ -6,7 +6,7 @@
 <meta name="description" content="Codu is a gamified coding-learning Android app with progressive lessons, quiz duels and social features. A team project for Mobile App System Design.">
 <link rel="preconnect" href="https://api.fontshare.com"><link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=chillax@400,500,600&display=swap">
-<link rel="stylesheet" href="../../style.css?v=20261102"><link rel="stylesheet" href="codu.css?v=20261102">
+<link rel="stylesheet" href="../../style.css?v=20261102"><link rel="stylesheet" href="codu.css?v=20261102-motion">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -21,9 +21,22 @@
     <p class="case-intro" data-reveal>A beginner-friendly coding app that turns practice into levels, rewards and quiz duels. Learn Python, C++, JavaScript or Java, then put your skills to the test against a friend.</p>
     <ul class="case-pills" data-reveal><li><b>Course</b>Mobile App System Design</li><li><b>Tools</b>Figma · Flutter · Firebase</li><li><b>Project</b>Team</li></ul>
   </section>
-  <section class="codu-preview" aria-label="Codu learning and duel screens">
-    <img src="screens/levels.png" alt="Codu's learning path with completed levels, star ratings and locked challenges" width="402" height="887">
-    <img src="screens/match.png" alt="Codu match-found screen pairing two players with similar trophy counts" width="403" height="881">
+  <section class="demo" aria-labelledby="walkthrough-title">
+    <div class="demo-text">
+      <h2 class="sr-only" id="walkthrough-title">Codu in motion</h2>
+      <p class="demo-step-title" aria-live="polite">Start with a language</p>
+      <p class="demo-step-text">Pick Python, C++, JavaScript or Java and carry on where you left off.</p>
+      <ol class="demo-steps" aria-label="Walkthrough steps"></ol>
+      <button class="demo-pause" type="button" aria-pressed="false">Pause</button>
+    </div>
+    <div class="k-phone" aria-hidden="true">
+      <div class="k-phone-screen">
+        <img class="k-screen k-screen-current" src="screens/home-app.webp" alt="" width="870" height="1887">
+        <img class="k-screen k-screen-next" alt="" width="870" height="1887">
+        <span class="finger"></span>
+        <span class="tap"></span>
+      </div>
+    </div>
   </section>
 
   <section class="chapter problem" aria-labelledby="problem-title">
@@ -92,6 +105,6 @@
   </section>
 </main>
 <footer class="footer"><p class="footer-name">Jocelyne</p><a class="back-link" href="../../index.html#contact">Get in touch ↗</a><p class="footer-note">© 2026 Jocelyne</p></footer>
-<script src="../../vendor/lenis.min.js"></script><script src="codu.js?v=20261102"></script>
+<script src="../../vendor/lenis.min.js"></script><script src="codu.js?v=20261102-motion"></script>
 </body>
 </html>

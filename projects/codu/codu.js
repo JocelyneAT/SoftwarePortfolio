@@ -26,4 +26,97 @@
   }), { rootMargin: '0px 0px -10% 0px' });
   document.querySelectorAll('[data-reveal], .bars').forEach(el => reveal.observe(el));
 
+  // Walkthrough: each step shows a real screen, glides the finger to what gets tapped, then moves to the next screen.
+  // Tap points are in the screens' own 870 × 1887 pixels.
+  const steps = [
+    { img: 'home-app', title: 'Start with a language', text: 'Pick Python, C++, JavaScript or Java and carry on where you left off.', tap: [242, 790] },
+    { img: 'path', title: 'Follow the path', text: 'Short lessons unlock one level at a time.', tap: [145, 1192] },
+    { img: 'complete', title: 'Earn your stars', text: 'Finish a level to collect stars and keep your streak going.', tap: [429, 1248] },
+    { img: 'badge', title: 'Collect rewards', text: 'Reach a milestone and unlock a new badge.', tap: [433, 1253] },
+    { img: 'matched', title: 'Find a rival', text: 'Matchmaking pairs you with a player on similar trophies.' },
+    { img: 'battle', title: 'Duel in real time', text: 'Solve the same code question and race for points.', tap: [169, 1492] },
+    { img: 'ranks', title: 'Climb the leaderboard', text: 'Wins earn trophies that count on global and friends rankings.', tap: [130, 1789] },
+  ];
+  const STEP = 3300;
+  const demo = document.querySelector('.demo');
+  const screen = demo.querySelector('.k-phone-screen');
+  const current = screen.querySelector('.k-screen-current'), next = screen.querySelector('.k-screen-next');
+  const finger = screen.querySelector('.finger'), tap = screen.querySelector('.tap');
+  const text = demo.querySelector('.demo-text');
+  const title = demo.querySelector('.demo-step-title'), body = demo.querySelector('.demo-step-text');
+  const pause = demo.querySelector('.demo-pause');
+  const list = demo.querySelector('.demo-steps');
+  steps.forEach(s => { const img = new Image(); img.src = `screens/${s.img}.webp`; });
+  const dots = steps.map((s, i) => {
+    const li = document.createElement('li'), button = document.createElement('button');
+    button.type = 'button'; button.setAttribute('aria-label', `Step ${i + 1}: ${s.title}`);
+    button.addEventListener('click', () => { go(i, false); if (!paused) schedule(); });
+    li.append(button); list.append(li); return button;
+  });
+  demo.style.setProperty('--step', `${STEP}ms`);
+  let index = 0, timers = [], paused = calm, visible = false;
+
+  const place = ([x, y]) => {
+    const w = screen.clientWidth, h = screen.clientHeight;
+    screen.style.setProperty('--fx', `${(x / 870 * w).toFixed(1)}px`);
+    screen.style.setProperty('--fy', `${(y / 1887 * h).toFixed(1)}px`);
+  };
+  function show(i) {
+    const s = steps[i];
+    text.classList.add('is-changing');
+    setTimeout(() => {
+      title.textContent = s.title; body.textContent = s.text;
+      text.classList.remove('is-changing');
+    }, 250);
+    dots.forEach((d, n) => { d.toggleAttribute('aria-current', n === i); if (n === i) d.setAttribute('aria-current', 'step'); d.classList.toggle('is-done', n < i); });
+  }
+  // Move to step i, fading the new page in over the old one.
+  function go(i, animate = true) {
+    index = i;
+    const src = `screens/${steps[i].img}.webp`;
+    show(i);
+    if (!animate || calm) { current.src = src; return; }
+    next.src = src;
+    const fade = () => {
+      screen.classList.add('is-fading');
+      setTimeout(() => {
+        if (index !== i) return;
+        current.src = src;
+        current.decode().catch(() => {}).then(() => screen.classList.remove('is-fading'));
+      }, 620);
+    };
+    next.decode().then(fade, fade);
+  }
+  function clear() { timers.forEach(clearTimeout); timers = []; }
+  function schedule() {
+    clear();
+    if (paused || !visible) return;
+    const s = steps[index];
+    // Match Found starts by itself, so nothing gets tapped on it.
+    if (!s.tap) { timers.push(setTimeout(() => { go(index + 1); schedule(); }, STEP)); return; }
+    const [x, y] = s.tap;
+    // The pointer appears a short way from its target, so it never crosses the whole screen.
+    timers.push(setTimeout(() => {
+      finger.classList.add('no-glide');
+      place([Math.min(800, x + 90), y > 1400 ? y - 170 : y + 170]);
+      void finger.offsetWidth;
+      finger.classList.remove('no-glide');
+      screen.classList.add('is-live');
+    }, 500));
+    timers.push(setTimeout(() => place(s.tap), 700));
+    timers.push(setTimeout(() => { finger.classList.add('is-pressing'); tap.classList.remove('is-on'); void tap.offsetWidth; tap.classList.add('is-on'); }, 2150));
+    timers.push(setTimeout(() => finger.classList.remove('is-pressing'), 2450));
+    timers.push(setTimeout(() => screen.classList.remove('is-live'), 2950));
+    timers.push(setTimeout(() => { go((index + 1) % steps.length); schedule(); }, STEP));
+  }
+  pause.addEventListener('click', () => {
+    paused = !paused;
+    pause.textContent = paused ? 'Play' : 'Pause';
+    pause.setAttribute('aria-pressed', String(paused));
+    screen.classList.toggle('is-live', !paused);
+    paused ? clear() : schedule();
+  });
+  if (calm) { pause.hidden = true; screen.classList.remove('is-live'); }
+  new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; visible ? schedule() : clear(); }, { threshold: .35 }).observe(demo);
+  show(0); place([435, 1450]);
 })();

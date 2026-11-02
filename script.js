@@ -17,6 +17,46 @@
     if (link.classList.contains('skip')) target.focus();
   }));
 
+  // Education and experience: the entry at the middle of the screen sets the year, dates and progress beside it.
+  const journey = document.querySelector('.journey');
+  const line = journey.querySelector('.journey-line'), stops = [...journey.querySelectorAll('.stop')];
+  const digits = [0, 1, 2, 3].map(() => {
+    const digit = document.createElement('span');
+    digit.className = 'journey-digit';
+    digit.innerHTML = `<i>${'0123456789'.replace(/\d/g, n => `<u>${n}</u>`)}</i>`;
+    journey.querySelector('.journey-year').append(digit);
+    return digit;
+  });
+  journey.querySelector('.journey-of').textContent = `/ ${String(stops.length).padStart(2, '0')}`;
+  if (!calm) journey.classList.add('is-live');
+  let centres = [], onStop = -1, journeyVisible = false;
+  const measureJourney = () => {
+    centres = stops.map(stop => stop.offsetTop + stop.offsetHeight / 2);
+    line.style.setProperty('--rail-top', `${centres[0]}px`);
+    line.style.setProperty('--rail-h', `${centres.at(-1) - centres[0]}px`);
+  };
+  const showStop = i => {
+    onStop = i;
+    stops.forEach((stop, n) => stop.classList.toggle('is-on', n === i));
+    [...stops[i].dataset.year].forEach((n, d) => digits[d].style.setProperty('--d', n));
+    journey.querySelector('.journey-when').textContent = stops[i].querySelector('.stop-date span').textContent;
+    journey.querySelector('.journey-count').textContent = String(i + 1).padStart(2, '0');
+  };
+  const updateJourney = () => {
+    const first = centres[0], last = centres.at(-1);
+    const dot = Math.min(last, Math.max(first, innerHeight / 2 - line.getBoundingClientRect().top));
+    const progress = (dot - first) / (last - first);
+    line.style.setProperty('--dot', `${dot.toFixed(1)}px`);
+    line.style.setProperty('--tail', progress.toFixed(4));
+    journey.style.setProperty('--p', progress.toFixed(4));
+    const nearest = centres.reduce((best, c, i) => Math.abs(c - dot) < Math.abs(centres[best] - dot) ? i : best, 0);
+    if (nearest !== onStop) showStop(nearest);
+  };
+  measureJourney(); updateJourney();
+  addEventListener('resize', () => { measureJourney(); updateJourney(); });
+  document.fonts?.ready.then(() => { measureJourney(); updateJourney(); });
+  new IntersectionObserver(([entry]) => { journeyVisible = entry.isIntersecting; }).observe(journey);
+
   // One loop drives the scroll-linked bits: menu, hero parallax, marquee speed, the cursor.
   let lastY = scrollY, mx = 0;
   const cursor = { x: -100, y: -100, tx: -100, ty: -100 };
@@ -25,6 +65,7 @@
     const y = scrollY, velocity = y - lastY;
     if (Math.abs(velocity) > 2) nav.classList.toggle('is-hidden', velocity > 0 && y > 160);
     lastY = y;
+    if (journeyVisible) updateJourney();
     if (!calm) {
       hero.style.setProperty('--hs', Math.min(1, y / innerHeight).toFixed(4));
       mx -= .8 + Math.min(14, Math.abs(velocity) * .35);
@@ -72,9 +113,9 @@
     const dot = document.querySelector('.cursor');
     addEventListener('pointermove', event => { cursor.tx = event.clientX; cursor.ty = event.clientY; root.classList.add('has-cursor'); }, { passive: true });
     document.addEventListener('pointerleave', () => root.classList.remove('has-cursor'));
-    document.querySelectorAll('.project').forEach(project => {
-      project.addEventListener('pointerenter', () => dot.classList.add('is-big'));
-      project.addEventListener('pointerleave', () => dot.classList.remove('is-big'));
+    document.querySelectorAll('a.show-item').forEach(door => {
+      door.addEventListener('pointerenter', () => dot.classList.add('is-big'));
+      door.addEventListener('pointerleave', () => dot.classList.remove('is-big'));
     });
     document.querySelectorAll('.magnetic').forEach(button => {
       button.addEventListener('pointermove', event => {
@@ -114,16 +155,15 @@
   resume.addEventListener('click', event => { if (event.target === resume) resume.close(); });
   resume.addEventListener('close', () => lenis?.start());
 
-  // Project filter: cards fade out, the grid updates, the remaining cards fade back in.
-  const buttons = [...document.querySelectorAll('.filters button')];
-  const projects = [...document.querySelectorAll('.project')];
-  buttons.forEach(button => button.addEventListener('click', () => {
-    const kind = button.dataset.filter;
-    buttons.forEach(b => b.setAttribute('aria-pressed', String(b === button)));
-    projects.forEach(p => p.classList.add('is-out'));
-    setTimeout(() => {
-      projects.forEach(p => { p.hidden = kind !== 'all' && p.dataset.kind !== kind; });
-      requestAnimationFrame(() => projects.forEach(p => p.classList.remove('is-out')));
-    }, calm ? 0 : 250);
-  }));
+  // Achievements: the list picks which certificate is showing.
+  const awards = [...document.querySelectorAll('.award')], awardRows = [...document.querySelectorAll('.awards-list button')];
+  const showAward = picked => {
+    awards.forEach((award, i) => award.classList.toggle('is-on', i === picked));
+    awardRows.forEach((row, i) => row.setAttribute('aria-pressed', String(i === picked)));
+  };
+  awardRows.forEach((row, i) => {
+    row.addEventListener('click', () => showAward(i));
+    if (fine) row.addEventListener('pointerenter', () => showAward(i));
+  });
+  showAward(0);
 })();

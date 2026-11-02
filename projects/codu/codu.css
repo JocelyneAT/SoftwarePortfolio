@@ -113,11 +113,7 @@
 }
 
 .feature-media img { object-fit: contain; border-radius: 0; box-shadow: none; }
-.contribution { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 56px; align-items: start; }
-.contribution > .chapter-no { grid-column: 1 / -1; }
-.contribution .k-principles { margin-top: 0; }
 @media (min-width: 600px) and (max-width: 860px) { .case-hero h1 { font-size: 46px; } }
-@media (max-width: 860px) { .contribution { grid-template-columns: 1fr; } }
 
 /* Phone-framed exports have a transparent background, so they sit straight on the page. */
 .feature-media { background: radial-gradient(circle at 50% 40%, var(--accent-soft), transparent 70%); border: 0; box-shadow: none; }

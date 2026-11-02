@@ -64,32 +64,82 @@
 }
 
 @media (min-width: 600px) and (max-width: 860px) { .case-hero h1 { font-size: 46px; } }
-.site-preview, .wide-shot { max-width: 1180px; margin: 48px auto 0; }
-.site-preview { padding: 0 var(--gutter); }
-.site-preview img, .wide-shot img { display: block; width: 100%; height: auto; border: 1px solid rgb(23 20 20 / 10%); border-radius: 22px; }
 figcaption { margin-top: 14px; color: var(--muted); font-size: 14px; line-height: 1.5; }
-.booking-flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; margin: 48px 0 0; padding: 0; list-style: none; }
-.booking-flow h3 { margin: 16px 0 10px; font: 600 24px/1.2 var(--display); }
-.booking-flow p, .booking-notes p, .build-note { color: var(--muted); }
-.booking-notes { max-width: 760px; margin-top: 48px; }
-.booking-notes h3 { font: 600 28px/1.2 var(--display); }
-.booking-notes p { margin-top: 14px; }
 .score-principles { grid-template-columns: repeat(3, 1fr); margin-top: 36px; }
-.venue-media { display: flex; align-items: center; gap: 16px; min-width: 0; }
-.venue-photo { width: 58%; height: auto; border-radius: 24px; }
-.mobile-shot { width: 36%; height: auto; border-radius: 18px; box-shadow: 0 12px 32px rgb(150 60 90 / 12%); }
-.stack-wrap { margin-top: 40px; }
-.stack-table { width: 100%; border-collapse: collapse; font-size: 16px; text-align: left; }
-.stack-table caption { text-align: left; margin-bottom: 16px; font-weight: 500; }
-.stack-table th, .stack-table td { padding: 20px 18px; border-bottom: 1px solid rgb(23 20 20 / 12%); vertical-align: top; }
-.stack-table thead { background: var(--accent-soft); }
-.stack-table tbody th { width: 32%; font-weight: 500; }
-.stack-table td { color: var(--muted); }
-.build-note { max-width: 760px; margin-top: 24px; }
+
+/* Same pace and pointer as the other case studies. */
+.demo { position: relative; display: grid; justify-items: center; gap: 32px; margin: 0 auto; padding-top: clamp(32px, 4vw, 56px); isolation: isolate; overflow-x: clip; text-align: center; }
+.demo::before { content: ""; position: absolute; z-index: -1; left: 50%; top: 45%; width: 900px; height: 760px; margin: -380px 0 0 -450px; border-radius: 50%; background: radial-gradient(closest-side, rgb(244 167 185 / 35%), transparent); }
+.demo-text { display: grid; justify-items: center; order: 2; width: min(620px, 100%); }
+.demo-step-title { margin: 0; font: 600 clamp(30px, 3vw, 44px)/1.05 var(--display); letter-spacing: -.035em; }
+.demo-step-text { max-width: 420px; min-height: 3.2em; margin: 14px 0 0; font-size: 18px; color: var(--muted); }
+.demo-step-title, .demo-step-text { transition: opacity .35s, transform .5s var(--ease); }
+.demo-text.is-changing .demo-step-title, .demo-text.is-changing .demo-step-text { opacity: 0; transform: translateY(10px); }
+.demo-steps { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 20px 0 0; padding: 0; list-style: none; }
+.demo-steps button { position: relative; width: 38px; height: 8px; padding: 0; overflow: hidden; border: 0; border-radius: 8px; background: var(--surface); cursor: pointer; }
+.demo-steps button::after { content: ""; position: absolute; inset: 0; background: var(--accent); transform: scaleX(0); transform-origin: left; }
+.demo-steps button[aria-current="step"]::after { transform: scaleX(1); transition: transform var(--step, 3.3s) linear; }
+.demo-steps button.is-done::after { transform: scaleX(1); }
+.demo-steps button:hover { background: var(--accent-soft); }
+.demo-pause { margin-top: 8px; padding: 8px 0; border: 0; background: none; color: var(--muted); font: 400 14px var(--sans); cursor: pointer; }
+.demo-pause:hover { color: var(--ink); }
+/* Website and phone, side by side and in step. */
+.ov-stage { display: grid; grid-template-columns: 3.4fr 1fr; align-items: end; gap: clamp(16px, 3vw, 40px); width: min(1100px, 100%); }
+.ov-stage .device-pc, .ov-stage .device-phone { width: 100%; text-align: left; }
+.ov-screen { position: relative; display: block; width: 100%; height: 100%; overflow: hidden; }
+.k-screen { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.k-screen-next { opacity: 0; }
+.ov-screen.is-fading .k-screen-next { opacity: 1; transition: opacity .6s ease-in-out; }
+/* The tall homepage, shown only while it scrolls. */
+.ov-screen .k-screen-scroll { position: absolute; left: 0; top: 0; width: 100%; height: auto; opacity: 0; transition: opacity .6s ease-in-out; }
+.ov-screen.is-scrolling .k-screen-scroll { opacity: 1; }
+.finger { position: absolute; z-index: 2; left: 0; top: 0; width: 34px; height: 34px; margin: -17px 0 0 -17px; transform: translate(var(--fx, 50%), var(--fy, 80%)); transition: transform 1.25s cubic-bezier(.45, 0, .2, 1), opacity .3s; opacity: 0; }
+/* The circle is a child: scaling the positioned element itself would also scale its offset and fling it across the screen. */
+.finger::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: rgb(255 255 255 / 60%); box-shadow: 0 0 0 2.5px #e0527f, 0 6px 16px rgb(20 60 100 / 30%); transition: scale .18s, background-color .18s; }
+.ov-screen.is-live .finger, .mini-walk.is-live .finger { opacity: 1; }
+.finger.no-glide { transition: opacity .3s; }
+.finger.is-pressing::before { scale: .72; background: rgb(244 167 185 / 85%); }
+.tap { position: absolute; z-index: 2; left: 0; top: 0; width: 44px; height: 44px; margin: -22px 0 0 -22px; transform: translate(var(--fx), var(--fy)); }
+.tap::before { content: ""; position: absolute; inset: 0; border: 3px solid #fff; border-radius: 50%; opacity: 0; }
+.tap.is-on::before { animation: ripple .75s ease-out; }
+@keyframes ripple { from { opacity: 1; scale: .5; } to { opacity: 0; scale: 2.2; } }
+
+/* The booking and points walkthroughs, one phone each. */
+.fp-media { display: flex; justify-content: center; padding: clamp(24px, 4vw, 48px); border-radius: 32px; background: radial-gradient(circle at 50% 40%, var(--accent-soft), transparent 70%); }
+.mini-box { display: grid; justify-items: center; gap: 12px; width: 100%; margin: 0; }
+.mini-box .mw-caption { margin: 0; color: var(--ink); font-weight: 500; text-align: center; }
+.mini-box .mw-pause { margin-top: 0; }
+.fp-phone { width: min(280px, 72vw); }
+.mini-walk { position: relative; display: block; width: 100%; height: 100%; }
+.mini-walk img { position: absolute; inset: 0; }
+.mw-next { opacity: 0; }
+.mini-walk.is-fading .mw-next { opacity: 1; transition: opacity .6s ease-in-out; }
+
+/* Phones in the feedback section. */
+.fp-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(12px, 2vw, 28px); }
+.fp-row .device-phone { width: 100%; box-shadow: 0 16px 32px rgb(150 60 90 / 14%); }
+
+/* Why it matters: the change for each side, before and now. */
+.fp-why { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 40px 0 0; padding: 0; list-style: none; }
+.fp-why li { padding: clamp(24px, 3vw, 40px); border: 1px solid rgb(185 58 98 / 10%); border-radius: 28px; background: #fff; box-shadow: 0 12px 32px rgb(150 60 90 / 9%); }
+.fp-why h3 { margin-bottom: 24px; font: 600 clamp(24px, 2.4vw, 32px)/1.1 var(--display); letter-spacing: -.025em; }
+.fp-why p { margin: 0; }
+.fp-why b { display: block; margin-bottom: 4px; font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.fp-before { color: var(--muted); }
+.fp-before b { color: var(--muted); }
+.fp-now { margin-top: 18px !important; padding-top: 18px; border-top: 1px solid var(--surface); font: 500 clamp(19px, 1.7vw, 23px)/1.3 var(--display); }
+.fp-now b { color: var(--accent-deep); font-family: var(--sans); }
+.fp-admin { margin-top: 28px; }
+
+/* Still improving */
+.fp-live { display: inline-flex; align-items: center; gap: 10px; margin: 0; font-weight: 500; color: var(--accent-deep); }
+.fp-dot { width: 10px; height: 10px; border-radius: 50%; background: #36b37e; animation: pulse 2.4s ease-in-out infinite; }
+
 @media (max-width: 860px) {
-  .booking-flow, .score-principles { grid-template-columns: 1fr; gap: 24px; }
-  .site-preview, .wide-shot { margin-top: 32px; }
-  .stack-table { font-size: 14px; }
-  .stack-table th, .stack-table td { padding: 16px 10px; }
-  .stack-table tbody th { width: 38%; }
+  .ov-stage { grid-template-columns: 1fr; justify-items: center; }
+  .ov-stage .device-phone { width: min(58%, 220px); }
+  .demo-steps { gap: 6px; }
+  .demo-steps button { width: 26px; }
+  .fp-why { grid-template-columns: 1fr; }
+  .fp-media { padding: 16px 0; }
 }

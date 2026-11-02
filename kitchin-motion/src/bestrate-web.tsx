@@ -29,7 +29,7 @@ const Demo = () => {
     if (!paused && visible && pageVisible) player.current?.play(); else player.current?.pause();
   }, [paused, visible, pageVisible]);
   return <>
-    <Player ref={player} component={BestRateWalkthrough} inputProps={{compact}} durationInFrames={870} fps={30} compositionWidth={compact ? 720 : 1440} compositionHeight={compact ? 1100 : 900} controls={false} loop clickToPlay={false} doubleClickToFullscreen={false} spaceKeyToPlayOrPause={false} style={{width: '100%', display: 'block'}} aria-label="Automatic BestRate navigation and scrolling demo"/>
+    <Player ref={player} component={BestRateWalkthrough} inputProps={{compact}} durationInFrames={870} fps={30} compositionWidth={compact ? 720 : 1440} compositionHeight={compact ? 1500 : 900} controls={false} loop clickToPlay={false} doubleClickToFullscreen={false} spaceKeyToPlayOrPause={false} style={{width: '100%', display: 'block'}} aria-label="Automatic BestRate navigation and scrolling demo"/>
     <button className="motion-toggle" type="button" aria-pressed={paused} onClick={() => setPaused(!paused)}>{paused ? 'Resume animation' : 'Pause animation'}</button>
   </>;
 };

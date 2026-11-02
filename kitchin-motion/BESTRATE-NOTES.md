@@ -17,3 +17,14 @@ Kitchin's existing animation has been shortened from 24 to 12.6 seconds, with fa
 Layout direction: retained the existing Kitchin detail-page composition and the portfolio's established cream/pink palette and serif/sans pairing; BestRate navy and teal are used inside the actual app. The animated app is marked as an interface fragment so its original-sized control labels, fixed headers, dividers and cards are evaluated as app UI rather than page decoration.
 
 Final QA: ESLint/TypeScript and the flow self-check pass. Browser smoke checks passed at 1440, 768 and 390 pixels, including every automatic stage, actual scroll offsets, pause, reduced motion and no JavaScript exceptions. Layout inspector: 0 failures with intentional hardware shadows and restrained motion allowed. Visual critique: design 8/10, usability 8/10, creativity 7/10, content 8/10. Remaining limitations are preset prototype fields, illustrative quotes and the browser sign-in requirement for Figma.
+
+
+## PDF case-study update — 2026-11-02
+
+Source: user-supplied DMT2309287_Assignment1 (2).pdf, pages 4–10 (concept, UI trends, UX principles), 11–15 (original screens), 21–23 (proposed navigation and reflection). The PDF itself, cover details and marking material are not published. Course label follows the user's correction: Mobile App System Design; tool: Figma. No testing or usability findings are claimed.
+
+The public page follows the current Kitchin page: shared Chillax typography, cream/pink tokens, hero, chapter labels, problem cards, alternating feature panels and CTA. The app retains navy/teal. Extracted original screen images are shown as source artwork; added live-demo content remains labelled. The feedback/error/provider flow is described as planned, not fully implemented.
+
+Page argument: personal comparison problem → ranked providers, fee detail and alerts → visual choices → feedback and navigation → reflection. Real screens support each feature. No persona or metrics were invented.
+
+Checks: responsive browser smoke at 1440/768/390; all images decode; no horizontal overflow; automatic navigation/scrolling; pause and reduced motion; no JavaScript errors. Motion source lint and flow self-check pass. Kitchin and homepage files remain untouched. Inspector exceptions deliberately retain Kitchin's requested labels, numbering, cards, gradients, shadows, small metadata and cream palette. No video player is introduced.

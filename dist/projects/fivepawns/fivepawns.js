@@ -27,15 +27,7 @@
   document.querySelectorAll('[data-reveal], .bars').forEach(el => reveal.observe(el));
 
   // Overview: the website and the phone do the same thing at the same time. Tap points are in each screen's own pixels.
-  const overview = [
-    { img: 'home', pc: 'd-home', scroll: true, title: 'One site, website and mobile', text: "How to book, the location and today's promo are all on the homepage." },
-    { img: 'home', pc: 'd-home', title: 'Book a table', text: 'Reserve a table online from a laptop or a phone.', tap: [111, 545], pcTap: [325, 464] },
-    { img: 'time0', pc: 'd-book', title: 'A full booking system', text: 'Choose a time and a table, then pay by QRIS or at the venue.', tap: [77, 141], pcTap: [299, 164] },
-    { img: 'home', pc: 'd-home', title: 'Count your points', text: 'A mahjong calculator for use right at the table.', tap: [291, 545], pcTap: [570, 464] },
-    { img: 'score0', pc: 'd-score', title: 'Tap the tiles', text: 'Pick the tiles in your hand and get the score.', tap: [77, 79], pcTap: [219, 91] },
-    { img: 'home', pc: 'd-home', title: 'Leave feedback', text: 'The feedback button is in the menu on every page.', tap: [219, 27], pcTap: [1027, 29] },
-    { img: 'fb0', pc: 'd-fb', title: 'A direct line to the owner', text: 'Rate the visit and send a message straight to the venue.', tap: [354, 469], pcTap: [911, 280] },
-  ];
+  const { overview, flows } = window.FP;
   const STEP = 3300, SCROLL = 4200;
   const srcOf = s => `screens/app/${s.img}.webp`;
   const demo = document.querySelector('.demo');
@@ -141,28 +133,7 @@
   show(0);
 
   // Booking and points each get their own walkthrough, as Codu's sign-in does.
-  const flows = {
-    booking: [
-      { img: 'date', cap: 'Pick a date', tap: [195, 800] },
-      { img: 'time1', cap: 'Pick your hours', tap: [83, 414] },
-      { img: 'time2', cap: 'See your time', tap: [292, 804] },
-      { img: 'table1', cap: 'Choose a table', tap: [110, 436] },
-      { img: 'table2', cap: 'Check the total', tap: [292, 803] },
-      { img: 'confirm', cap: 'Add your details', tap: [295, 804] },
-      { img: 'pay1', cap: 'Scan to pay' },
-      { img: 'pay2', cap: 'Upload your proof', tap: [296, 618] },
-      { img: 'pay3', cap: 'Submit the payment', tap: [299, 804] },
-      { img: 'done', cap: 'Payment submitted', tap: [195, 575] },
-      { img: 'wa1', cap: 'Message ready to send', tap: [359, 797] },
-      { img: 'wa2', cap: 'Sent to FivePawns' },
-    ],
-    score: [
-      { img: 'score0', cap: 'Tap your tiles', tap: [71, 689] },
-      { img: 'score1', cap: 'Build the hand', tap: [195, 707] },
-      { img: 'score2', cap: 'A full hand: 10 faan, 64 points' },
-      { img: 'score3', cap: 'Every scoring item listed' },
-    ],
-  };
+
   document.querySelectorAll('.mini-box').forEach(box => {
     const walk = box.querySelector('.mini-walk'), flow = flows[walk.dataset.flow];
     const shown = walk.querySelector('.mw-current'), incoming = walk.querySelector('.mw-next');

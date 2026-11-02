@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://api.fontshare.com">
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=chillax@400,500,600&display=swap">
-<link rel="stylesheet" href="style.css?v=20261102-show">
+<link rel="stylesheet" href="style.css?v=20261103-motion3">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -40,7 +40,7 @@
   <section class="hero" id="top">
     <div class="hero-glow" aria-hidden="true"></div>
     <canvas class="hero-water" aria-hidden="true"></canvas>
-    <h1 class="hero-title"><span class="line"><span>Hi I'm <em>Celyne</em>.</span></span><span class="line"><em>UI/UX Designer</em></span></h1>
+    <h1 class="hero-title"><span class="line"><span>Hi, I'm <em>Jocelyne</em>.</span></span><span class="line"><em>UI/UX Designer</em></span></h1>
     <figure class="hero-photo">
       <img src="assets/me.webp" alt="Jocelyne smiling, in a soft pink cardigan" width="510" height="1100" fetchpriority="high">
     </figure>
@@ -199,37 +199,38 @@
   <section class="work" id="work" aria-labelledby="work-title">
     <h2 id="work-title" data-reveal>Featured <em>projects</em></h2>
     <div class="show">
-      <a class="show-item show-app" href="projects/kitchin/" data-reveal style="--tint:#e6f2e2">
-        <div class="show-panel" aria-hidden="true"><span class="device-phone"><img src="projects/kitchin/screens/home.png" alt="" loading="lazy"></span></div>
+      <a class="show-item show-app" href="projects/kitchin/" data-reveal>
+        <div class="show-panel" aria-hidden="true" data-motion="kitchin"><span class="device-phone"><span class="sm-screen"><img class="sm-current" src="projects/kitchin/screens/home.png" alt="" loading="lazy"></span></span></div>
         <h3>Kitchin</h3>
-        <p>Mobile app · Smart fridge companion that cuts food waste</p>
+        <p>Mobile app</p>
       </a>
-      <a class="show-item show-app" href="projects/bestrate/" data-reveal style="--tint:#e3f1ec">
-        <div class="show-panel" aria-hidden="true"><span class="device-phone"><img src="projects/bestrate/screens/home-app.webp" alt="" loading="lazy"></span></div>
+      <a class="show-item show-app" href="projects/bestrate/" data-reveal>
+        <div class="show-panel" aria-hidden="true" data-motion="bestrate"><span class="device-phone"><span class="sm-screen"><img class="sm-current" src="projects/bestrate/screens/login.webp" alt="" loading="lazy"></span></span></div>
         <h3>BestRate</h3>
-        <p>Mobile app · Compare exchange rates, fees and target-rate alerts</p>
+        <p>Mobile app</p>
       </a>
-      <a class="show-item show-app" href="projects/codu/" data-reveal style="--tint:#e4f3fb">
-        <div class="show-panel" aria-hidden="true"><span class="device-phone"><img src="projects/codu/screens/home-app.webp" alt="" loading="lazy"></span></div>
+      <a class="show-item show-app" href="projects/codu/" data-reveal>
+        <div class="show-panel" aria-hidden="true" data-motion="codu"><span class="device-phone"><span class="sm-screen"><img class="sm-current" src="projects/codu/screens/home-app.webp" alt="" loading="lazy"></span></span></div>
         <h3>Codu</h3>
-        <p>Mobile app · Learn to code through levels, rewards and quiz duels</p>
+        <p>Mobile app</p>
       </a>
-      <a class="show-item show-web" href="projects/fivepawns/" data-reveal style="--tint:#fde4ea">
-        <div class="show-panel" aria-hidden="true">
-          <span class="device-pc"><span class="device-pc-screen"><img src="projects/fivepawns/screens/home.png" alt="" loading="lazy"></span></span>
-          <span class="device-phone device-phone-side"><img src="projects/fivepawns/screens/home-mobile.png" alt="" loading="lazy"></span>
+      <a class="show-item show-web" href="projects/fivepawns/" data-reveal>
+        <div class="show-panel" aria-hidden="true" data-motion="fivepawns">
+          <span class="device-pc"><span class="device-pc-screen"><span class="sm-screen"><img class="sm-current" src="projects/fivepawns/screens/app/d-home.webp" alt="" loading="lazy"></span></span></span>
+          <span class="device-phone device-phone-side"><span class="sm-screen"><img class="sm-current" src="projects/fivepawns/screens/app/home.webp" alt="" loading="lazy"></span></span>
         </div>
         <h3>FivePawns</h3>
-        <p>Website and mobile, one package · Table booking and a mahjong score calculator</p>
+        <p>Website and mobile</p>
       </a>
-      <div class="show-item show-web" data-reveal style="--tint:#ece7fb">
+      <div class="show-item show-web" data-reveal>
         <div class="show-panel" aria-hidden="true">
           <span class="device-pc"><span class="device-pc-screen device-pc-empty">Coming soon</span></span>
         </div>
         <h3>Next website</h3>
-        <p>In progress</p>
+        <p>Website</p>
       </div>
     </div>
+    <button class="show-pause" type="button" aria-pressed="false">Pause</button>
   </section>
 
   <section class="awards" id="achievements" aria-labelledby="awards-title">
@@ -287,7 +288,7 @@
 </footer>
 
 <script src="vendor/lenis.min.js"></script>
-<script src="script.js?v=20261102-show"></script>
+<script src="script.js?v=20261103-motion"></script>
 <script src="hero-interaction.js?v=20261102"></script>
 </body>
 </html>

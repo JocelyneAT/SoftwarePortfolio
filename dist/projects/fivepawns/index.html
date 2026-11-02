@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FivePawns — Jocelyne's web design &amp; development</title>
+<meta name="description" content="A personal website project for FivePawns, a mahjong and board-game venue in Semarang, Indonesia. Table booking, a mahjong score calculator and a business presence built with React and Firebase.">
+<link rel="preconnect" href="https://api.fontshare.com"><link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=chillax@400,500,600&display=swap">
+<link rel="stylesheet" href="../../style.css?v=20261102"><link rel="stylesheet" href="fivepawns.css?v=20261102">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="nav"><a class="nav-name" href="../../index.html">Jocelyne</a><nav aria-label="Main"><a href="../../index.html#work">Projects</a><a href="../../index.html#about">About</a></nav><a class="button button-dark nav-cta" href="../../index.html#contact">Get in touch</a></header>
+<main id="main" tabindex="-1">
+  <section class="case-hero" aria-labelledby="title">
+    <div class="case-glow" aria-hidden="true"></div>
+    <a class="back-link" href="../../index.html#work"><span aria-hidden="true">←</span> All projects</a>
+    <p class="case-name" data-reveal><img class="case-mark" src="fivepawns-logo.png" alt="" width="40" height="40">FivePawns</p>
+    <p class="case-label" data-reveal>Business website · Semarang, Indonesia</p>
+    <h1 id="title" data-reveal>Book a table.<br><em>Bring your people.</em></h1>
+    <p class="case-intro" data-reveal>A website I designed and built for FivePawns, a real mahjong and board-game venue in Semarang. It brings table booking, a mahjong score calculator and the business's online presence into one place.</p>
+    <ul class="case-pills" data-reveal><li><b>Project</b>Individual · Personal project</li><li><b>Role</b>Design &amp; development</li><li><b>Stack</b>React · CSS · JavaScript · Firebase</li></ul>
+  </section>
+  <figure class="site-preview" data-reveal><img src="screens/home.png" alt="FivePawns homepage with venue photography, bold blue and orange lettering, and booking and score-calculator actions" width="1440" height="1000"><figcaption>The live FivePawns website, bringing the venue and its two main tools together.</figcaption></figure>
+
+  <section class="chapter problem" aria-labelledby="problem-title">
+    <p class="chapter-no" data-reveal>01 · The business need</p>
+    <h2 id="problem-title" data-reveal>More than<br><em>a storefront.</em></h2>
+    <p class="chapter-lead" data-reveal>The website needed to help people plan a visit and support them once they were at the table. I built around four practical needs, from introducing the venue to helping staff manage reservations.</p>
+    <ul class="problem-cards">
+      <li data-reveal><span class="card-no" aria-hidden="true">01</span><h3>Plan a session</h3><p>Let customers check available hours, choose a table and understand the booking total before committing.</p></li>
+      <li data-reveal><span class="card-no" aria-hidden="true">02</span><h3>Work out the score</h3><p>Give players a visual way to enter a mahjong hand and see the points and scoring breakdown.</p></li>
+      <li data-reveal><span class="card-no" aria-hidden="true">03</span><h3>Get to know the venue</h3><p>Show the space, promotions, opening hours and location, with clear routes to booking and contact.</p></li>
+      <li data-reveal><span class="card-no" aria-hidden="true">04</span><h3>Keep bookings organised</h3><p>Give staff a place to view the schedule and review payment proof, alongside the customer-facing website.</p></li>
+    </ul>
+  </section>
+
+  <section class="chapter helps" aria-labelledby="booking-title">
+    <p class="chapter-no" data-reveal>02 · The booking experience</p>
+    <h2 id="booking-title" data-reveal>Find a table.<br><em>Make a plan.</em></h2>
+    <p class="chapter-lead" data-reveal>A three-step flow separates time selection, table choice and checkout. Customers make one decision at a time, with their selection carried forward.</p>
+    <figure class="wide-shot" data-reveal><img src="screens/booking.png" alt="Booking page with a date picker, available hourly slots, a booking summary and a Continue action" width="1440" height="1000" loading="lazy"><figcaption>Date and time selection on the live website. Availability is read from Firestore.</figcaption></figure>
+    <ol class="booking-flow" aria-label="Booking flow">
+      <li data-reveal><span class="card-no" aria-hidden="true">01</span><h3>Pick a time</h3><p>Choose a date and consecutive hourly slots. Available, selected and full states distinguish what can be booked.</p></li>
+      <li data-reveal><span class="card-no" aria-hidden="true">02</span><h3>Choose a table</h3><p>See table types, prices and availability for the selected period, then choose a specific table.</p></li>
+      <li data-reveal><span class="card-no" aria-hidden="true">03</span><h3>Review and confirm</h3><p>Review the total, enter contact details and choose QRIS or payment at the venue. Google sign-in connects the booking to the customer.</p></li>
+    </ol>
+    <div class="booking-notes" data-reveal><h3>A clear handoff after booking</h3><p>QRIS customers upload payment proof for staff review. Pay-at-venue customers receive their reservation details. Status updates and a WhatsApp handoff keep the next step visible.</p><p>On mobile, the primary action stays within reach at the bottom of the screen. The browser's back button also returns to the previous booking step.</p></div>
+  </section>
+
+  <section class="chapter helps" aria-labelledby="score-title">
+    <p class="chapter-no" data-reveal>03 · The mahjong calculator</p>
+    <h2 id="score-title" data-reveal>Your hand.<br><em>Your score.</em></h2>
+    <p class="chapter-lead" data-reveal>Players tap tile images to build their hand, then add flowers, winds and the way they won. The calculator shows the faan, points and each scoring item, including a warning when a hand falls below the minimum.</p>
+    <figure class="wide-shot" data-reveal><img src="screens/calculator.png" alt="Mahjong calculator with a selected fourteen-tile hand, two faan, four points and a warning that the three-faan minimum has not been met" width="1440" height="1000" loading="lazy"><figcaption>A sample hand with its scoring breakdown and minimum-faan warning.</figcaption></figure>
+    <ul class="score-principles k-principles">
+      <li data-reveal><b>Visual input</b>Players choose recognisable tile images and can tap a selected tile to remove it.</li>
+      <li data-reveal><b>Explain the result</b>The breakdown shows where faan comes from, rather than presenting an unexplained total.</li>
+      <li data-reveal><b>Make the rules visible</b>The calculator uses Hong Kong scoring with the venue's flower rules, a three-faan minimum and a ten-faan cap. It also reminds players that table rules can differ.</li>
+    </ul>
+  </section>
+
+  <section class="chapter helps" aria-labelledby="business-title">
+    <p class="chapter-no" data-reveal>04 · Supporting the business</p>
+    <h2 id="business-title" data-reveal>A place to play.<br><em>A reason to visit.</em></h2>
+    <article class="feature">
+      <div class="venue-media" data-reveal><img class="venue-photo" src="screens/venue.webp" alt="Players gathered around a mahjong table at FivePawns" width="810" height="1080" loading="lazy"><img class="mobile-shot" src="screens/home-mobile.png" alt="FivePawns mobile homepage with its booking and score-calculator buttons" width="390" height="1000" loading="lazy"></div>
+      <div class="feature-text"><h3 data-reveal>Let the venue lead</h3><p data-reveal>Photographs of the real space and bold blue-and-orange typography give the site its own identity. Promotions sit close to the booking route, while directions, opening hours and WhatsApp contact help visitors plan their trip.</p><ul class="k-principles" data-reveal><li><b>Two clear starting points</b>Booking a table and calculating points are the main homepage actions.</li><li><b>Built for local use</b>Indonesian and English copy, rupiah pricing and QRIS reflect how customers use the business.</li><li><b>Tools for staff</b>A separate dashboard supports the day schedule, active sessions and payment review. Owner settings control tables, prices, opening hours and selected website content.</li></ul></div>
+    </article>
+  </section>
+
+  <section class="chapter implementation" aria-labelledby="build-title">
+    <p class="chapter-no" data-reveal>05 · My role &amp; the build</p>
+    <h2 id="build-title" data-reveal>From design<br><em>to deployment.</em></h2>
+    <p class="chapter-lead" data-reveal>This is my individual personal project for a real business. My work covers the customer-facing design, responsive pages, booking flow, score calculator and the staff tools behind them.</p>
+    <div class="stack-wrap" data-reveal><table class="stack-table"><caption>The stack used in the project</caption><thead><tr><th scope="col">Technology</th><th scope="col">What it does</th></tr></thead><tbody>
+      <tr><th scope="row">React &amp; React Router</th><td>Build the customer and admin interfaces, with page navigation that keeps shared state available.</td></tr>
+      <tr><th scope="row">JavaScript / JSX &amp; HTML</th><td>Handle booking selections, pricing, score calculation and the page structure rendered by React.</td></tr>
+      <tr><th scope="row">CSS</th><td>Style the brand, responsive layouts, mobile controls and interface states.</td></tr>
+      <tr><th scope="row">Firebase Authentication</th><td>Connect customer bookings and staff access to Google sign-in.</td></tr>
+      <tr><th scope="row">Cloud Firestore</th><td>Store bookings, table-hour slots, payment proof and business settings, with live updates and security rules.</td></tr>
+      <tr><th scope="row">Vite &amp; Firebase Hosting</th><td>Build the React project and publish the website.</td></tr>
+    </tbody></table></div>
+    <p class="build-note" data-reveal>Bookings and their table-hour slots are written together. Firestore rules validate the reservation, while the interface responds if another customer takes a selected slot before checkout.</p>
+  </section>
+
+  <section class="case-end" aria-labelledby="end-title">
+    <div class="case-glow" aria-hidden="true"></div><h2 id="end-title" data-reveal>See it <em>in action.</em></h2>
+    <p data-reveal>Explore the live FivePawns website, or try building a hand in the mahjong calculator.</p>
+    <div class="case-actions" data-reveal><a class="button button-dark" href="https://fivepawns-2c7d7.web.app/" target="_blank" rel="noopener">Visit FivePawns ↗</a><a class="button button-ghost" href="https://fivepawns-2c7d7.web.app/hitung" target="_blank" rel="noopener">Try the calculator ↗</a></div>
+    <a class="back-link" href="../../index.html#work" data-reveal><span aria-hidden="true">←</span> Back to all projects</a>
+  </section>
+</main>
+<footer class="footer"><p class="footer-name">Jocelyne</p><a class="back-link" href="../../index.html#contact">Get in touch ↗</a><p class="footer-note">© 2026 Jocelyne</p></footer>
+<script src="../../vendor/lenis.min.js"></script><script src="fivepawns.js?v=20261102"></script>
+</body>
+</html>

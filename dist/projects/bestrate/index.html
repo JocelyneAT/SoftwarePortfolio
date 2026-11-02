@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BestRate — Jocelyne's UI/UX work</title>
+<meta name="description" content="BestRate: a currency comparison app concept for international students and travellers. A Mobile App System Design project exploring UI/UX principles in Figma.">
+<link rel="preconnect" href="https://api.fontshare.com"><link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=chillax@400,500,600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../../style.css?v=20261102"><link rel="stylesheet" href="bestrate.css?v=20261102-pdf">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="nav"><a class="nav-name" href="../../index.html">Jocelyne</a><nav aria-label="Main"><a href="../../index.html#work">Projects</a><a href="../../index.html#about">About</a></nav><a class="button button-dark nav-cta" href="../../index.html#contact">Get in touch</a></header>
+<main id="main" tabindex="-1">
+  <section class="case-hero" aria-labelledby="title">
+    <div class="case-glow" aria-hidden="true"></div>
+    <a class="back-link" href="../../index.html#work"><span aria-hidden="true">←</span> All projects</a>
+    <p class="case-name" data-reveal>BestRate</p>
+    <p class="case-label" data-reveal>Mobile app · UI/UX design principles</p>
+    <h1 id="title" data-reveal>Compare rates.<br><em>Choose confidently.</em></h1>
+    <p class="case-intro" data-reveal>A currency comparison app concept that brings provider rates and fees into one place, with target-rate alerts so you don't have to keep checking.</p>
+    <ul class="case-pills" data-reveal><li><b>Course</b>Mobile App System Design</li><li><b>Tools</b>Figma</li><li><b>Focus</b>UI/UX principles</li></ul>
+  </section>
+  <section class="demo bestrate-demo" aria-labelledby="walkthrough-title">
+    <h2 class="sr-only" id="walkthrough-title">BestRate in motion</h2>
+    <div id="walkthrough"><img class="fallback-screen" src="screens/home.jpg" alt="BestRate comparison screen" width="1086" height="1583"></div>
+    <p class="media-note">Automatic walkthrough with added scrolling and navigation. Rates are illustrative; no money is transferred.</p>
+    <noscript><p>JavaScript enables the walkthrough. Explore the original app screens below.</p></noscript>
+  </section>
+  <section class="chapter problem" aria-labelledby="problem-title">
+    <p class="chapter-no" data-reveal>01 · The problem</p><h2 id="problem-title" data-reveal>One exchange.<br><em>Too many apps.</em></h2>
+    <p class="chapter-lead" data-reveal>As an international student, I kept opening different provider apps to find the best exchange rate. Comparing them took time, and a busy schedule meant I could miss a good rate.</p>
+    <ul class="problem-cards">
+      <li data-reveal><span class="card-no" aria-hidden="true">01</span><h3>Comparison takes time</h3><p>Switching between providers makes a routine currency exchange feel like extra work.</p></li>
+      <li data-reveal><span class="card-no" aria-hidden="true">02</span><h3>The rate isn't the whole cost</h3><p>Additional fees can change which provider offers the best value.</p></li>
+      <li data-reveal><span class="card-no" aria-hidden="true">03</span><h3>Good rates can slip past</h3><p>Exchange rates move throughout the day. Checking constantly doesn't fit a busy schedule.</p></li>
+      <li data-reveal><span class="card-no" aria-hidden="true">04</span><h3>Convenience comes first</h3><p>When comparing feels difficult, it is tempting to use the familiar option without checking the alternatives.</p></li>
+    </ul>
+  </section>
+  <section class="chapter helps" aria-labelledby="helps-title">
+    <p class="chapter-no" data-reveal>02 · How BestRate helps</p><h2 id="helps-title" data-reveal>Less checking.<br><em>More clarity.</em></h2>
+    <p class="chapter-lead" data-reveal>Designed for international students and travellers who exchange currencies regularly: compare the options, understand the cost, then continue with the chosen provider.</p>
+    <article class="feature">
+      <div class="feature-media" data-reveal><div class="b-screen"><img src="screens/home.jpg" alt="BestRate home with IDR to MYR comparison, a highlighted best deal and separate provider cards" width="1086" height="1583" loading="lazy"></div></div>
+      <div class="feature-text"><h3 data-reveal>Find the strongest option first</h3><p data-reveal>Choose the currencies and amount to send. The proposed comparison ranks providers by total cost, including fees, with the best option at the top. Refreshing rates is designed to update the results and their timestamp.</p><ul class="k-principles" data-reveal><li><b>Content-first layout</b>The best deal comes before the supporting detail, so people have a clear place to start.</li><li><b>Visual hierarchy</b>A larger amount and teal highlight draw attention to the result; secondary information stays quieter.</li></ul></div>
+    </article>
+    <article class="feature feature-flip">
+      <div class="feature-media" data-reveal><div class="b-screen"><img src="screens/details.jpg" alt="Provider details with a daily exchange-rate line chart and a breakdown of fees and the recipient amount" width="1119" height="1583" loading="lazy"></div></div>
+      <div class="feature-text"><h3 data-reveal>Understand what you'll receive</h3><p data-reveal>Open a provider to see its fee breakdown and the day's exchange-rate trend. The proposed Exchange Now action hands the user over to that provider to complete the transaction.</p><ul class="k-principles" data-reveal><li><b>Progressive disclosure</b>The comparison stays focused. A separate details page holds the information needed for a closer decision.</li><li><b>Data visualisation</b>A timestamped line graph shows how the rate changes over the day, including its high and low points.</li></ul></div>
+    </article>
+    <article class="feature">
+      <div class="feature-media" data-reveal><div class="b-screen"><img src="screens/alerts.jpg" alt="Rate alerts with currency pairs, target and current rates, and active or paused states" width="1123" height="1588" loading="lazy"></div></div>
+      <div class="feature-text"><h3 data-reveal>Set a target, then step away</h3><p data-reveal>The alert concept lets users choose a currency pair and target rate, then receive a notification when that target is reached. Existing alerts can be paused or deleted when they are no longer needed.</p><ul class="k-principles" data-reveal><li><b>Feedback and control</b>Current and target rates sit together, while toggles show whether an alert is active.</li><li><b>Consistent navigation</b>Home, Alerts and Profile stay in the bottom navigation, with back controls for returning from detail screens.</li></ul></div>
+    </article>
+  </section>
+  <section class="chapter problem" aria-labelledby="ui-title">
+    <p class="chapter-no" data-reveal>03 · The visual decisions</p><h2 id="ui-title" data-reveal>A purpose behind<br><em>every detail.</em></h2>
+    <p class="chapter-lead" data-reveal>The app's dark palette and teal accent give financial information a clear order. Each visual choice supports the comparison task.</p>
+    <ul class="problem-cards">
+      <li data-reveal><span class="card-no" aria-hidden="true">01</span><h3>Dark-first design</h3><p>A navy background creates a quiet base for light text, key amounts and teal actions.</p></li>
+      <li data-reveal><span class="card-no" aria-hidden="true">02</span><h3>Card-based layout</h3><p>Each provider has its own card, keeping its name, rate and result grouped for comparison.</p></li>
+      <li data-reveal><span class="card-no" aria-hidden="true">03</span><h3>Minimalist design</h3><p>One typeface, deliberate spacing and a single accent colour keep the screens focused.</p></li>
+      <li data-reveal><span class="card-no" aria-hidden="true">04</span><h3>Readable data</h3><p>A line graph gives changing rates a visual shape, while labels and amounts retain the detail.</p></li>
+    </ul>
+  </section>
+  <section class="chapter helps" aria-labelledby="ux-title">
+    <p class="chapter-no" data-reveal>04 · Keeping users informed</p><h2 id="ux-title" data-reveal>A clear next step.<br><em>A way back.</em></h2>
+    <article class="feature feature-flip">
+      <div class="feature-media feature-media-pair" data-reveal><div class="b-screen"><img src="screens/login.jpg" alt="Login design with email and password fields, password recovery and third-party sign-in options" width="1135" height="1606" loading="lazy"></div><div class="b-screen"><img src="screens/profile.jpg" alt="Profile design with account settings and connected-provider controls" width="1065" height="1507" loading="lazy"></div></div>
+      <div class="feature-text"><h3 data-reveal>Explain what happened</h3><p data-reveal>The planned feedback system explains failed logins and asks for confirmation before actions such as resetting a password. If a provider connection is disabled, the proposed flow explains the issue and directs users to Profile to enable it.</p><ul class="k-principles" data-reveal><li><b>Visibility of system status</b>Rate timestamps, alert states and confirmation messages explain what the system is doing.</li><li><b>Recovery and navigation</b>Useful error messages, back controls and familiar tabs give users a way to continue.</li></ul></div>
+    </article>
+  </section>
+  <section class="chapter reflection" aria-labelledby="reflection-title">
+    <p class="chapter-no" data-reveal>05 · What I learned</p><h2 id="reflection-title" data-reveal>Design starts<br><em>with a reason.</em></h2>
+    <p class="chapter-lead" data-reveal>This project changed how I think about interface design. Cards, type, colour and navigation each need to serve a user need. For BestRate, that meant helping someone compare costs and move through the flow without feeling lost.</p>
+  </section>
+  <section class="case-end" aria-labelledby="end-title">
+    <div class="case-glow" aria-hidden="true"></div><h2 id="end-title" data-reveal>Try it <em>yourself.</em></h2>
+    <p data-reveal>Explore the connected Figma prototype, from comparing providers to setting an alert.</p>
+    <div class="case-actions" data-reveal><a class="button button-dark" href="https://www.figma.com/proto/b4GBFi7TV7fvCWRuLNZHC7/Mobile-App-Design?page-id=119%3A74&amp;node-id=119-75&amp;starting-point-node-id=119%3A75&amp;scaling=scale-down&amp;content-scaling=fixed" target="_blank" rel="noopener">Open the Figma prototype ↗</a><a class="button button-ghost" href="../kitchin/">Explore Kitchin</a></div>
+    <p class="prototype-note" data-reveal>Design concept with preset prototype inputs. Live rates, notifications and provider transactions are proposed features.</p>
+    <a class="back-link" href="../../index.html#work" data-reveal><span aria-hidden="true">←</span> Back to all projects</a>
+  </section>
+</main>
+<footer class="footer"><p class="footer-name">Jocelyne</p><a class="back-link" href="../../index.html#contact">Get in touch ↗</a><p class="footer-note">© 2026 Jocelyne</p></footer>
+<script src="../../vendor/lenis.min.js"></script><script src="bestrate.js?v=20261102-pdf"></script><script defer src="player.js?v=20261102-pdf"></script>
+</body>
+</html>

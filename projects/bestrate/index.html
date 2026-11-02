@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://api.fontshare.com"><link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=chillax@400,500,600&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="../../style.css?v=20261102"><link rel="stylesheet" href="bestrate.css?v=20261102-logo">
+<link rel="stylesheet" href="../../style.css?v=20261102"><link rel="stylesheet" href="bestrate.css?v=20261102-pointer2">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -22,11 +22,22 @@
     <p class="case-intro" data-reveal>A currency comparison app concept that brings provider rates and fees into one place, with target-rate alerts so you don't have to keep checking.</p>
     <ul class="case-pills" data-reveal><li><b>Course</b>Mobile App System Design</li><li><b>Tools</b>Figma</li><li><b>Focus</b>UI/UX principles</li></ul>
   </section>
-  <section class="demo bestrate-demo" aria-labelledby="walkthrough-title">
-    <h2 class="sr-only" id="walkthrough-title">BestRate in motion</h2>
-    <div id="walkthrough"><img class="fallback-screen" src="screens/home.jpg" alt="BestRate comparison screen" width="1086" height="1583"></div>
-    <p class="media-note">Automatic walkthrough with added scrolling and navigation. Rates are illustrative; no money is transferred.</p>
-    <noscript><p>JavaScript enables the walkthrough. Explore the original app screens below.</p></noscript>
+  <section class="demo" aria-labelledby="walkthrough-title">
+    <div class="demo-text">
+      <h2 class="sr-only" id="walkthrough-title">BestRate in motion</h2>
+      <p class="demo-step-title" aria-live="polite">Sign in, quick and familiar</p>
+      <p class="demo-step-text">Log in with email, or continue with Google, Facebook or Apple.</p>
+      <ol class="demo-steps" aria-label="Walkthrough steps"></ol>
+      <button class="demo-pause" type="button" aria-pressed="false">Pause</button>
+    </div>
+    <div class="k-phone" aria-hidden="true">
+      <div class="k-phone-screen">
+        <img class="k-screen k-screen-current" src="screens/login.webp" alt="" width="870" height="1887">
+        <img class="k-screen k-screen-next" alt="" width="870" height="1887">
+        <span class="finger"></span>
+        <span class="tap"></span>
+      </div>
+    </div>
   </section>
   <section class="chapter problem" aria-labelledby="problem-title">
     <p class="chapter-no" data-reveal>01 · The problem</p><h2 id="problem-title" data-reveal>One exchange.<br><em>Too many apps.</em></h2>
@@ -79,6 +90,6 @@
   </section>
 </main>
 <footer class="footer"><p class="footer-name">Jocelyne</p><a class="back-link" href="../../index.html#contact">Get in touch ↗</a><p class="footer-note">© 2026 Jocelyne</p></footer>
-<script src="../../vendor/lenis.min.js"></script><script src="bestrate.js?v=20261102-pdf"></script><script defer src="player.js?v=20261102-pdf"></script>
+<script src="../../vendor/lenis.min.js"></script><script src="bestrate.js?v=20261102-fade"></script>
 </body>
 </html>

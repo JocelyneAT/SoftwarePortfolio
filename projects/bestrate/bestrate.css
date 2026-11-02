@@ -70,7 +70,6 @@
 .case-end { position: relative; display: grid; justify-items: center; gap: 20px; padding-bottom: clamp(96px, 12vw, 160px); text-align: center; isolation: isolate; }
 .case-end > p { max-width: 460px; }
 .case-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-.case-actions button:disabled { border: 0; color: var(--ink); cursor: default; }
 
 @media (max-width: 860px) {
   .case-hero { padding-top: 96px; }

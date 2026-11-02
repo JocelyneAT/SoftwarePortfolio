@@ -131,6 +131,12 @@ figcaption { margin-top: 14px; color: var(--muted); font-size: 14px; line-height
 .fp-now b { color: var(--accent-deep); font-family: var(--sans); }
 .fp-admin { margin-top: 28px; }
 
+/* A full laptop shot, and two side by side. */
+.fp-shot { display: block; width: min(1000px, 100%); margin: 40px auto 0; }
+.fp-shots { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(16px, 3vw, 40px); margin-top: 40px; }
+.fp-shots .device-pc { width: 100%; }
+.fp-note { margin: 18px 0 0; font-size: 14px; color: var(--muted); }
+
 /* Still improving */
 .fp-live { display: inline-flex; align-items: center; gap: 10px; margin: 0; font-weight: 500; color: var(--accent-deep); }
 .fp-dot { width: 10px; height: 10px; border-radius: 50%; background: #36b37e; animation: pulse 2.4s ease-in-out infinite; }
@@ -140,6 +146,6 @@ figcaption { margin-top: 14px; color: var(--muted); font-size: 14px; line-height
   .ov-stage .device-phone { width: min(58%, 220px); }
   .demo-steps { gap: 6px; }
   .demo-steps button { width: 26px; }
-  .fp-why { grid-template-columns: 1fr; }
+  .fp-why, .fp-shots { grid-template-columns: 1fr; }
   .fp-media { padding: 16px 0; }
 }

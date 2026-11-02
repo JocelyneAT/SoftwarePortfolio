@@ -8,6 +8,39 @@
 .case-hero .back-link { justify-self: start; }
 .back-link:hover { color: var(--ink); gap: 14px; }
 
+/* Walkthrough shared with Kitchin and BestRate. */
+.demo { position: relative; display: grid; grid-template-columns: minmax(0, 420px) auto; justify-content: center; align-items: center; gap: clamp(40px, 6vw, 88px); margin: 0 auto; padding-top: clamp(32px, 4vw, 56px); isolation: isolate; overflow-x: clip; }
+.demo::before { content: ""; position: absolute; z-index: -1; right: 50%; top: 50%; width: 760px; height: 760px; margin: -380px -560px 0 0; border-radius: 50%; background: radial-gradient(closest-side, rgb(244 167 185 / 45%), transparent); }
+.demo-step-title { font: 600 clamp(30px, 3vw, 44px)/1.05 var(--display); letter-spacing: -.035em; }
+.demo-step-text { max-width: 420px; margin-top: 14px; font-size: 18px; color: var(--muted); min-height: 3.2em; }
+.demo-step-title, .demo-step-text { transition: opacity .35s, transform .5s var(--ease); }
+.demo-text.is-changing .demo-step-title, .demo-text.is-changing .demo-step-text { opacity: 0; transform: translateY(10px); }
+.demo-steps { display: flex; flex-wrap: wrap; gap: 8px; margin: 32px 0 0; padding: 0; list-style: none; }
+.demo-steps button { width: 38px; height: 8px; padding: 0; border: 0; border-radius: 8px; background: var(--surface); cursor: pointer; position: relative; overflow: hidden; }
+.demo-steps button::after { content: ""; position: absolute; inset: 0; background: var(--accent); transform: scaleX(0); transform-origin: left; }
+.demo-steps button[aria-current="step"]::after { transform: scaleX(1); transition: transform var(--step, 3s) linear; }
+.demo-steps button.is-done::after { transform: scaleX(1); }
+.demo-steps button:hover { background: var(--accent-soft); }
+.demo-pause { margin-top: 18px; padding: 8px 0; border: 0; background: none; color: var(--muted); font: 400 14px var(--sans); cursor: pointer; }
+.demo-pause:hover { color: var(--ink); }
+.k-phone { position: relative; width: min(400px, 42svh); padding: 10px; border-radius: 15% / 7%; background: #231f21; box-shadow: 0 40px 80px rgb(150 60 90 / 22%), inset 0 0 0 2px #4a4245; }
+.k-phone-screen { position: relative; aspect-ratio: 870 / 1887; overflow: hidden; border-radius: 13% / 6%; background: #5cb8f4; }
+.k-screen { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* The page fades in place, so the status bar and tabs, which line up on every screen, appear to stay put. */
+.k-screen-next { opacity: 0; }
+.k-phone-screen.is-fading .k-screen-next { opacity: 1; transition: opacity .6s ease-in-out; }
+/* The finger: a soft dot that glides to its target, presses, and ripples. */
+.finger { position: absolute; left: 0; top: 0; width: 34px; height: 34px; margin: -17px 0 0 -17px; transform: translate(var(--fx, 50%), var(--fy, 80%)); transition: transform 1.25s cubic-bezier(.45, 0, .2, 1), opacity .3s; opacity: 0; }
+/* The circle is a child: scaling the positioned element itself would also scale its offset and fling it across the screen. */
+.finger::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: rgb(255 255 255 / 60%); box-shadow: 0 0 0 2.5px #e0527f, 0 6px 16px rgb(20 60 100 / 30%); transition: scale .18s, background-color .18s; }
+.k-phone-screen.is-live .finger { opacity: 1; }
+.tap { position: absolute; left: 0; top: 0; width: 44px; height: 44px; margin: -22px 0 0 -22px; transform: translate(var(--fx), var(--fy)); }
+.tap::before { content: ""; position: absolute; inset: 0; border: 3px solid #fff; border-radius: 50%; opacity: 0; }
+.tap.is-on::before { animation: ripple .75s ease-out; }
+@keyframes ripple { from { opacity: 1; scale: .5; } to { opacity: 0; scale: 2.2; } }
+.finger.no-glide { transition: opacity .3s; }
+.finger.is-pressing::before { scale: .72; background: rgb(244 167 185 / 85%); }
+
 /* Hero */
 .case-hero { position: relative; display: grid; justify-items: center; padding-top: 120px; text-align: center; isolation: isolate; }
 .case-name { display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; font: 600 26px/1 var(--display); letter-spacing: -.03em; }
@@ -53,6 +86,12 @@
 .case-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
 
 @media (max-width: 860px) {
+  .demo { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .demo-text { order: 2; }
+  .demo-steps { justify-content: center; gap: 6px; }
+  .demo-steps button { width: 26px; }
+  .demo-step-text { margin-inline: auto; }
+  .k-phone { width: min(78vw, 300px); }
   .case-hero { padding-top: 96px; }
   :root { --gutter: 24px; }
   .nav-cta { margin-left: auto; }
@@ -63,13 +102,10 @@
   .feature-flip .feature-media { order: 0; }
 }
 
-.codu-preview { display: flex; justify-content: center; align-items: center; gap: clamp(16px, 4vw, 48px); max-width: 880px; margin: auto; padding-top: 48px; }
-.codu-preview img { width: min(240px, 42%); height: auto; }
-.codu-preview img:first-child { margin-top: 40px; }
 .feature-media img { object-fit: contain; border-radius: 0; box-shadow: none; }
 .contribution { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 56px; align-items: start; }
 .contribution > .chapter-no { grid-column: 1 / -1; }
 .contribution .k-principles { margin-top: 0; }
-.codu-preview img, .feature-media img { border-radius: 12% / 6%; }
+.feature-media img { border-radius: 12% / 6%; }
 @media (min-width: 600px) and (max-width: 860px) { .case-hero h1 { font-size: 46px; } }
 @media (max-width: 860px) { .contribution { grid-template-columns: 1fr; } }

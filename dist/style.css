@@ -159,11 +159,10 @@ a.show-item:focus-visible { outline:2px solid var(--accent-deep); outline-offset
 .device-pc { display:block; width:92%; transition:transform .5s var(--ease); }
 .device-pc-screen { display:block; aspect-ratio:16 / 10; overflow:hidden; border:5px solid var(--ink); border-radius:8px 8px 0 0; background:#fff; }
 .device-pc::after { content:""; display:block; width:108%; height:7px; margin-left:-4%; border-radius:0 0 7px 7px; background:var(--ink); }
-.device-pc-empty { display:grid; place-items:center; color:var(--muted); font-size:14px; font-weight:500; }
 .show-app .device-phone { width:min(68%,250px); border-width:6px; box-shadow:0 24px 44px #c9607f33; }
 .show-web .device-pc { width:80%; margin-right:9%; }
-[data-motion=fivepawns] { justify-content:flex-start; }
-[data-motion=fivepawns] .device-pc { width:72%; margin:0 0 0 3%; }
+[data-motion=fivepawns], [data-motion=admin] { justify-content:flex-start; }
+[data-motion=fivepawns] .device-pc, [data-motion=admin] .device-pc { width:72%; margin:0 0 0 3%; }
 .device-phone-side { position:absolute; right:3%; bottom:0; width:18%; border-width:3px; box-shadow:0 12px 24px #c9607f33; }
 a.show-item:hover .device-phone { transform:translateY(-6px); }
 a.show-item:hover .device-pc { transform:translateY(-4px); }

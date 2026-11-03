@@ -198,14 +198,6 @@ a.show-item:hover .device-pc { transform:translateY(-4px); }
 .awards-list button[aria-pressed="true"] { padding-left: 12px; }
 .awards-list button[aria-pressed="true"] .award-name { color: var(--accent-deep); }
 
-/* About */
-.about { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
-.about-photo { position: relative; aspect-ratio: 4 / 5; border-radius: 999px 999px 28px 28px; background: var(--accent-soft); }
-.about-photo img { width: 100%; height: 100%; border-radius: inherit; object-fit: cover; object-position: center 8%; }
-.about-sticker { position: absolute; right: -3%; top: 10%; display: grid; place-items: center; width: 108px; height: 108px; border-radius: 50%; background: var(--accent); font: 500 18px/1 var(--display); animation: spin 14s linear infinite; }
-.about-text p { max-width: 560px; margin: 24px 0 0; font-size: 18px; }
-.about-text .lead { font: 500 clamp(21px, 2vw, 28px)/1.35 var(--display); letter-spacing: -.015em; }
-
 /* Education and experience: a pinned year beside a timeline that scrolls past it. */
 .journey { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
 .journey-side { position: sticky; top: 0; display: flex; flex-direction: column; justify-content: center; height: 100svh; isolation: isolate; }
@@ -245,9 +237,6 @@ a.show-item:hover .device-pc { transform:translateY(-4px); }
 .contact h2 { max-width: 900px; }
 .contact p { margin: 0; max-width: 480px; }
 .contact-glow { position: absolute; z-index: -1; left: 50%; bottom: 0; width: 70vw; height: 50%; margin-left: -35vw; border-radius: 50%; background: var(--accent); opacity: .35; filter: blur(100px); }
-.contact-mail { position: relative; font: 600 clamp(28px, 4.6vw, 72px)/1.1 var(--display); letter-spacing: -.035em; text-decoration: none; }
-.contact-mail::after { content: ""; position: absolute; inset: auto 0 -2px; height: 3px; border-radius: 3px; background: var(--ink); transform: scaleX(.12); transition: transform .6s var(--ease); }
-.contact-mail:hover::after, .contact-mail:focus-visible::after { transform: scaleX(1); }
 
 /* Footer */
 .footer { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; padding: 32px var(--gutter); background: var(--ink); color: #fff; }
@@ -256,13 +245,6 @@ a.show-item:hover .device-pc { transform:translateY(-4px); }
 .footer a { text-decoration: none; opacity: .8; transition: opacity .3s; }
 .footer a:hover { opacity: 1; }
 .footer-note { margin: 0; opacity: .6; font-size: 14px; }
-
-/* Cursor follower (fine pointers only, shown by script). */
-.cursor { position: fixed; z-index: 50; left: 0; top: 0; display: grid; place-items: center; width: 84px; height: 84px; margin: -42px 0 0 -42px; border-radius: 50%; background: var(--accent); font: 500 14px var(--sans); pointer-events: none; opacity: 0; transform: translate3d(var(--cx, -100px), var(--cy, -100px), 0); scale: .15; transition: opacity .3s, scale .5s var(--ease); }
-.cursor span { opacity: 0; transition: opacity .3s; }
-.has-cursor .cursor.is-big { opacity: 1; }
-.cursor.is-big { scale: 1; }
-.cursor.is-big span { opacity: 1; }
 
 /* Entrances: content is visible without script; with it, each group rises in on a stagger. */
 .motion [data-reveal] { opacity: 0; transform: translateY(32px); transition: opacity 1s var(--ease), transform 1.1s var(--ease); transition-delay: var(--delay, 0s); }
@@ -308,11 +290,9 @@ a.show-item:hover .device-pc { transform:translateY(-4px); }
   .principles { min-height: auto; }
   .chips { position: static; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 40px; pointer-events: auto; }
   .chips li { position: static; }
-  .about { grid-template-columns: 1fr; }
   /* The picture stays in view while the list below it is tapped. */
   .awards-body { grid-template-columns: 1fr; }
   .awards-deck { position: sticky; z-index: 2; isolation: isolate; top: 72px; max-width: 420px; width: 100%; justify-self: center; background: var(--ground); }
-  .about-photo { width: min(78vw, 380px); justify-self: center; }
   /* Phone: the heading scrolls away and only a slim year bar stays pinned above the timeline. */
   .journey { display: block; }
   .journey-side { display: contents; }
@@ -330,3 +310,56 @@ a.show-item:hover .device-pc { transform:translateY(-4px); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
 }
+
+/* Project actions stay visible on touch screens; hover softly obscures only the preview. */
+a.show-item { position: relative; }
+.case-link { display: flex; justify-content: center; align-items: center; gap: 16px; width: max-content; max-width: 100%; margin: 20px auto 0; padding: 10px 20px; border-radius: 99px; background: var(--accent-soft); font-size: 14px; font-weight: 500; transition: background .25s, color .25s; }
+.show-item .sm-screen { transition: filter .3s; }
+a.show-item:hover .sm-screen, a.show-item:focus-visible .sm-screen { filter: blur(5px); }
+a.show-item:hover .case-link, a.show-item:focus-visible .case-link { background: var(--ink); color: white; }
+.contact-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-top: 12px; }
+.button { border: 0; cursor: pointer; }
+.contact-actions .button { min-height: 58px; gap: 28px; font-size: 17px; }
+.button-pink { background: var(--accent); color: var(--ink); }
+.button-pink:hover { background: var(--accent-soft); }
+.button-outline { border: 1px solid var(--ink); background: transparent; }
+.button-outline:hover { background: var(--accent-soft); }
+.home-footer { display: block; background: var(--accent-soft); color: var(--ink); padding-top: 56px; }
+.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 32px; padding-bottom: 48px; }
+.home-footer .footer-name { font-size: clamp(28px, 3vw, 44px); opacity: 1; }
+.footer-name span { display: block; margin-top: 12px; font: 400 15px/1.5 var(--sans); letter-spacing: 0; }
+.footer-group > p { margin: 0 0 20px; font-size: 13px; color: var(--muted); }
+.footer-group nav { display: grid; gap: 10px; font-size: 15px; }
+.home-footer a { opacity: 1; }
+.home-footer a:hover { text-decoration: underline; text-underline-offset: 5px; }
+.footer-status { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+.footer-contact { display: block; border: 0; background: transparent; padding: 14px 0; color: inherit; font: 500 15px var(--sans); cursor: pointer; }
+.footer-contact:hover { text-decoration: underline; text-underline-offset: 5px; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-top: 24px; border-top: 1px solid rgb(23 20 20 / 14%); font-size: 14px; }
+.home-footer .footer-note { opacity: 1; color: var(--muted); }
+.contact-dialog { width: min(600px, calc(100% - 32px)); max-height: calc(100svh - 32px); padding: clamp(24px, 5vw, 40px); border: 0; border-radius: 32px; background: var(--ground); color: var(--ink); overscroll-behavior: contain; }
+.contact-dialog[open] { animation: rise .3s var(--ease); }
+.contact-dialog::backdrop { background: rgb(23 20 20 / 40%); backdrop-filter: blur(8px); }
+body:has(dialog[open]) { overflow: hidden; }
+.contact-close { position: absolute; top: 18px; right: 18px; }
+.contact-eyebrow { margin: 0 46px 16px 0; color: var(--muted); font-size: 13px; }
+.contact-dialog h2 { max-width: 420px; margin-bottom: 30px; font-size: clamp(30px, 5vw, 42px); line-height: 1.1; }
+#contact-form { display: grid; gap: 8px; }
+#contact-form label { margin-top: 10px; font-size: 14px; font-weight: 500; }
+#contact-form input:not([hidden]), #contact-form textarea { width: 100%; min-width: 0; padding: 14px 16px; border: 1px solid #c3b7b7; border-radius: 16px; background: var(--ground); color: var(--ink); font: 400 16px/1.5 var(--sans); }
+#contact-form input::placeholder, #contact-form textarea::placeholder { color: var(--muted); opacity: 1; }
+#contact-form textarea { resize: vertical; min-height: 120px; }
+.form-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-top: 18px; }
+.form-bottom p { font-size: 13px; color: var(--muted); margin: 0; }
+.form-bottom .button { gap: 24px; }
+.form-bottom .button:disabled { opacity: .6; cursor: wait; }
+.form-status { margin: 4px 0 0; font-size: 14px; }
+.form-status:empty { display: none; }
+.form-status[data-error="true"] { color: #a52043; }
+.form-privacy { font-size: 11px; color: var(--muted); margin: 12px 0 0; }
+@media (max-width: 800px) { .footer-top { grid-template-columns: 1fr 1fr; gap: 36px 24px; } }
+@media (max-width: 380px) { .footer-top { grid-template-columns: 1fr; } }
+
+/* The same link appears over the blurred screen on hover and keyboard focus. */
+a.show-item .show-panel::after { content: "View case study ↗"; position: absolute; z-index: 4; top: 50%; left: 50%; translate: -50% -50%; width: max-content; max-width: 95%; padding: 13px 20px; border-radius: 99px; background: var(--ink); color: white; font-size: 14px; font-weight: 500; opacity: 0; transition: opacity .25s; pointer-events: none; }
+a.show-item:hover .show-panel::after, a.show-item:focus-visible .show-panel::after { opacity: 1; }

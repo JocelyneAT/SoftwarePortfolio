@@ -57,9 +57,8 @@
   document.fonts?.ready.then(() => { measureJourney(); updateJourney(); });
   new IntersectionObserver(([entry]) => { journeyVisible = entry.isIntersecting; }).observe(journey);
 
-  // One loop drives the scroll-linked bits: menu, hero parallax, marquee speed, the cursor.
+  // One loop drives the scroll-linked bits: menu, hero parallax, and marquee speed.
   let lastY = scrollY, mx = 0;
-  const cursor = { x: -100, y: -100, tx: -100, ty: -100 };
   function frame(time) {
     lenis?.raf(time);
     const y = scrollY, velocity = y - lastY;
@@ -71,8 +70,6 @@
       mx -= .8 + Math.min(14, Math.abs(velocity) * .35);
       if (-mx >= marquee.scrollWidth / 2) mx += marquee.scrollWidth / 2;
       marquee.style.transform = `translate3d(${mx.toFixed(1)}px,0,0)`;
-      cursor.x += (cursor.tx - cursor.x) * .18; cursor.y += (cursor.ty - cursor.y) * .18;
-      root.style.setProperty('--cx', `${cursor.x.toFixed(1)}px`); root.style.setProperty('--cy', `${cursor.y.toFixed(1)}px`);
     }
     requestAnimationFrame(frame);
   }
@@ -97,7 +94,7 @@
   }), { rootMargin: '-45% 0px -50% 0px' });
   document.querySelectorAll('section[id]').forEach(section => watch.observe(section));
 
-  // Desktop details: the glow and chips drift toward the cursor, a soft "View" cursor over projects, buttons that lean in.
+  // Desktop details: the glow and chips drift toward the cursor; buttons lean in.
   if (fine && !calm) {
     hero.addEventListener('pointermove', event => {
       hero.style.setProperty('--gx', `${(event.clientX / innerWidth - .5) * 80}px`);
@@ -110,13 +107,6 @@
       chip.style.setProperty('--px', `${(event.clientX / innerWidth - .5) * -depth}px`);
       chip.style.setProperty('--py', `${(event.clientY / innerHeight - .5) * -depth}px`);
     }));
-    const dot = document.querySelector('.cursor');
-    addEventListener('pointermove', event => { cursor.tx = event.clientX; cursor.ty = event.clientY; root.classList.add('has-cursor'); }, { passive: true });
-    document.addEventListener('pointerleave', () => root.classList.remove('has-cursor'));
-    document.querySelectorAll('a.show-item').forEach(door => {
-      door.addEventListener('pointerenter', () => dot.classList.add('is-big'));
-      door.addEventListener('pointerleave', () => dot.classList.remove('is-big'));
-    });
     document.querySelectorAll('.magnetic').forEach(button => {
       button.addEventListener('pointermove', event => {
         const box = button.getBoundingClientRect();
@@ -154,6 +144,55 @@
   resume.querySelector('[data-close]').addEventListener('click', () => resume.close());
   resume.addEventListener('click', event => { if (event.target === resume) resume.close(); });
   resume.addEventListener('close', () => lenis?.start());
+
+  // Native dialogs provide focus trapping, Escape, and focus restoration.
+  const contactDialog = document.querySelector('#contact-dialog');
+  const contactForm = document.querySelector('#contact-form');
+  document.querySelectorAll('[data-contact]').forEach(button => button.addEventListener('click', () => {
+    contactDialog.showModal(); lenis?.stop();
+  }));
+  contactDialog.querySelector('.contact-close').addEventListener('click', () => contactDialog.close());
+  contactDialog.addEventListener('click', event => { if (event.target === contactDialog && (event.clientX < contactDialog.getBoundingClientRect().left || event.clientX > contactDialog.getBoundingClientRect().right || event.clientY < contactDialog.getBoundingClientRect().top || event.clientY > contactDialog.getBoundingClientRect().bottom)) contactDialog.close(); });
+  contactDialog.addEventListener('close', () => lenis?.start());
+  contactForm.addEventListener('submit', async event => {
+    event.preventDefault();
+    const status = contactForm.querySelector('.form-status');
+    const submit = contactForm.querySelector('[type="submit"]');
+    const payload = Object.fromEntries(new FormData(contactForm));
+    if (payload._honey) return;
+    if (![payload.name, payload.email, payload.message].every(value => value.trim())) {
+      status.textContent = 'Please fill in your name, email, and message.';
+      status.dataset.error = 'true';
+      return;
+    }
+    submit.disabled = true;
+    submit.textContent = 'Sending…';
+    status.textContent = '';
+    status.dataset.error = 'false';
+    try {
+      // shortcut: FormSubmit needs inbox activation once per site; use a dedicated backend if delivery guarantees are needed.
+      const response = await fetch(contactForm.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+        method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload), signal: AbortSignal.timeout(20000),
+      });
+      const result = await response.json();
+      if (!response.ok || (result.success !== true && result.success !== 'true')) {
+        status.dataset.error = 'true';
+        status.textContent = /activat/i.test(result.message || '')
+          ? 'Email delivery is awaiting activation by Jocelyne. Please use the email link below for now.'
+          : 'Your message could not be sent. Please try again or email me below.';
+        return;
+      }
+      status.textContent = 'Thank you! Your message has been sent. I’ll get back to you by email.';
+      contactForm.reset();
+    } catch {
+      status.dataset.error = 'true';
+      status.textContent = 'Delivery could not be confirmed. Your message is still here; please try again or email me below.';
+    } finally {
+      submit.disabled = false;
+      submit.innerHTML = 'Send message <span aria-hidden="true">↗</span>';
+    }
+  });
 
   // Achievements: the list picks which certificate is showing.
   const awards = [...document.querySelectorAll('.award')], awardRows = [...document.querySelectorAll('.awards-list button')];

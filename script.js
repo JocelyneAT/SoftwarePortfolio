@@ -148,10 +148,15 @@
   // Featured projects: each card plays the same motion as its case study, while it's on screen.
   // Tap points are in each screen's own pixels.
   const fp = 'projects/fivepawns/screens/app/';
+  const adminScreens = 'projects/fivepawns-admin/screens/app/';
   const cardMotions = {
     kitchin: [{ dir: 'projects/kitchin/screens/', ext: 'png', w: 412, h: 917, steps: [['home', 253, 145], ['recipes', 215, 770], ['ingredients', 34, 33], ['charity-fridge', 212, 771], ['charity-foodbank', 299, 150], ['charity-orphanage', 210, 789]] }],
     bestrate: [{ dir: 'projects/bestrate/screens/', ext: 'webp', w: 870, h: 1887, steps: [['login', 445, 1123], ['home-app', 434, 1252], ['details-app', 427, 1796], ['alerts-app', 679, 1796], ['profile-app', 160, 1796]] }],
     codu: [{ dir: 'projects/codu/screens/', ext: 'webp', w: 870, h: 1887, steps: [['home-app', 242, 790], ['path', 145, 1192], ['complete', 429, 1248], ['badge', 433, 1253], ['matched'], ['battle', 169, 1492], ['ranks', 769, 1800], ['profile', 120, 1805], ['home-app', 609, 215], ['chatbot', 90, 78]] }],
+    admin: [
+      { dir: adminScreens, ext: 'webp', w: 1440, h: 900, steps: [['d-jadwal', 112, 153], ['d-live', 112, 195], ['d-bayar', 112, 237], ['d-masukan', 112, 295], ['d-atur', 112, 337], ['d-teks', 112, 111]] },
+      { dir: adminScreens, ext: 'webp', w: 390, h: 844, steps: [['m-jadwal', 100, 813], ['m-live', 163, 813], ['m-bayar', 227, 813], ['m-masukan', 291, 813], ['m-atur', 355, 813], ['m-teks', 36, 813]] },
+    ],
     fivepawns: [
       { dir: fp, ext: 'webp', w: 1440, h: 900, steps: [['d-home', 325, 464], ['d-book', 299, 164], ['d-home', 570, 464], ['d-score', 219, 91], ['d-home', 1027, 29], ['d-fb', 911, 280]] },
       { dir: fp, ext: 'webp', w: 390, h: 844, steps: [['home', 111, 545], ['time0', 77, 141], ['home', 291, 545], ['score0', 77, 79], ['home', 219, 27], ['fb0', 354, 469]] },

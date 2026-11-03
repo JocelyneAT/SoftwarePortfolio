@@ -8,17 +8,16 @@
 <link rel="preconnect" href="https://api.fontshare.com">
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=chillax@400,500,600&display=swap">
-<link rel="stylesheet" href="style.css?v=20261103-motion3">
+<link rel="stylesheet" href="style.css?v=contact-20261103-motion3">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="cursor" aria-hidden="true"><span>View</span></div>
 
 <header class="nav" id="nav">
   <a class="nav-name" href="#top">Jocelyne</a>
   <nav aria-label="Main">
     <a href="#work">Projects</a>
-    <a href="#about">About</a>
+    <a href="#journey">My journey</a>
     <a href="#contact">Contact</a>
   </nav>
   <button class="button button-ghost nav-resume" type="button" data-resume aria-haspopup="dialog">Resume</button>
@@ -203,16 +202,19 @@
         <div class="show-panel" aria-hidden="true" data-motion="kitchin"><span class="device-phone"><span class="sm-screen"><img class="sm-current" src="projects/kitchin/screens/home.png" alt="" loading="lazy"></span></span></div>
         <h3>Kitchin</h3>
         <p>Mobile app</p>
+        <span class="case-link">View case study <span aria-hidden="true">↗</span></span>
       </a>
       <a class="show-item show-app" href="projects/bestrate/" data-reveal>
         <div class="show-panel" aria-hidden="true" data-motion="bestrate"><span class="device-phone"><span class="sm-screen"><img class="sm-current" src="projects/bestrate/screens/login.webp" alt="" loading="lazy"></span></span></div>
         <h3>BestRate</h3>
         <p>Mobile app</p>
+        <span class="case-link">View case study <span aria-hidden="true">↗</span></span>
       </a>
       <a class="show-item show-app" href="projects/codu/" data-reveal>
         <div class="show-panel" aria-hidden="true" data-motion="codu"><span class="device-phone"><span class="sm-screen"><img class="sm-current" src="projects/codu/screens/home-app.webp" alt="" loading="lazy"></span></span></div>
         <h3>Codu</h3>
         <p>Mobile app</p>
+        <span class="case-link">View case study <span aria-hidden="true">↗</span></span>
       </a>
       <a class="show-item show-web" href="projects/fivepawns/" data-reveal>
         <div class="show-panel" aria-hidden="true" data-motion="fivepawns">
@@ -221,6 +223,7 @@
         </div>
         <h3>FivePawns</h3>
         <p>Website and mobile</p>
+        <span class="case-link">View case study <span aria-hidden="true">↗</span></span>
       </a>
       <div class="show-item show-web" data-reveal>
         <div class="show-panel" aria-hidden="true">
@@ -258,18 +261,7 @@
     </div>
   </section>
 
-  <section class="about" id="about" aria-labelledby="about-title">
-    <div class="about-photo" data-reveal>
-      <img src="assets/me.webp" alt="" width="510" height="1100" loading="lazy">
-      <span class="about-sticker" aria-hidden="true">hi there</span>
-    </div>
-    <div class="about-text">
-      <h2 id="about-title" data-reveal>Getting to <em>know me</em></h2>
-      <p class="lead" data-reveal>Now I design apps and websites the same way I used to test levels: watch real people use them, notice where they get stuck, and fix it until it feels effortless.</p>
-    </div>
-  </section>
-
-  <div class="marquee" aria-label="Soft skills">
+<div class="marquee" aria-label="Soft skills">
     <div class="marquee-track"><span>Time management</span><span>Leadership</span><span>Communication</span><span>Adaptability</span><span aria-hidden="true">Time management</span><span aria-hidden="true">Leadership</span><span aria-hidden="true">Communication</span><span aria-hidden="true">Adaptability</span></div>
   </div>
 
@@ -277,18 +269,45 @@
     <div class="contact-glow" aria-hidden="true"></div>
     <h2 id="contact-title" data-reveal>Let's make something <em>people love using</em></h2>
     <p data-reveal>Have a project, an internship or just a question? I'd love to hear from you.</p>
-    <a class="contact-mail" href="mailto:hello@example.com" data-reveal>hello@example.com <span aria-hidden="true">↗</span></a>
+    <div class="contact-actions" data-reveal>
+      <button class="button button-pink" type="button" data-contact aria-haspopup="dialog">Contact me <span aria-hidden="true">↗</span></button>
+      <a class="button button-outline" href="#work">See projects <span aria-hidden="true">↑</span></a>
+    </div>
   </section>
 </main>
 
-<footer class="footer">
-  <p class="footer-name">Jocelyne</p>
-  <nav aria-label="Social"><a href="#">LinkedIn</a><a href="#">Dribbble</a><a href="#">Behance</a></nav>
-  <p class="footer-note">© 2026 Jocelyne</p>
+<footer class="footer home-footer">
+  <div class="footer-top">
+    <a class="footer-name" href="#top">Jocelyne<span>Audrey Tando</span></a>
+    <div class="footer-group"><p>Explore</p><nav aria-label="Footer"><a href="#work">Projects</a><a href="#journey">My journey</a><a href="#achievements">Achievements</a></nav></div>
+    <div class="footer-group"><p>Find me on</p><nav aria-label="Social"><a href="https://www.linkedin.com/in/jocelyne-audrey-tando-7a840b379/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://www.instagram.com/jocelyneaudrey_/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://wa.me/60165432530" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a></nav></div>
+    <div class="footer-group"><p>Let's connect</p><span class="footer-status"><i class="dot" aria-hidden="true"></i>Open to internships</span><button class="footer-contact" type="button" data-contact aria-haspopup="dialog">Contact me ↗</button></div>
+  </div>
+  <div class="footer-bottom"><p class="footer-note">© 2026 Jocelyne Audrey Tando</p><a href="#top">Back to top ↑</a></div>
 </footer>
 
+<dialog class="contact-dialog" id="contact-dialog" aria-labelledby="message-title" data-lenis-prevent>
+  <button class="resume-close contact-close" type="button" aria-label="Close contact form">✕</button>
+  <p class="contact-eyebrow">A little hello, a new possibility</p>
+  <h2 id="message-title">What do you have <em>in mind?</em></h2>
+  <form id="contact-form" action="https://formsubmit.co/jocelyneaudreytando@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="New message from your portfolio">
+    <input type="hidden" name="_template" value="table">
+    <input type="text" name="_honey" tabindex="-1" autocomplete="off" hidden>
+    <label for="sender-name">Your name</label>
+    <input id="sender-name" name="name" autocomplete="name" placeholder="What should I call you?" maxlength="120" required>
+    <label for="sender-email">Email address</label>
+    <input id="sender-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" maxlength="254" required>
+    <label for="sender-message">Your message</label>
+    <textarea id="sender-message" name="message" rows="4" placeholder="Tell me about your project, opportunity, or question…" maxlength="5000" required></textarea>
+    <div class="form-bottom"><p>I'd love to hear from you.</p><button class="button button-dark" type="submit">Send message <span aria-hidden="true">↗</span></button></div>
+    <p class="form-status" role="status" aria-live="polite"></p>
+    <p class="form-privacy">Sent via FormSubmit. Prefer email? <a href="mailto:jocelyneaudreytando@gmail.com">Email me directly</a>.</p>
+  </form>
+</dialog>
+
 <script src="vendor/lenis.min.js"></script>
-<script src="script.js?v=20261103-motion"></script>
+<script src="script.js?v=20261103-contact"></script>
 <script src="hero-interaction.js?v=20261102"></script>
 </body>
 </html>

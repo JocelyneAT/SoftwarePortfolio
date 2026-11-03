@@ -137,8 +137,6 @@ figcaption { margin-top: 14px; color: var(--muted); font-size: 14px; line-height
 .fp-shots .device-pc { width: 100%; }
 .fp-note { margin: 18px 0 0; font-size: 14px; color: var(--muted); }
 
-.fp-hero-action { margin-top: 24px; }
-.case-hero .fp-note { margin-top: 12px; }
 /* From the customer's phone to the dashboard. */
 .fp-flow { display: grid; grid-template-columns: 1fr auto 3.4fr; align-items: center; gap: clamp(12px, 2vw, 28px); margin-top: 40px; }
 .fp-flow figure { margin: 0; text-align: center; }

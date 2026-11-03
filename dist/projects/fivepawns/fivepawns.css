@@ -137,6 +137,15 @@ figcaption { margin-top: 14px; color: var(--muted); font-size: 14px; line-height
 .fp-shots .device-pc { width: 100%; }
 .fp-note { margin: 18px 0 0; font-size: 14px; color: var(--muted); }
 
+.fp-hero-action { margin-top: 24px; }
+.case-hero .fp-note { margin-top: 12px; }
+/* From the customer's phone to the dashboard. */
+.fp-flow { display: grid; grid-template-columns: 1fr auto 3.4fr; align-items: center; gap: clamp(12px, 2vw, 28px); margin-top: 40px; }
+.fp-flow figure { margin: 0; text-align: center; }
+.fp-flow .device-phone, .fp-flow .device-pc { width: 100%; }
+.fp-flow .device-pc { text-align: left; }
+.fp-flow-arrow { font-size: 28px; color: var(--muted); }
+
 /* Still improving */
 .fp-live { display: inline-flex; align-items: center; gap: 10px; margin: 0; font-weight: 500; color: var(--accent-deep); }
 .fp-dot { width: 10px; height: 10px; border-radius: 50%; background: #36b37e; animation: pulse 2.4s ease-in-out infinite; }
@@ -147,5 +156,9 @@ figcaption { margin-top: 14px; color: var(--muted); font-size: 14px; line-height
   .demo-steps { gap: 6px; }
   .demo-steps button { width: 26px; }
   .fp-why, .fp-shots { grid-template-columns: 1fr; }
+  .fp-flow { grid-template-columns: 1fr; justify-items: center; }
+  .fp-flow figure:first-child { width: min(62%, 220px); }
+  .fp-flow figure:last-child { width: 100%; }
+  .fp-flow-arrow { rotate: 90deg; }
   .fp-media { padding: 16px 0; }
 }

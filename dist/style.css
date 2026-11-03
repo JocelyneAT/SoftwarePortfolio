@@ -311,12 +311,10 @@ a.show-item:hover .device-pc { transform:translateY(-4px); }
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
 }
 
-/* Project actions stay visible on touch screens; hover softly obscures only the preview. */
+/* Hover softly obscures only the preview. */
 a.show-item { position: relative; }
-.case-link { display: flex; justify-content: center; align-items: center; gap: 16px; width: max-content; max-width: 100%; margin: 20px auto 0; padding: 10px 20px; border-radius: 99px; background: var(--accent-soft); font-size: 14px; font-weight: 500; transition: background .25s, color .25s; }
 .show-item .sm-screen { transition: filter .3s; }
 a.show-item:hover .sm-screen, a.show-item:focus-visible .sm-screen { filter: blur(5px); }
-a.show-item:hover .case-link, a.show-item:focus-visible .case-link { background: var(--ink); color: white; }
 .contact-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-top: 12px; }
 .button { border: 0; cursor: pointer; }
 .contact-actions .button { min-height: 58px; gap: 28px; font-size: 17px; }
@@ -360,6 +358,9 @@ body:has(dialog[open]) { overflow: hidden; }
 @media (max-width: 800px) { .footer-top { grid-template-columns: 1fr 1fr; gap: 36px 24px; } }
 @media (max-width: 380px) { .footer-top { grid-template-columns: 1fr; } }
 
-/* The same link appears over the blurred screen on hover and keyboard focus. */
-a.show-item .show-panel::after { content: "View case study ↗"; position: absolute; z-index: 4; top: 50%; left: 50%; translate: -50% -50%; width: max-content; max-width: 95%; padding: 13px 20px; border-radius: 99px; background: var(--ink); color: white; font-size: 14px; font-weight: 500; opacity: 0; transition: opacity .25s; pointer-events: none; }
-a.show-item:hover .show-panel::after, a.show-item:focus-visible .show-panel::after { opacity: 1; }
+/* The preview link pops into view and gives under the pointer on press. */
+a.show-item .show-panel::after { content: "View case study ↗"; position: absolute; z-index: 4; top: 50%; left: 50%; translate: -50% -50%; width: max-content; max-width: 95%; padding: 13px 20px; border-radius: 99px; background: var(--ink); color: white; font-size: 14px; font-weight: 500; opacity: 0; transform: scale(.86); transition: opacity .18s, transform .2s cubic-bezier(.2, 1.6, .4, 1), background-color .12s, color .12s; pointer-events: none; }
+a.show-item:hover .show-panel::after, a.show-item:focus-visible .show-panel::after { opacity: 1; transform: scale(1); }
+a.show-item:active .show-panel::after { opacity: 1; transform: scale(.92); background: var(--accent); color: var(--ink); transition-duration: .1s; }
+@media (hover: none) { a.show-item .show-panel::after { opacity: 1; transform: scale(1); } a.show-item:active .show-panel::after { transform: scale(.92); } }
+@media (prefers-reduced-motion: reduce) { a.show-item .show-panel::after { transform: none !important; } }

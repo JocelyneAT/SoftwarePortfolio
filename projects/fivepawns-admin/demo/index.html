@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="id" class="admin-html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>FivePawns admin prototype (sample data)</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#f3f4f8">
+  <link rel="preload" href="./fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="./img/icon-64.png" type="image/png">
+  <script type="module" crossorigin src="./assets/admin-CMRisfIM.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/admin-DQ2ERloI.css">
+</head>
+<body class="admin">
+  <div id="root"></div>
+<div id="demo-note">Sample only, with made-up data. The real dashboard is private for business use. Changes reset when you reload.</div>
+<style>
+#demo-note { position: fixed; z-index: 9999; left: 50%; bottom: 16px; translate: -50% 0; width: max-content; max-width: calc(100vw - 24px); padding: 8px 14px; border-radius: 10px; background: #232326; color: #fff; font: 500 12.5px/1.35 system-ui, sans-serif; text-align: center; pointer-events: none; }
+@media (max-width: 860px) { #demo-note { bottom: 74px; } }
+</style>
+<script>
+  if (new URLSearchParams(location.search).has('shot')) document.getElementById('demo-note').remove();
+  // Sample customers have made-up numbers, so never open a chat with whoever owns them.
+  document.addEventListener('click', (e) => { const a = e.target.closest('a[href*="wa.me"]'); if (a) { e.preventDefault(); alert('This is a sample, so WhatsApp is switched off here.'); } }, true);
+</script>
+</body>
+</html>

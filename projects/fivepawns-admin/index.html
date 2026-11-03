@@ -6,7 +6,7 @@
 <meta name="description" content="The staff side of FivePawns: a dashboard for the day's schedule, live table timers, payment checks, customer feedback and owner settings.">
 <link rel="preconnect" href="https://api.fontshare.com"><link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=chillax@400,500,600&display=swap">
-<link rel="stylesheet" href="../../style.css?v=20261103-motion3"><link rel="stylesheet" href="../fivepawns/fivepawns.css?v=20261103e">
+<link rel="stylesheet" href="../../style.css?v=20261103-final"><link rel="stylesheet" href="../fivepawns/fivepawns.css?v=20261103f">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -20,6 +20,7 @@
     <h1 id="title" data-reveal>Every booking.<br><em>One dashboard.</em></h1>
     <p class="case-intro" data-reveal>The staff side of FivePawns. Every booking made on the website lands here, so the team can run the day from a laptop or a phone.</p>
     <ul class="case-pills" data-reveal><li><b>Project</b>Individual</li><li><b>Role</b>Design and development</li><li><b>Tools</b>React · Firebase</li><li><b>Used by</b>Staff and owner</li></ul>
+    <div class="case-actions fp-hero-action" data-reveal><a class="button button-dark" href="demo/" target="_blank" rel="noopener">Explore the prototype ↗</a></div>
   </section>
 
   <!-- The overview: each area of the dashboard, on a laptop and a phone at the same time. -->
@@ -30,7 +31,6 @@
       <p class="demo-step-text">Bookings, hours in use, money paid and money still owed, for any day.</p>
       <ol class="demo-steps" aria-label="Walkthrough steps"></ol>
       <button class="demo-pause" type="button" aria-pressed="false">Pause</button>
-      <p class="fp-note">The real dashboard is private, so these screens use sample data. It's in Indonesian, for the team who use it.</p>
     </div>
     <div class="ov-stage" aria-hidden="true">
       <span class="device-pc"><span class="device-pc-screen"><span class="ov-screen">
@@ -68,14 +68,14 @@
   </section>
 
   <section class="chapter helps" aria-labelledby="schedule-title">
-    <p class="chapter-no" data-reveal>02 · The schedule</p>
-    <h2 id="schedule-title" data-reveal>Every table,<br><em>every hour.</em></h2>
-    <p class="chapter-lead" data-reveal>Each table gets a row and each hour a column, so gaps and clashes are easy to spot. Colours show which bookings are paid, due at the counter, waiting for a check or finished.</p>
-    <span class="device-pc fp-shot" data-reveal><span class="device-pc-screen"><img src="screens/app/d-jadwal.webp" alt="Schedule with daily totals and a timeline of bookings across tables and hours" loading="lazy"></span></span>
+    <p class="chapter-no" data-reveal>02 · Monitor bookings</p>
+    <h2 id="schedule-title" data-reveal>The timetable<br><em>updates itself.</em></h2>
+    <p class="chapter-lead" data-reveal>When a customer books on the website, the booking appears in the timetable straight away. Nobody has to type it in or refresh the page.</p>
+    <span class="device-pc fp-shot" data-reveal><span class="device-pc-screen"><img src="screens/app/d-timeline.webp" alt="Timetable of bookings across tables and hours, with colours for each status, above the list of the day's bookings" loading="lazy"></span></span>
     <ul class="score-principles k-principles">
+      <li data-reveal><b>Every table, every hour</b>Gaps and clashes are easy to spot, and colours show what's paid, due at the counter or waiting for a check.</li>
       <li data-reveal><b>Today's numbers</b>Bookings, hours in use, money paid and money still owed sit at the top.</li>
-      <li data-reveal><b>Who's playing now</b>A live strip shows which tables are in use and which are free.</li>
-      <li data-reveal><b>Take it away</b>Open any booking for its details, or download the day's list as a CSV.</li>
+      <li data-reveal><b>Details when needed</b>Open any booking for its details, or download the day's list as a CSV.</li>
     </ul>
   </section>
 
@@ -108,21 +108,50 @@
     </article>
   </section>
 
-  <section class="chapter helps" aria-labelledby="owner-title">
-    <p class="chapter-no" data-reveal>05 · Feedback and settings</p>
-    <h2 id="owner-title" data-reveal>Hear customers.<br><em>Run the business.</em></h2>
-    <div class="fp-shots"><span class="device-pc " data-reveal><span class="device-pc-screen"><img src="screens/app/d-masukan.webp" alt="Customer feedback list with star ratings and a filter" loading="lazy"></span></span><span class="device-pc " data-reveal><span class="device-pc-screen"><img src="screens/app/d-atur.webp" alt="Settings page with promo details and venue information" loading="lazy"></span></span></div>
+  <section class="chapter helps" aria-labelledby="ratings-title">
+    <p class="chapter-no" data-reveal>05 · Ratings</p>
+    <h2 id="ratings-title" data-reveal>See the ratings.<br><em>Improve the visit.</em></h2>
+    <p class="chapter-lead" data-reveal>When a customer sends feedback from the website, it lands here. The team can see what people liked and what to fix.</p>
+    <div class="fp-flow">
+      <figure data-reveal><span class="device-phone"><img src="../fivepawns/screens/app/fb1.webp" alt="Feedback popup on the customer website, with a star rating and a message" loading="lazy"></span><figcaption>Customer website</figcaption></figure>
+      <span class="fp-flow-arrow" aria-hidden="true">→</span>
+      <figure data-reveal><span class="device-pc " data-reveal><span class="device-pc-screen"><img src="screens/app/d-masukan.webp" alt="Feedback list in the dashboard, with yellow star ratings and a filter by stars" loading="lazy"></span></span><figcaption>Admin dashboard</figcaption></figure>
+    </div>
     <ul class="score-principles k-principles">
-      <li data-reveal><b>Feedback in one place</b>Messages from the website, with an average rating and a filter by stars.</li>
-      <li data-reveal><b>Owner settings</b>Venue details, opening hours, tables, prices, promos, QRIS and the words on the website.</li>
-      <li data-reveal><b>Two levels of access</b>Only owners see settings. Staff get what they need for the day, and access can be removed at any time.</li>
+      <li data-reveal><b>Connected to the website</b>The feedback button is on every customer page, and every message arrives here.</li>
+      <li data-reveal><b>The average at a glance</b>An overall rating shows how visits are going.</li>
+      <li data-reveal><b>Filter by stars</b>Go straight to the low ratings to find what needs fixing.</li>
+    </ul>
+  </section>
+
+  <section class="chapter helps" aria-labelledby="settings-title">
+    <p class="chapter-no" data-reveal>06 · Settings</p>
+    <h2 id="settings-title" data-reveal>Update the website.<br><em>No code needed.</em></h2>
+    <p class="chapter-lead" data-reveal>The owner can change what customers see from the dashboard, in Indonesian and English, without asking for a developer.</p>
+    <div class="fp-shots"><span class="device-pc " data-reveal><span class="device-pc-screen"><img src="screens/app/d-teks.webp" alt="Text settings with a field for each piece of writing on the customer website" loading="lazy"></span></span><span class="device-pc " data-reveal><span class="device-pc-screen"><img src="screens/app/d-atur.webp" alt="Settings page with promo details and a preview of how the promo looks on the website" loading="lazy"></span></span></div>
+    <ul class="score-principles k-principles">
+      <li data-reveal><b>The words on the website</b>Headlines, buttons and step-by-step text can all be edited.</li>
+      <li data-reveal><b>Promos with a preview</b>Set the dates and see how the promo will look before saving.</li>
+      <li data-reveal><b>The running of the venue</b>Tables, prices, opening hours and venue details all live here too.</li>
+    </ul>
+  </section>
+
+  <section class="chapter helps" aria-labelledby="owner-title">
+    <p class="chapter-no" data-reveal>07 · Owner access</p>
+    <h2 id="owner-title" data-reveal>Only people<br><em>the owner adds.</em></h2>
+    <p class="chapter-lead" data-reveal>Bookings and customer details stay private. Only Google accounts on the owner's list can open the dashboard, and anyone else is told they don't have access.</p>
+    <span class="device-pc fp-shot" data-reveal><span class="device-pc-screen"><img src="screens/app/d-akun.webp" alt="Admin accounts list with an owner and a staff member, and a field for adding a new account" loading="lazy"></span></span>
+    <ul class="score-principles k-principles">
+      <li data-reveal><b>The owner decides</b>The owner adds accounts by email and removes them at any time.</li>
+      <li data-reveal><b>Two levels of access</b>Each account is either an owner or staff.</li>
+      <li data-reveal><b>Settings stay with owners</b>Staff don't see Settings or the website text.</li>
     </ul>
   </section>
 
   <section class="case-end" aria-labelledby="end-title">
-    <div class="case-glow" aria-hidden="true"></div><h2 id="end-title" data-reveal>Now see <em>the customer side.</em></h2>
-    <p data-reveal>The website these bookings come from, with table booking and a mahjong calculator.</p>
-    <div class="case-actions" data-reveal><a class="button button-dark" href="../fivepawns/">See the website case study →</a><a class="button button-ghost" href="https://fivepawns-2c7d7.web.app/" target="_blank" rel="noopener">Visit FivePawns ↗</a></div>
+    <div class="case-glow" aria-hidden="true"></div><h2 id="end-title" data-reveal>Try it <em>yourself.</em></h2>
+    <p data-reveal>Click through the prototype, then see the customer website these bookings come from. The prototype is a sample only, as the real dashboard is private for business use.</p>
+    <div class="case-actions" data-reveal><a class="button button-dark" href="demo/" target="_blank" rel="noopener">Explore the prototype ↗</a><a class="button button-ghost" href="../fivepawns/">See the website case study →</a></div>
     <a class="back-link" href="../../index.html#work" data-reveal><span aria-hidden="true">←</span> Back to all projects</a>
   </section>
 </main>
@@ -130,17 +159,18 @@
 <script>
 window.FP = {
   overview: [
-    { img: 'm-jadwal', pc: 'd-jadwal', title: 'The day at a glance', text: 'Bookings, hours in use, money paid and money still owed, for any day.', tap: [100, 813], pcTap: [112, 163] },
-    { img: 'm-live', pc: 'd-live', title: 'Every table, live', text: 'A countdown for each table shows who is playing and who has run over.', tap: [163, 813], pcTap: [112, 213] },
-    { img: 'm-bayar', pc: 'd-bayar', title: 'Payments to check', text: 'QRIS proofs wait here to be approved or rejected.', tap: [227, 813], pcTap: [112, 263] },
-    { img: 'm-masukan', pc: 'd-masukan', title: 'Customer feedback', text: 'Everything sent from the website, with ratings to filter by.', tap: [291, 813], pcTap: [112, 313] },
-    { img: 'm-atur', pc: 'd-atur', title: 'Owner settings', text: 'Prices, tables, opening hours and promos, without touching any code.', tap: [36, 813], pcTap: [112, 113] },
+    { img: 'm-jadwal', pc: 'd-jadwal', title: 'The day at a glance', text: 'Bookings, hours in use, money paid and money still owed, for any day.', tap: [100, 813], pcTap: [112, 153] },
+    { img: 'm-live', pc: 'd-live', title: 'Every table, live', text: 'A countdown for each table shows who is playing and who has run over.', tap: [163, 813], pcTap: [112, 195] },
+    { img: 'm-bayar', pc: 'd-bayar', title: 'Payments to check', text: 'QRIS proofs wait here to be approved or rejected.', tap: [227, 813], pcTap: [112, 237] },
+    { img: 'm-masukan', pc: 'd-masukan', title: 'Customer ratings', text: 'Everything sent from the website, with stars to filter by.', tap: [291, 813], pcTap: [112, 295] },
+    { img: 'm-atur', pc: 'd-atur', title: 'Owner settings', text: 'Prices, tables, opening hours and promos, without touching any code.', tap: [355, 813], pcTap: [112, 337] },
+    { img: 'm-teks', pc: 'd-teks', title: 'The words on the website', text: 'The owner can edit the text customers read, in both languages.', tap: [36, 813], pcTap: [112, 111] },
   ],
   flows: {
     payment: [
-      { img: 'p0', cap: 'A new proof to check', tap: [195, 396] },
+      { img: 'p0', cap: 'A new proof to check', tap: [195, 352] },
       { img: 'p1', cap: 'Open the payment proof' },
-      { img: 'p1b', cap: 'Approve or reject', tap: [286, 704] },
+      { img: 'p1b', cap: 'Approve or reject', tap: [286, 706] },
       { img: 'p2b', cap: 'Nothing left to check' },
       { img: 'p3', cap: 'Paid, in the schedule' },
     ],

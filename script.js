@@ -4,7 +4,6 @@
   const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const fine = matchMedia('(pointer: fine)').matches;
   const hero = document.querySelector('.hero');
-  const marquee = document.querySelector('.marquee-track');
   const nav = document.querySelector('#nav');
 
   // Smooth scrolling, skipped for people who ask for less motion.
@@ -57,8 +56,8 @@
   document.fonts?.ready.then(() => { measureJourney(); updateJourney(); });
   new IntersectionObserver(([entry]) => { journeyVisible = entry.isIntersecting; }).observe(journey);
 
-  // One loop drives the scroll-linked bits: menu, hero parallax, and marquee speed.
-  let lastY = scrollY, mx = 0;
+  // One loop drives the scroll-linked bits: menu and hero parallax.
+  let lastY = scrollY;
   function frame(time) {
     lenis?.raf(time);
     const y = scrollY, velocity = y - lastY;
@@ -67,9 +66,6 @@
     if (journeyVisible) updateJourney();
     if (!calm) {
       hero.style.setProperty('--hs', Math.min(1, y / innerHeight).toFixed(4));
-      mx -= .8 + Math.min(14, Math.abs(velocity) * .35);
-      if (-mx >= marquee.scrollWidth / 2) mx += marquee.scrollWidth / 2;
-      marquee.style.transform = `translate3d(${mx.toFixed(1)}px,0,0)`;
     }
     requestAnimationFrame(frame);
   }
@@ -107,13 +103,6 @@
       chip.style.setProperty('--px', `${(event.clientX / innerWidth - .5) * -depth}px`);
       chip.style.setProperty('--py', `${(event.clientY / innerHeight - .5) * -depth}px`);
     }));
-    document.querySelectorAll('.magnetic').forEach(button => {
-      button.addEventListener('pointermove', event => {
-        const box = button.getBoundingClientRect();
-        button.style.transform = `translate(${(event.clientX - box.left - box.width / 2) * .3}px, ${(event.clientY - box.top - box.height / 2) * .4}px)`;
-      });
-      button.addEventListener('pointerleave', () => { button.style.transform = ''; });
-    });
   }
 
   // Gift box: opens while it sits in the middle of the screen and packs up again once scrolled past (either way).

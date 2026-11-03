@@ -361,6 +361,6 @@ body:has(dialog[open]) { overflow: hidden; }
 /* The preview link pops into view and gives under the pointer on press. */
 a.show-item .show-panel::after { content: "View case study ↗"; position: absolute; z-index: 4; top: 50%; left: 50%; translate: -50% -50%; width: max-content; max-width: 95%; padding: 13px 20px; border-radius: 99px; background: var(--ink); color: white; font-size: 14px; font-weight: 500; opacity: 0; transform: scale(.86); transition: opacity .18s, transform .2s cubic-bezier(.2, 1.6, .4, 1), background-color .12s, color .12s; pointer-events: none; }
 a.show-item:hover .show-panel::after, a.show-item:focus-visible .show-panel::after { opacity: 1; transform: scale(1); }
-a.show-item:active .show-panel::after { opacity: 1; transform: scale(.92); background: var(--accent); color: var(--ink); transition-duration: .1s; }
+a.show-item:active .show-panel::after { opacity: 1; transform: scale(.92); transition-duration: .1s; }
 @media (hover: none) { a.show-item .show-panel::after { opacity: 1; transform: scale(1); } a.show-item:active .show-panel::after { transform: scale(.92); } }
 @media (prefers-reduced-motion: reduce) { a.show-item .show-panel::after { transform: none !important; } }

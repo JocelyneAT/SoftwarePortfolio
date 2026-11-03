@@ -134,55 +134,6 @@
   resume.addEventListener('click', event => { if (event.target === resume) resume.close(); });
   resume.addEventListener('close', () => lenis?.start());
 
-  // Native dialogs provide focus trapping, Escape, and focus restoration.
-  const contactDialog = document.querySelector('#contact-dialog');
-  const contactForm = document.querySelector('#contact-form');
-  document.querySelectorAll('[data-contact]').forEach(button => button.addEventListener('click', () => {
-    contactDialog.showModal(); lenis?.stop();
-  }));
-  contactDialog.querySelector('.contact-close').addEventListener('click', () => contactDialog.close());
-  contactDialog.addEventListener('click', event => { if (event.target === contactDialog && (event.clientX < contactDialog.getBoundingClientRect().left || event.clientX > contactDialog.getBoundingClientRect().right || event.clientY < contactDialog.getBoundingClientRect().top || event.clientY > contactDialog.getBoundingClientRect().bottom)) contactDialog.close(); });
-  contactDialog.addEventListener('close', () => lenis?.start());
-  contactForm.addEventListener('submit', async event => {
-    event.preventDefault();
-    const status = contactForm.querySelector('.form-status');
-    const submit = contactForm.querySelector('[type="submit"]');
-    const payload = Object.fromEntries(new FormData(contactForm));
-    if (payload._honey) return;
-    if (![payload.name, payload.email, payload.message].every(value => value.trim())) {
-      status.textContent = 'Please fill in your name, email, and message.';
-      status.dataset.error = 'true';
-      return;
-    }
-    submit.disabled = true;
-    submit.textContent = 'Sending…';
-    status.textContent = '';
-    status.dataset.error = 'false';
-    try {
-      // shortcut: FormSubmit needs inbox activation once per site; use a dedicated backend if delivery guarantees are needed.
-      const response = await fetch(contactForm.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
-        method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(payload), signal: AbortSignal.timeout(20000),
-      });
-      const result = await response.json();
-      if (!response.ok || (result.success !== true && result.success !== 'true')) {
-        status.dataset.error = 'true';
-        status.textContent = /activat/i.test(result.message || '')
-          ? 'Email delivery is awaiting activation by Jocelyne. Please use the email link below for now.'
-          : 'Your message could not be sent. Please try again or email me below.';
-        return;
-      }
-      status.textContent = 'Thank you! Your message has been sent. I’ll get back to you by email.';
-      contactForm.reset();
-    } catch {
-      status.dataset.error = 'true';
-      status.textContent = 'Delivery could not be confirmed. Your message is still here; please try again or email me below.';
-    } finally {
-      submit.disabled = false;
-      submit.innerHTML = 'Send message <span aria-hidden="true">↗</span>';
-    }
-  });
-
   // Achievements: the list picks which certificate is showing.
   const awards = [...document.querySelectorAll('.award')], awardRows = [...document.querySelectorAll('.awards-list button')];
   const showAward = picked => {
